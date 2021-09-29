@@ -1,13 +1,13 @@
-package com.pos.eleicaoonline;
+package br.com.eleicaoonline;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EleicaoonlineApplication {
+public class EleicaoOnlineApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EleicaoonlineApplication.class, args);
+		SpringApplication.run(EleicaoOnlineApplication.class, args);
 	}
 
 }
