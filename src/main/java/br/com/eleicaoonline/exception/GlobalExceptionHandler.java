@@ -16,7 +16,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(value = ConstraintViolationException.class)
 	@ResponseBody
-	public ResponseEntity<ResponseException> handleConstraintViolationException(ConstraintViolationException ex) {
+	public ResponseEntity<ResponseException> handleConstraintViolationException(ConstraintViolationException ex) {		
 		logger.error("Erro de entidade: ", ex);
 		ResponseException exceptionDTO = new ResponseException(null, ex.getMessage());
 		return new ResponseEntity<ResponseException>(exceptionDTO, HttpStatus.UNPROCESSABLE_ENTITY);
