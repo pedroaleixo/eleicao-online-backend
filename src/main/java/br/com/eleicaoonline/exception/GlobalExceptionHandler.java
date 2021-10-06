@@ -11,32 +11,34 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import br.com.eleicaoonline.response.ExceptionResponse;
+
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(value = ConstraintViolationException.class)
 	@ResponseBody
-	public ResponseEntity<ResponseException> handleConstraintViolationException(ConstraintViolationException ex) {		
+	public ResponseEntity<ExceptionResponse> handleConstraintViolationException(ConstraintViolationException ex) {		
 		logger.error("Erro de entidade: ", ex);
-		ResponseException exceptionDTO = new ResponseException(null, ex.getMessage());
-		return new ResponseEntity<ResponseException>(exceptionDTO, HttpStatus.UNPROCESSABLE_ENTITY);
+		ExceptionResponse exceptionDTO = new ExceptionResponse(null, ex.getMessage());
+		return new ResponseEntity<ExceptionResponse>(exceptionDTO, HttpStatus.UNPROCESSABLE_ENTITY);
 	}
 	
 	@ExceptionHandler(value = BusinessException.class)
 	@ResponseBody
-	public ResponseEntity<ResponseException> handleNegocioException(BusinessException ex) {
+	public ResponseEntity<ExceptionResponse> handleNegocioException(BusinessException ex) {
 		logger.error("Erro de negócio: ", ex);
-		ResponseException exceptionDTO = new ResponseException(null, ex.getMessage());
-		return new ResponseEntity<ResponseException>(exceptionDTO, HttpStatus.CONFLICT);
+		ExceptionResponse exceptionDTO = new ExceptionResponse(null, ex.getMessage());
+		return new ResponseEntity<ExceptionResponse>(exceptionDTO, HttpStatus.CONFLICT);
 	}
 
 	@ExceptionHandler(value = {Exception.class, SystemException.class})
 	@ResponseBody
-	public ResponseEntity<ResponseException> handleException(Exception ex) {		
+	public ResponseEntity<ExceptionResponse> handleException(Exception ex) {		
 		String ticket = UUID.randomUUID().toString();
 		logger.error("Erro de sistema [ticket: " +ticket+"]: ", ex);
-		ResponseException exceptionDTO = new ResponseException(ticket, "Erro de sistema");		 
-		return new ResponseEntity<ResponseException>(exceptionDTO, HttpStatus.INTERNAL_SERVER_ERROR);
+		ExceptionResponse exceptionDTO = new ExceptionResponse(ticket, "Erro de sistema");		 
+		return new ResponseEntity<ExceptionResponse>(exceptionDTO, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 

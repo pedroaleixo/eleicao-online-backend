@@ -1,4 +1,4 @@
-package br.com.eleicaoonline.exception;
+package br.com.eleicaoonline.response;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @SuppressWarnings("unused")
-public class ResponseException implements Serializable {
+public class ExceptionResponse implements Serializable {
 	
 	private static final long serialVersionUID = 1L;	
 	
@@ -24,7 +24,7 @@ public class ResponseException implements Serializable {
 	private String mensagem;	
 
 
-	public ResponseException(String ticket, String mensagem) {
+	public ExceptionResponse(String ticket, String mensagem) {
 		super();	
 		this.ticket = ticket;
 		this.mensagem = mensagem;

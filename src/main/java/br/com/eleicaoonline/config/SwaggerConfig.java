@@ -19,27 +19,18 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Import(SpringDataRestConfiguration.class)
 public class SwaggerConfig {
 
+	@Bean
+	public Docket api() {
+		return new Docket(DocumentationType.OAS_30).select()
+				.apis(RequestHandlerSelectors.basePackage("br.com.eleicaoonline.resource")).paths(PathSelectors.any())
+				.build().apiInfo(apiInfo());
+	}
 
-    @Bean
-    public Docket api() { 
-        return new Docket(DocumentationType.OAS_30)  
-          .select()                           
-          .apis( RequestHandlerSelectors.basePackage("br.com.eleicaoonline.resource") )              
-          .paths(PathSelectors.any())                          
-          .build()
-          .apiInfo(apiInfo());                                          
-    }
-    
-    ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-            .title("Eleição Online")
-            .description("Descrição da API para o sistema Eleição Online")
-            .license("Apache 2.0")
-            .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
-            .termsOfServiceUrl("")
-            .version("1.0.0")
-            .contact(new Contact("","", "pedro.aleixo@gmail.com"))
-            .build();
-    }
+	ApiInfo apiInfo() {
+		return new ApiInfoBuilder().title("Eleição Online")
+				.description("Descrição da API para o sistema Eleição Online").license("Apache 2.0")
+				.licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html").termsOfServiceUrl("").version("1.0.0")
+				.contact(new Contact("", "", "pedro.aleixo@gmail.com")).build();
+	}
 
 }
