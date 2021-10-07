@@ -1,4 +1,4 @@
-package br.com.eleicaoonline.response;
+package br.com.eleicaoonline.resource.response;
 
 import java.io.Serializable;
 

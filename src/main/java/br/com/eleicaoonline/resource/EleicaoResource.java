@@ -2,6 +2,7 @@ package br.com.eleicaoonline.resource;
 
 import java.util.List;
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,13 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.eleicaoonline.constants.Perfis;
 import br.com.eleicaoonline.dto.ConfiguracaoDTO;
 import br.com.eleicaoonline.dto.EleicaoDTO;
 import br.com.eleicaoonline.dto.EstatisticaDTO;
 import br.com.eleicaoonline.dto.ResultadoDTO;
 import br.com.eleicaoonline.dto.VotoDTO;
-import br.com.eleicaoonline.filter.FiltroEleicao;
-import br.com.eleicaoonline.response.ExceptionResponse;
+import br.com.eleicaoonline.resource.filtro.FiltroEleicao;
+import br.com.eleicaoonline.resource.response.ExceptionResponse;
 import br.com.eleicaoonline.utils.MockUtils;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
@@ -51,6 +53,7 @@ public class EleicaoResource {
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@PostMapping
 	public EleicaoDTO cadastrarEleicao(@RequestBody EleicaoDTO eleicao) {				
 		return MockUtils.gerarEleicao();
@@ -65,6 +68,7 @@ public class EleicaoResource {
 	        @ApiResponse(responseCode = "404", description = "Administrador não encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@PutMapping
 	public EleicaoDTO atualizarEleicao(@RequestBody EleicaoDTO eleicao) {				
 		return MockUtils.gerarEleicao();
@@ -77,6 +81,7 @@ public class EleicaoResource {
 	        @ApiResponse(responseCode = "404", description = "Candidato não encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@DeleteMapping("/{id}")
 	public void removerEleicao(@PathVariable("id") Long id) {						
 	}
@@ -88,6 +93,7 @@ public class EleicaoResource {
 	        @ApiResponse(responseCode = "404", description = "Candidato não encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@GetMapping("/{id}")
 	public EleicaoDTO buscarEleicaoPeloId(@PathVariable("id") Long id) {				
 		return MockUtils.gerarEleicao();
@@ -101,6 +107,7 @@ public class EleicaoResource {
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "404", description = "Nenhum resultado encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@PostMapping("/filtrar")
 	public List<EleicaoDTO> listarEleicao(@RequestBody FiltroEleicao filtro) {				
 		return MockUtils.gerarListaEleicao();
@@ -114,6 +121,7 @@ public class EleicaoResource {
 	        @ApiResponse(responseCode = "404", description = "Eleição não encontrada", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@PutMapping("/configuracao")
 	public ConfiguracaoDTO atualizarConfiguracao(@RequestBody ConfiguracaoDTO configuracao) {				
 		return MockUtils.gerarConfiguracao();
@@ -127,6 +135,7 @@ public class EleicaoResource {
 	        @ApiResponse(responseCode = "404", description = "Eleição não encontrada", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@GetMapping("/estatistica/{idEleicao}/{tipoEstatistica}")
 	public EstatisticaDTO buscarEstatisticaEleicao(@PathVariable("idEleicao") Long idEleicao, @PathVariable("tipoEstatistica") Long tipoEstatistica) {				
 		return MockUtils.gerarEstatistica();
@@ -153,6 +162,7 @@ public class EleicaoResource {
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured(Perfis.ELEITOR)
 	@PostMapping("/voto")
 	public void cadastrarVoto(@RequestBody VotoDTO voto) {	
 	}

@@ -1,4 +1,4 @@
-package br.com.eleicaoonline.filter;
+package br.com.eleicaoonline.resource.filtro;
 
 import java.io.Serializable;
 import java.util.Objects;

@@ -8,8 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import br.com.eleicaoonline.domain.Administrador;
-import br.com.eleicaoonline.filter.FiltroPessoa;
 import br.com.eleicaoonline.repository.AdministradorRepository;
+import br.com.eleicaoonline.resource.filtro.FiltroPessoa;
 import br.com.eleicaoonline.service.AdministradorService;
 
 @Transactional(rollbackOn = { Exception.class })

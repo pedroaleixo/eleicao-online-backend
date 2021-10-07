@@ -20,4 +20,4 @@ spring:
             client-secret: gKYvpzIYPq989xXuHHBaqy1H
             client-id: 604673876847-j978ar4hnu3uj7kvmu357vabco0d2nvc.apps.googleusercontent.com
 jwt:
-  secret: HjN784
+  secret: ZWxlaWNhby1vbmxpbmUtMjAyMQ==

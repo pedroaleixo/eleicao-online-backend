@@ -1,8 +1,11 @@
 package br.com.eleicaoonline.utils;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -32,14 +35,22 @@ public class JwtTokenUtil implements Serializable {
 	}
 
 	//retorna expiration date do token jwt 
-	public Date getExpirationDateFromToken(String token) {
+	public Date getExpirationDateFromToken(String token) {	
 		return getClaimFromToken(token, Claims::getExpiration);
 	}
 
 	public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {
 		final Claims claims = getAllClaimsFromToken(token);
 		return claimsResolver.apply(claims);
-
+	}
+	
+	public List<String> getPerfisFromToken(String token) {
+		if(token != null) {
+			String stringPerfis = getAllClaimsFromToken(token).get("perfis").toString();	
+			return Arrays.asList(stringPerfis.split(","));
+		}
+		
+		return new ArrayList<String>();
 	}
 
 	//para retornar qualquer informação do token nos iremos precisar da secret key

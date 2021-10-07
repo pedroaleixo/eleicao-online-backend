@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.eleicaoonline.constants.Perfis;
 import br.com.eleicaoonline.dto.CandidatoDTO;
-import br.com.eleicaoonline.response.ExceptionResponse;
+import br.com.eleicaoonline.resource.response.ExceptionResponse;
 import br.com.eleicaoonline.utils.JwtTokenUtil;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
@@ -47,10 +48,10 @@ public class AutenticacaoResource {
 		
 		//Configurar credencial
 		List<GrantedAuthority> authorithies = new ArrayList<>();
-		authorithies.add(new SimpleGrantedAuthority("ADMINISTRADOR"));
-		authorithies.add(new SimpleGrantedAuthority("COMISSAO"));
+		authorithies.add(new SimpleGrantedAuthority(Perfis.ADMINISTRADOR));
+		authorithies.add(new SimpleGrantedAuthority(Perfis.COMISSAO));
 		UserDetails userDetails = 
-				new User(nome, "", authorithies);
+				new User(nome, "teste123", authorithies);
 		
 		return jwtTokenUtil.generateToken(userDetails);
 		
