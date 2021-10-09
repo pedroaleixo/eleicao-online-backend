@@ -1,4 +1,4 @@
-package br.com.eleicaoonline.resource.filtro;
+package br.com.eleicaoonline.web.filtro;
 
 import java.io.Serializable;
 import java.time.OffsetDateTime;

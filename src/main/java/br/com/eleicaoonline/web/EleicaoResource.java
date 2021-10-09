@@ -1,4 +1,4 @@
-package br.com.eleicaoonline.resource;
+package br.com.eleicaoonline.web;
 
 import java.util.List;
 
@@ -18,9 +18,9 @@ import br.com.eleicaoonline.dto.EleicaoDTO;
 import br.com.eleicaoonline.dto.EstatisticaDTO;
 import br.com.eleicaoonline.dto.ResultadoDTO;
 import br.com.eleicaoonline.dto.VotoDTO;
-import br.com.eleicaoonline.resource.filtro.FiltroEleicao;
-import br.com.eleicaoonline.resource.response.ExceptionResponse;
+import br.com.eleicaoonline.exception.response.ExceptionResponse;
 import br.com.eleicaoonline.utils.MockUtils;
+import br.com.eleicaoonline.web.filtro.FiltroEleicao;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;

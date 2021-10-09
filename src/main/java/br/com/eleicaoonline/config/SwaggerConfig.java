@@ -22,7 +22,7 @@ public class SwaggerConfig {
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.OAS_30).select()
-				.apis(RequestHandlerSelectors.basePackage("br.com.eleicaoonline.resource")).paths(PathSelectors.any())
+				.apis(RequestHandlerSelectors.basePackage("br.com.eleicaoonline.web")).paths(PathSelectors.any())
 				.build().apiInfo(apiInfo());
 	}
 

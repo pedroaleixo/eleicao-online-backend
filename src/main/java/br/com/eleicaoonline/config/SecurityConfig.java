@@ -10,19 +10,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
 	@Override
-    protected void configure(HttpSecurity http) throws Exception {
-       http.cors().and().csrf().disable()
-		.authorizeRequests()     
-		.antMatchers("/api/**", 
-		"/swagger-resources/**",  
-		"/swagger-ui.html").permitAll()
-         .anyRequest().authenticated()
-         .and()
-         .oauth2Login()
-         .defaultSuccessUrl("/api/autenticacao", true);
-		
-//		http.authorizeRequests().         
-//      anyRequest().permitAll();
-    }
+	protected void configure(HttpSecurity http) throws Exception {
+		http.cors().and().csrf().disable()
+		.authorizeRequests()
+		.antMatchers("/api/**", "/swagger-resources/**", "/swagger-ui.html").permitAll()
+		.anyRequest().authenticated().and()
+		.oauth2Login().defaultSuccessUrl("/api/autenticacao", true);
+	}
 
 }

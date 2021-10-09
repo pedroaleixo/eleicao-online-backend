@@ -1,4 +1,4 @@
-package br.com.eleicaoonline.resource;
+package br.com.eleicaoonline.web;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eleicaoonline.constants.Perfis;
 import br.com.eleicaoonline.dto.CandidatoDTO;
-import br.com.eleicaoonline.resource.response.ExceptionResponse;
+import br.com.eleicaoonline.exception.response.ExceptionResponse;
 import br.com.eleicaoonline.utils.JwtTokenUtil;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
@@ -45,16 +45,14 @@ public class AutenticacaoResource {
 	public String gerarToken(OAuth2AuthenticationToken authentication) {
 		String email = authentication.getPrincipal().getAttribute("email").toString();
 		String nome = authentication.getPrincipal().getAttribute("name").toString();
-		
-		//Configurar credencial
+
 		List<GrantedAuthority> authorithies = new ArrayList<>();
 		authorithies.add(new SimpleGrantedAuthority(Perfis.ADMINISTRADOR));
 		authorithies.add(new SimpleGrantedAuthority(Perfis.COMISSAO));
-		UserDetails userDetails = 
-				new User(nome, "teste123", authorithies);
-		
-		return jwtTokenUtil.generateToken(userDetails);
-		
+		UserDetails userDetails = new User(nome, "", authorithies);
+
+		return jwtTokenUtil.generateToken(userDetails, 103L);
+
 	}
 
 }

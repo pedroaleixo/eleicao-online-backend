@@ -1,4 +1,4 @@
-package br.com.eleicaoonline.resource;
+package br.com.eleicaoonline.web;
 
 import java.util.List;
 
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eleicaoonline.constants.Perfis;
-import br.com.eleicaoonline.dto.CandidatoDTO;
-import br.com.eleicaoonline.resource.filtro.FiltroPessoa;
-import br.com.eleicaoonline.resource.response.ExceptionResponse;
+import br.com.eleicaoonline.dto.AdministradorDTO;
+import br.com.eleicaoonline.exception.response.ExceptionResponse;
 import br.com.eleicaoonline.utils.MockUtils;
+import br.com.eleicaoonline.web.filtro.FiltroPessoa;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -26,9 +26,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
-@RequestMapping("/api/candidato")
-@Api(value = "/api/candidato", tags = {"Candidato"}, description = "Funcionalidades dos candidatos")
-public class CandidatoResource {
+@RequestMapping("/api/administrador")
+@Api(value = "/api/administrador", tags = {"Administrador"}, description = "Funcionalidades dos administradores")
+public class AdministradorResource {
 	
 //	@Autowired
 //	private AdministradorService service;
@@ -37,71 +37,71 @@ public class CandidatoResource {
 //    private ModelMapper modelMapper;
 
     
-	@Operation(summary = "Cadastra um novo candidato")
+	@Operation(summary = "Cadastra um novo administrador")
 	@ApiResponses(value = { 
-	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CandidatoDTO.class))),	       
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdministradorDTO.class))),	       
 	        @ApiResponse(responseCode = "400", description = "Entrada inválida", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
+	@Secured(Perfis.ADMINISTRADOR)
 	@PostMapping
-	public CandidatoDTO cadastrarCandidato(@RequestBody CandidatoDTO candidato) {				
-		return MockUtils.gerarCandidato();
+	public AdministradorDTO cadastrarAdministrador(@RequestBody AdministradorDTO administrador) {			
+		return MockUtils.gerarAdministrador();
 	}
 	
 	
-	@Operation(summary = "Atualiza candidato")
+	@Operation(summary = "Atualiza administrador")
 	@ApiResponses(value = { 
-	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CandidatoDTO.class))),	       
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdministradorDTO.class))),	       
 	        @ApiResponse(responseCode = "400", description = "Entrada inválida", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "404", description = "Administrador não encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
+	@Secured(Perfis.ADMINISTRADOR)
 	@PutMapping
-	public CandidatoDTO atualizarCandidato(@RequestBody CandidatoDTO candidato) {				
-		return MockUtils.gerarCandidato();
+	public AdministradorDTO atualizarAdministrador(@RequestBody AdministradorDTO administrador) {				
+		return MockUtils.gerarAdministrador();
 	}
 	
-	@Operation(summary = "Remove candidato")
+	@Operation(summary = "Remove administrador")
 	@ApiResponses(value = { 
 	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json")),	
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
-	        @ApiResponse(responseCode = "404", description = "Candidato não encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "404", description = "Administrador não encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
+	@Secured(Perfis.ADMINISTRADOR)
 	@DeleteMapping("/{id}")
-	public void removerCandidato(@PathVariable("id") Long id) {						
+	public void removerAdministrador(@PathVariable("id") Long id) {						
 	}
 	
-	@Operation(summary = "Busca candidato pelo id")
+	@Operation(summary = "Busca administrador pelo id")
 	@ApiResponses(value = { 
-	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CandidatoDTO.class))),	
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdministradorDTO.class))),	
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
-	        @ApiResponse(responseCode = "404", description = "Candidato não encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "404", description = "Administrador não encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
+	@Secured(Perfis.ADMINISTRADOR)
 	@GetMapping("/{id}")
-	public CandidatoDTO buscarCandidatoPeloId(@PathVariable("id") Long id) {				
-		return MockUtils.gerarCandidato();
+	public AdministradorDTO buscarAdministradorPeloId(@PathVariable("id") Long id) {				
+		return MockUtils.gerarAdministrador();
 	}
 	
 	
-	@Operation(summary = "Lista candidatos por filtro")
+	@Operation(summary = "Lista administradores por filtro")
 	@ApiResponses(value = { 
-	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = CandidatoDTO.class)))),	       
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = AdministradorDTO.class)))),	       
 	        @ApiResponse(responseCode = "400", description = "Entrada inválida", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "404", description = "Nenhum resultado encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
+	@Secured(Perfis.ADMINISTRADOR)
 	@PostMapping("/filtrar")
-	public List<CandidatoDTO> listarCandidatos(@RequestBody FiltroPessoa filtro) {				
-		return MockUtils.gerarListaCandidato();
+	public List<AdministradorDTO> listarAdministradores(@RequestBody FiltroPessoa filtro) {				
+		return MockUtils.gerarListaAdministrador();
 	}
-
+	
 }

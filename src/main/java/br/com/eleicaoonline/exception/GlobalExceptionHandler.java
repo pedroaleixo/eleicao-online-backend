@@ -2,6 +2,7 @@ package br.com.eleicaoonline.exception;
 
 import java.util.UUID;
 
+import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
 import org.springframework.http.HttpStatus;
@@ -12,17 +13,22 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import br.com.eleicaoonline.resource.response.ExceptionResponse;
+import br.com.eleicaoonline.exception.response.ExceptionResponse;
+import br.com.eleicaoonline.exception.response.ValidationExceptionResponse;
+import br.com.eleicaoonline.exception.response.Violation;
 
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(value = ConstraintViolationException.class)
 	@ResponseBody
-	public ResponseEntity<ExceptionResponse> handleConstraintViolationException(ConstraintViolationException ex) {		
+	public ResponseEntity<ValidationExceptionResponse> handleConstraintViolationException(ConstraintViolationException ex) {		
 		logger.error("Erro de entidade: ", ex);
-		ExceptionResponse exceptionDTO = new ExceptionResponse(null, ex.getMessage());
-		return new ResponseEntity<ExceptionResponse>(exceptionDTO, HttpStatus.UNPROCESSABLE_ENTITY);
+		ValidationExceptionResponse error = new ValidationExceptionResponse();
+		for (ConstraintViolation<?> violation : ex.getConstraintViolations()) {
+			error.getViolations().add(new Violation(violation.getPropertyPath().toString(), violation.getMessage()));
+		}		   
+		return new ResponseEntity<ValidationExceptionResponse>(error, HttpStatus.UNPROCESSABLE_ENTITY);
 	}
 	
 	@ExceptionHandler(value = BusinessException.class)
