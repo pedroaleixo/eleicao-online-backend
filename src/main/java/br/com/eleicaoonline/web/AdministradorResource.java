@@ -2,6 +2,7 @@ package br.com.eleicaoonline.web;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.eleicaoonline.constants.Perfis;
 import br.com.eleicaoonline.dto.AdministradorDTO;
 import br.com.eleicaoonline.exception.response.ExceptionResponse;
+import br.com.eleicaoonline.service.AdministradorService;
+import br.com.eleicaoonline.utils.MapperUtil;
 import br.com.eleicaoonline.utils.MockUtils;
 import br.com.eleicaoonline.web.filtro.FiltroPessoa;
 import io.swagger.annotations.Api;
@@ -30,12 +33,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @Api(value = "/api/administrador", tags = {"Administrador"}, description = "Funcionalidades dos administradores")
 public class AdministradorResource {
 	
-//	@Autowired
-//	private AdministradorService service;
-//	
-//    @Autowired
-//    private ModelMapper modelMapper;
-
+	@Autowired
+	private MapperUtil mapper;
+	
+	@Autowired
+	private AdministradorService service;
     
 	@Operation(summary = "Cadastra um novo administrador")
 	@ApiResponses(value = { 
@@ -86,8 +88,8 @@ public class AdministradorResource {
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured(Perfis.ADMINISTRADOR)
 	@GetMapping("/{id}")
-	public AdministradorDTO buscarAdministradorPeloId(@PathVariable("id") Long id) {				
-		return MockUtils.gerarAdministrador();
+	public AdministradorDTO buscarAdministradorPeloId(@PathVariable("id") Long id) {		
+		return mapper.mapTo(service.buscarAdministradorPeloId(id), AdministradorDTO.class);
 	}
 	
 	

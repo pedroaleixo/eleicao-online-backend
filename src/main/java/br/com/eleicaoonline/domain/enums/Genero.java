@@ -4,7 +4,9 @@ public enum Genero {
 	
 	MASCULINO("masculino"),
 
-	FEMININO("feminino");
+	FEMININO("feminino"),
+	
+	OUTRO("outro");
 
 	private String value;
 

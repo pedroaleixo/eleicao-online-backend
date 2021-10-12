@@ -4,11 +4,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import br.com.eleicaoonline.domain.Candidato;
 import br.com.eleicaoonline.service.CandidatoService;
 
 @Transactional(rollbackOn = { Exception.class })
 @Service
-public class CandidatoServiceImpl extends BaseService<Candidato> implements CandidatoService {
+public class CandidatoServiceImpl extends BaseService implements CandidatoService {
 
 }

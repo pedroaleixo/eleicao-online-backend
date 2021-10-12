@@ -5,7 +5,6 @@ import javax.validation.ConstraintViolationException;
 
 import org.springframework.stereotype.Service;
 
-import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.exception.BusinessException;
 import br.com.eleicaoonline.exception.SystemException;
 import br.com.eleicaoonline.service.EleitorService;
@@ -13,6 +12,6 @@ import br.com.eleicaoonline.service.EleitorService;
 @Transactional(rollbackOn = { Exception.class, SystemException.class, BusinessException.class,
 		ConstraintViolationException.class })
 @Service
-public class EleitorServiceImpl extends BaseService<Eleitor> implements EleitorService {
+public class EleitorServiceImpl extends BaseService implements EleitorService {
 
 }

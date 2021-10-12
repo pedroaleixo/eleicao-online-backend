@@ -1,5 +1,6 @@
 package br.com.eleicaoonline.service.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Set;
 
@@ -13,27 +14,27 @@ import org.springframework.stereotype.Service;
 import br.com.eleicaoonline.service.validation.Validation;
 
 @Service
-public class BaseService<T> {
+public class BaseService {
 	
 	@Autowired
     private Validator validator;
 	
 	
-	protected void validate(T entity, List<Validation<T>> validations) {		
+	protected <T> void validate(T entity, List<Class<? extends Validation<T>>> validations) {		
 		validateEntity(entity);		
 		validateBusiness(entity, validations);
 	}
 	
-	protected void validate(T entity, List<Validation<T>> validations, Class<?>... groups) {		
+	protected <T> void validate(T entity, List<Class<? extends Validation<T>>> validations, Class<?>... groups) {		
 		validateEntity(entity, groups);		
 		validateBusiness(entity, validations);
 	}
 
-	protected void validateEntity(T entity) {
+	protected <T> void validateEntity(T entity) {
 		validateEntity(entity, new Class<?>[] {});
 	}
 	
-	protected void validateEntity(T entity, Class<?>... groups) {
+	protected <T> void validateEntity(T entity, Class<?>... groups) {
 		Set<ConstraintViolation<T>> violations = validator.validate(entity, groups);
 
 		if (!violations.isEmpty()) {
@@ -46,9 +47,14 @@ public class BaseService<T> {
 	}
 	
 	
-	protected void validateBusiness(T entity, List<Validation<T>> validations) {
-		for (final Validation<T> validation : validations) {
-			validation.validate(entity);
+	protected <T> void validateBusiness(T entity, List<Class<? extends Validation<T>>> validations) {
+		for (final Class<? extends Validation<T>> validation : validations) {
+			try {
+				validation.getDeclaredConstructor().newInstance().validate(entity);
+			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+					| InvocationTargetException | NoSuchMethodException | SecurityException e) {				
+				e.printStackTrace();
+			}	
 		}
 	}
 

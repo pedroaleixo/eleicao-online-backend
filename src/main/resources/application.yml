@@ -19,5 +19,27 @@ spring:
           google:
             client-secret: gKYvpzIYPq989xXuHHBaqy1H
             client-id: 604673876847-j978ar4hnu3uj7kvmu357vabco0d2nvc.apps.googleusercontent.com
+  datasource:
+    initialization-mode: always
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/eleicao-online
+    platform: postgres
+    password: postgres
+  main:
+    banner-mode: 'off'
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: 'true'
+    hibernate:
+      ddl-auto: none
+logging:
+  level:
+    org:
+      springframework: INFO
+
 jwt:
   secret: ZWxlaWNhby1vbmxpbmUtMjAyMQ==
+

@@ -1,6 +1,7 @@
 package br.com.eleicaoonline.service.impl;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -14,11 +15,12 @@ import br.com.eleicaoonline.repository.AdministradorRepository;
 import br.com.eleicaoonline.service.AdministradorService;
 import br.com.eleicaoonline.service.validation.CPFInvalidoReceitaValidation;
 import br.com.eleicaoonline.service.validation.CPFNaoCadastradoValidation;
+import br.com.eleicaoonline.service.validation.EntidadeNaoExistenteValidation;
 import br.com.eleicaoonline.web.filtro.FiltroPessoa;
 
 @Transactional(rollbackOn = { Exception.class })
 @Service
-public class AdministradorServiceImpl extends BaseService<Administrador> implements AdministradorService {
+public class AdministradorServiceImpl extends BaseService implements AdministradorService {	
 
 	@Autowired
 	private AdministradorRepository repository;
@@ -31,10 +33,41 @@ public class AdministradorServiceImpl extends BaseService<Administrador> impleme
 
 	@Override
 	public Administrador cadastrarAdministrador(Administrador administrador) {
-		validate(administrador,
-				Arrays.asList(new CPFInvalidoReceitaValidation<>(), new CPFNaoCadastradoValidation<>()));
+		validateEntity(administrador);
+		
+		validateBusiness(administrador.getPessoa(),
+				Arrays.asList(CPFInvalidoReceitaValidation.class, CPFNaoCadastradoValidation.class));
 
 		return repository.save(administrador);
+	}
+
+	@Override
+	public Administrador buscarAdministradorPeloId(Long id) {	
+		Optional<Administrador> optAdmin = repository.findById(id);
+		if(optAdmin.isPresent()) {
+			return optAdmin.get();
+		}
+		return null;
+	}
+
+	@Override
+	public Administrador atualizarAdministrador(Administrador administrador) {
+		validateEntity(administrador);
+		
+		validateBusiness(administrador.getPessoa(),
+				Arrays.asList(CPFInvalidoReceitaValidation.class, CPFNaoCadastradoValidation.class));
+
+		return repository.save(administrador);
+	}
+
+	@Override
+	public void removerAdministrador(Long id) {
+		Administrador administrador = this.buscarAdministradorPeloId(id);
+		
+		validateBusiness(administrador,
+				Arrays.asList(EntidadeNaoExistenteValidation.class));
+		
+		repository.deleteById(id);		
 	}
 
 }
