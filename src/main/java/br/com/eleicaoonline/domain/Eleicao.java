@@ -1,9 +1,11 @@
 package br.com.eleicaoonline.domain;
 
-import java.time.OffsetDateTime;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,51 +13,57 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.Valid;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import br.com.eleicaoonline.converter.SituacaoEleicaoConverter;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import lombok.Data;
 
 @Entity
 @Data
-@Table
+@Table(name = "eleicao")
 public class Eleicao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column
+	@Column(name = "id")
 	private Long id;
 
 	@NotNull
 	@Size(max = 200)
-	@Column
+	@Column(name = "nome")
 	private String nome;
 
 	@NotNull
 	@Size(max = 200)
-	@Column
+	@Column(name = "instituicao")
 	private String instituicao;
 
 	@NotNull
-	@Valid
-	@Column
-	private OffsetDateTime dataHoraInicio;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "data_hora_inicio")
+	private Date dataHoraInicio;
 
 	@NotNull
-	@Valid
-	@Column
-	private OffsetDateTime dataHoraFim;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "data_hora_fim")
+	private Date dataHoraFim;
 
 	@NotNull
-	@Column
+	@Convert(converter = SituacaoEleicaoConverter.class)
+	@Column(name = "situacao")
 	private SituacaoEleicao situacao;
 
-	@OneToMany(mappedBy = "eleicao")
+	@OneToMany(mappedBy = "eleicao", cascade = CascadeType.ALL)
 	private List<Cargo> cargos;
 
-	@OneToOne(mappedBy = "eleicao")
+	@OneToOne(mappedBy = "eleicao", cascade = CascadeType.ALL)
 	private ComissaoEleitoral comissaoEleitoral;
+	
+	@OneToOne(mappedBy = "eleicao", cascade = CascadeType.ALL)	
+	private Configuracao configuracao;
 
 }

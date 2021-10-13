@@ -1,5 +1,9 @@
 package br.com.eleicaoonline.service;
 
-public interface VotoService {
+import br.com.eleicaoonline.domain.Voto;
 
+public interface VotoService {
+	
+	public void cadastrarVoto(Voto voto);
+	
 }

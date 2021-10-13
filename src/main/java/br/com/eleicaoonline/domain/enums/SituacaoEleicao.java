@@ -14,10 +14,21 @@ public enum SituacaoEleicao {
 		this.value = value;
 	}
 
+	public int getValue() {
+		return value;
+	}
+
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
+
 	@Override
 	public String toString() {
 		return String.valueOf(value);
 	}
+	
 
 	public static SituacaoEleicao fromValue(String text) {
 		for (SituacaoEleicao b : SituacaoEleicao.values()) {

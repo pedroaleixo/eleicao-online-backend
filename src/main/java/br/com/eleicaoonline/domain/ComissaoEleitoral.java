@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -16,20 +18,24 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table
+@Table(name = "comissao_eleitoral")
 public class ComissaoEleitoral {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column
+	@Column(name = "id")
 	private Long id;
 
 	@NotNull
 	@ManyToMany
+	@JoinTable(name = "comissao_pessoa", 
+		joinColumns = @JoinColumn(name = "id_comissao"), 
+		inverseJoinColumns = @JoinColumn(name = "id_pessoa"))
 	private List<Pessoa> membros;
 
 	@NotNull
 	@ManyToOne
+	@JoinColumn(name = "id_eleicao")
 	private Eleicao eleicao;
 
 }

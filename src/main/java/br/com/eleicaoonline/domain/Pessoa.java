@@ -1,6 +1,6 @@
 package br.com.eleicaoonline.domain;
 
-import java.time.OffsetDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Convert;
@@ -9,7 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.Valid;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -19,7 +20,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table
+@Table(name = "pessoa")
 public class Pessoa {
 	
 	@Id
@@ -33,17 +34,18 @@ public class Pessoa {
 	private String nome;
 
 	@NotNull
+	@Size(max = 11)
 	@Column(name = "cpf")
 	private Long cpf;
 
 	@NotNull
-	@Valid
+	@Temporal(TemporalType.DATE)
 	@Column(name = "data_nascimento")
-	private OffsetDateTime dataNascimento;
+	private Date dataNascimento;
 
 	@NotNull
 	@Convert(converter = GeneroConverter.class)
-	@Column(name="genero")
+	@Column(name = "genero")
 	private Genero genero;
 
 	@Size(max = 400)

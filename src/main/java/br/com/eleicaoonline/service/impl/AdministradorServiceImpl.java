@@ -13,14 +13,11 @@ import org.springframework.stereotype.Service;
 import br.com.eleicaoonline.domain.Administrador;
 import br.com.eleicaoonline.repository.AdministradorRepository;
 import br.com.eleicaoonline.service.AdministradorService;
-import br.com.eleicaoonline.service.validation.CPFInvalidoReceitaValidation;
-import br.com.eleicaoonline.service.validation.CPFNaoCadastradoValidation;
-import br.com.eleicaoonline.service.validation.EntidadeNaoExistenteValidation;
 import br.com.eleicaoonline.web.filtro.FiltroPessoa;
 
 @Transactional(rollbackOn = { Exception.class })
 @Service
-public class AdministradorServiceImpl extends BaseService implements AdministradorService {	
+public class AdministradorServiceImpl extends BaseService implements AdministradorService {
 
 	@Autowired
 	private AdministradorRepository repository;
@@ -34,17 +31,17 @@ public class AdministradorServiceImpl extends BaseService implements Administrad
 	@Override
 	public Administrador cadastrarAdministrador(Administrador administrador) {
 		validateEntity(administrador);
-		
+
 		validateBusiness(administrador.getPessoa(),
-				Arrays.asList(CPFInvalidoReceitaValidation.class, CPFNaoCadastradoValidation.class));
+				Arrays.asList(cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));
 
 		return repository.save(administrador);
 	}
 
 	@Override
-	public Administrador buscarAdministradorPeloId(Long id) {	
+	public Administrador buscarAdministradorPeloId(Long id) {
 		Optional<Administrador> optAdmin = repository.findById(id);
-		if(optAdmin.isPresent()) {
+		if (optAdmin.isPresent()) {
 			return optAdmin.get();
 		}
 		return null;
@@ -53,9 +50,9 @@ public class AdministradorServiceImpl extends BaseService implements Administrad
 	@Override
 	public Administrador atualizarAdministrador(Administrador administrador) {
 		validateEntity(administrador);
-		
+
 		validateBusiness(administrador.getPessoa(),
-				Arrays.asList(CPFInvalidoReceitaValidation.class, CPFNaoCadastradoValidation.class));
+				Arrays.asList(cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));
 
 		return repository.save(administrador);
 	}
@@ -63,11 +60,10 @@ public class AdministradorServiceImpl extends BaseService implements Administrad
 	@Override
 	public void removerAdministrador(Long id) {
 		Administrador administrador = this.buscarAdministradorPeloId(id);
-		
-		validateBusiness(administrador,
-				Arrays.asList(EntidadeNaoExistenteValidation.class));
-		
-		repository.deleteById(id);		
+
+		validateBusiness(administrador, Arrays.asList(entidadeNaoExistenteValidation));
+
+		repository.deleteById(id);
 	}
 
 }

@@ -1,6 +1,5 @@
 package br.com.eleicaoonline.service.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Set;
 
@@ -11,6 +10,9 @@ import javax.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.eleicaoonline.service.validation.CPFInvalidoReceitaValidation;
+import br.com.eleicaoonline.service.validation.CPFNaoCadastradoValidation;
+import br.com.eleicaoonline.service.validation.EntidadeNaoExistenteValidation;
 import br.com.eleicaoonline.service.validation.Validation;
 
 @Service
@@ -19,13 +21,22 @@ public class BaseService {
 	@Autowired
     private Validator validator;
 	
+	@Autowired
+	protected CPFInvalidoReceitaValidation cpfInvalidoReceitaValidation;
 	
-	protected <T> void validate(T entity, List<Class<? extends Validation<T>>> validations) {		
+	@Autowired
+	protected CPFNaoCadastradoValidation cpfNaoCadastradoValidation;
+	
+	@Autowired
+	protected EntidadeNaoExistenteValidation entidadeNaoExistenteValidation;
+	
+	
+	protected <T> void validate(T entity, List<? extends Validation<T>> validations) {		
 		validateEntity(entity);		
 		validateBusiness(entity, validations);
 	}
 	
-	protected <T> void validate(T entity, List<Class<? extends Validation<T>>> validations, Class<?>... groups) {		
+	protected <T> void validate(T entity, List<? extends Validation<T>> validations, Class<?>... groups) {		
 		validateEntity(entity, groups);		
 		validateBusiness(entity, validations);
 	}
@@ -47,14 +58,9 @@ public class BaseService {
 	}
 	
 	
-	protected <T> void validateBusiness(T entity, List<Class<? extends Validation<T>>> validations) {
-		for (final Class<? extends Validation<T>> validation : validations) {
-			try {
-				validation.getDeclaredConstructor().newInstance().validate(entity);
-			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
-					| InvocationTargetException | NoSuchMethodException | SecurityException e) {				
-				e.printStackTrace();
-			}	
+	protected <T> void validateBusiness(T entity, List<? extends Validation<T>> validations) {
+		for (Validation<T> validation : validations) {		
+			validation.validate(entity);						
 		}
 	}
 
