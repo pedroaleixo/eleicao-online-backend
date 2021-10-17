@@ -20,7 +20,7 @@ public class PessoaNaoCadastradaValidation implements Validation<Pessoa> {
 	@Override
 	public void validate(Pessoa pessoa) {
 		if(repository.findByEmail(pessoa.getEmail()) == null) {
-			throw new BusinessException("");
+			throw new BusinessException(messageSource.getMessage(ValidationMessageKey.PESSOA_NAO_CADASTRADA, null, null));
 		}
 	}
 

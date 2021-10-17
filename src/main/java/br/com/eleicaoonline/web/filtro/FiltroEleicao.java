@@ -1,7 +1,7 @@
 package br.com.eleicaoonline.web.filtro;
 
 import java.io.Serializable;
-import java.time.OffsetDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.validation.Valid;
@@ -32,10 +32,10 @@ public class FiltroEleicao implements Serializable {
 	private String instituicao = null;
 
 	@JsonProperty("dataHoraInicio")
-	private OffsetDateTime dataHoraInicio = null;
+	private Date dataHoraInicio = null;
 
 	@JsonProperty("dataHoraFim")
-	private OffsetDateTime dataHoraFim = null;
+	private Date dataHoraFim = null;
 	
 	@JsonProperty("situacao")
 	private SituacaoEleicao situacao = null;
@@ -82,7 +82,7 @@ public class FiltroEleicao implements Serializable {
 		this.instituicao = instituicao;
 	}
 
-	public FiltroEleicao dataHoraInicio(OffsetDateTime dataHoraInicio) {
+	public FiltroEleicao dataHoraInicio(Date dataHoraInicio) {
 		this.dataHoraInicio = dataHoraInicio;
 		return this;
 	}
@@ -95,15 +95,15 @@ public class FiltroEleicao implements Serializable {
 	@Schema(description = "Data e hora do início da eleição")
 
 	@Valid
-	public OffsetDateTime getDataHoraInicio() {
+	public Date getDataHoraInicio() {
 		return dataHoraInicio;
 	}
 
-	public void setDataHoraInicio(OffsetDateTime dataHoraInicio) {
+	public void setDataHoraInicio(Date dataHoraInicio) {
 		this.dataHoraInicio = dataHoraInicio;
 	}
 
-	public FiltroEleicao dataHoraFim(OffsetDateTime dataHoraFim) {
+	public FiltroEleicao dataHoraFim(Date dataHoraFim) {
 		this.dataHoraFim = dataHoraFim;
 		return this;
 	}
@@ -116,11 +116,11 @@ public class FiltroEleicao implements Serializable {
 	@Schema(description = "Data e hora do fim da eleição")
 
 	@Valid
-	public OffsetDateTime getDataHoraFim() {
+	public Date getDataHoraFim() {
 		return dataHoraFim;
 	}
 
-	public void setDataHoraFim(OffsetDateTime dataHoraFim) {
+	public void setDataHoraFim(Date dataHoraFim) {
 		this.dataHoraFim = dataHoraFim;
 	}
 

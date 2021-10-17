@@ -52,7 +52,7 @@ public class PessoaServiceImpl extends BaseService implements PessoaService {
 		validateEntity(pessoa);
 		
 		validateBusiness(pessoa,
-				Arrays.asList(cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));
+				Arrays.asList(entidadeNaoExistenteValidation, cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));
 
 		return repository.save(pessoa);
 	}

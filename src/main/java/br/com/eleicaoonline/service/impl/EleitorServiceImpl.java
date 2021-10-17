@@ -14,6 +14,7 @@ import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.repository.EleitorRepository;
 import br.com.eleicaoonline.service.EleitorService;
 import br.com.eleicaoonline.web.filtro.FiltroPessoa;
+import br.com.eleicaoonline.web.filtro.FiltroVotantes;
 
 @Transactional(rollbackOn = { Exception.class })
 @Service
@@ -27,10 +28,18 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 		PageRequest pageReq = PageRequest.of(0, 20);
 		return repository.findAll(pageReq);
 	}
+	
+	public Page<Eleitor> listarEleitoresVotantes(FiltroVotantes filtro){
+		PageRequest pageReq = PageRequest.of(0, 20);
+		return repository.findAll(pageReq);
+	}
 
 	@Override
 	public Eleitor cadastrarEleitor(Eleitor eleitor) {
 		validateEntity(eleitor);
+		
+		validateBusiness(eleitor.getEleicao(),
+				Arrays.asList(eleicaoIniciadaFinalizadaValidation));
 		
 		validateBusiness(eleitor.getPessoa(),
 				Arrays.asList(cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));
@@ -50,6 +59,8 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 	@Override
 	public Eleitor atualizarEleitor(Eleitor eleitor) {
 		validateEntity(eleitor);
+		
+		validateBusiness(eleitor, Arrays.asList(entidadeNaoExistenteValidation));
 		
 		validateBusiness(eleitor.getPessoa(),
 				Arrays.asList(cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));

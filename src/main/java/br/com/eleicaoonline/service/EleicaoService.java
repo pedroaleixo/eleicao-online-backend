@@ -1,14 +1,20 @@
 package br.com.eleicaoonline.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 
 import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
+import br.com.eleicaoonline.domain.enums.TipoEstatistica;
+import br.com.eleicaoonline.dto.EstatisticaDTO;
 import br.com.eleicaoonline.web.filtro.FiltroEleicao;
 
 public interface EleicaoService {
 
 	public Page<Eleicao> listarEleicoes(FiltroEleicao filtro);
+	
+	public List<Eleicao> listarEleicoes();
 
 	public Eleicao buscarEleicaoPeloId(Long id);
 
@@ -18,6 +24,8 @@ public interface EleicaoService {
 
 	public void removerEleicao(Long id);
 	
-	public void configurarEleicao(Configuracao configuracao);
+	public Eleicao configurarEleicao(Configuracao configuracao);
+	
+	public EstatisticaDTO buscarEstatisticasEleicao(Long id, TipoEstatistica tipo);
 
 }

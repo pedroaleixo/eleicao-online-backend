@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.Data;
 
@@ -23,6 +24,7 @@ public class Cargo {
 	private Long id;
 
 	@NotNull
+	@Size(max = 200)
 	@Column(name = "nome")
 	private String nome;
 

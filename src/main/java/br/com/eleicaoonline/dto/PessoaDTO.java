@@ -1,7 +1,7 @@
 package br.com.eleicaoonline.dto;
 
 import java.io.Serializable;
-import java.time.OffsetDateTime;
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -15,14 +15,14 @@ public class PessoaDTO implements Serializable {
 	@JsonProperty("id")
 	private Long id;
 
-	@JsonProperty("nome")
+	@JsonProperty("nome")	
 	private String nome;
 
 	@JsonProperty("cpf")
 	private Long cpf;
 
 	@JsonProperty("dataNascimento")
-	private OffsetDateTime dataNascimento;
+	private Date dataNascimento;
 
 	@JsonProperty("genero")
 	private Genero genero;

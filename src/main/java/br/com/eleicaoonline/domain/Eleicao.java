@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,7 +29,8 @@ import lombok.Data;
 public class Eleicao {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="eleicao_generator")
+	@SequenceGenerator(name="eleicao_generator", sequenceName="eleicao_seq", allocationSize = 1)
 	@Column(name = "id")
 	private Long id;
 

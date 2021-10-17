@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 
 import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.web.filtro.FiltroPessoa;
+import br.com.eleicaoonline.web.filtro.FiltroVotantes;
 
 public interface EleitorService {
 	
@@ -16,5 +17,7 @@ public interface EleitorService {
 	public Eleitor atualizarEleitor(Eleitor Eleitor);
 	
 	public void removerEleitor(Long id);
+	
+	public Page<Eleitor> listarEleitoresVotantes(FiltroVotantes filtro);
 
 }

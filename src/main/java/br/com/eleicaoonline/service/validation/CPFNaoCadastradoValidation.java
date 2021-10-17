@@ -20,7 +20,7 @@ public class CPFNaoCadastradoValidation implements Validation<Pessoa> {
 	@Override
 	public void validate(Pessoa pessoa) {
 		if(repository.findByCpf(pessoa.getCpf()) == null) {
-			throw new BusinessException("");
+			throw new BusinessException(messageSource.getMessage(ValidationMessageKey.CPF_NAO_CADASTRADO, null, null) );
 		}
 		
 	}

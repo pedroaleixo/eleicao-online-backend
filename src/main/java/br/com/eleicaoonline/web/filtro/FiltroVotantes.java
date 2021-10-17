@@ -1,7 +1,7 @@
 package br.com.eleicaoonline.web.filtro;
 
 import java.io.Serializable;
-import java.time.OffsetDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.validation.Valid;
@@ -23,15 +23,15 @@ public class FiltroVotantes implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@JsonProperty("dataHoraInicio")
-	private OffsetDateTime dataHoraInicio = null;
+	private Date dataHoraInicio = null;
 
 	@JsonProperty("dataHoraFim")
-	private OffsetDateTime dataHoraFim = null;
+	private Date dataHoraFim = null;
 
 	@JsonProperty("votou")
 	private Boolean votou = null;
 
-	public FiltroVotantes dataHoraInicio(OffsetDateTime dataHoraInicio) {
+	public FiltroVotantes dataHoraInicio(Date dataHoraInicio) {
 		this.dataHoraInicio = dataHoraInicio;
 		return this;
 	}
@@ -44,15 +44,15 @@ public class FiltroVotantes implements Serializable {
 	@Schema(description = "Data e hora do início do período que os eleitores votaram")
 
 	@Valid
-	public OffsetDateTime getDataHoraInicio() {
+	public Date getDataHoraInicio() {
 		return dataHoraInicio;
 	}
 
-	public void setDataHoraInicio(OffsetDateTime dataHoraInicio) {
+	public void setDataHoraInicio(Date dataHoraInicio) {
 		this.dataHoraInicio = dataHoraInicio;
 	}
 
-	public FiltroVotantes dataHoraFim(OffsetDateTime dataHoraFim) {
+	public FiltroVotantes dataHoraFim(Date dataHoraFim) {
 		this.dataHoraFim = dataHoraFim;
 		return this;
 	}
@@ -65,11 +65,11 @@ public class FiltroVotantes implements Serializable {
 	@Schema(description = "Data e hora do fim do período que os eleitores votaram")
 
 	@Valid
-	public OffsetDateTime getDataHoraFim() {
+	public Date getDataHoraFim() {
 		return dataHoraFim;
 	}
 
-	public void setDataHoraFim(OffsetDateTime dataHoraFim) {
+	public void setDataHoraFim(Date dataHoraFim) {
 		this.dataHoraFim = dataHoraFim;
 	}
 

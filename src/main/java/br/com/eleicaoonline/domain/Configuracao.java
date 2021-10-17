@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -18,7 +19,8 @@ import lombok.Data;
 public class Configuracao {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="configuracao_generator")
+	@SequenceGenerator(name="configuracao_generator", sequenceName="configuracao_seq", allocationSize = 1)
 	@Column(name = "id")
 	private Long id;
 

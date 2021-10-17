@@ -29,11 +29,11 @@ public class EleicaoOnlineApplication {
 		return messageSource;
 	}
 	
-	@Bean
-    public LocalValidatorFactoryBean validator() {
-        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
-        bean.setValidationMessageSource(messageSource());
-        return bean;
-    }
+//	@Bean
+//    public LocalValidatorFactoryBean validator() {
+//        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+//        bean.setValidationMessageSource(messageSource());
+//        return bean;
+//    }
 
 }

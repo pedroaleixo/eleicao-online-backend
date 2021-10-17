@@ -32,6 +32,9 @@ public class CandidatoServiceImpl extends BaseService implements CandidatoServic
 	public Candidato cadastrarCandidato(Candidato candidato) {
 		validateEntity(candidato);
 		
+		validateBusiness(candidato.getEleicao(),
+				Arrays.asList(eleicaoIniciadaFinalizadaValidation));
+		
 		validateBusiness(candidato.getPessoa(),
 				Arrays.asList(cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));
 
@@ -50,6 +53,8 @@ public class CandidatoServiceImpl extends BaseService implements CandidatoServic
 	@Override
 	public Candidato atualizarCandidato(Candidato candidato) {
 		validateEntity(candidato);
+		
+		validateBusiness(candidato, Arrays.asList(entidadeNaoExistenteValidation));
 		
 		validateBusiness(candidato.getPessoa(),
 				Arrays.asList(cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));

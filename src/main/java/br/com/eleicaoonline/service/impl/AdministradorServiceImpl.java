@@ -51,6 +51,8 @@ public class AdministradorServiceImpl extends BaseService implements Administrad
 	public Administrador atualizarAdministrador(Administrador administrador) {
 		validateEntity(administrador);
 
+		validateBusiness(administrador, Arrays.asList(entidadeNaoExistenteValidation));
+		
 		validateBusiness(administrador.getPessoa(),
 				Arrays.asList(cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));
 

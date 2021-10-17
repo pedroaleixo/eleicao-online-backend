@@ -1,7 +1,7 @@
 package br.com.eleicaoonline.dto;
 
 import java.io.Serializable;
-import java.time.OffsetDateTime;
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -19,7 +19,7 @@ public class VotoDTO implements Serializable {
 	private String votoCriptografado;
 
 	@JsonProperty("dataHoraEntrada")
-	private OffsetDateTime dataHoraEntrada;
+	private Date dataHoraEntrada;
 
 	@JsonProperty("eleicao")
 	private Eleicao eleicao;

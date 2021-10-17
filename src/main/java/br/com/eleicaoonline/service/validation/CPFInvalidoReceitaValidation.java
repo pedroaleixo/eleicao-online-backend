@@ -20,7 +20,7 @@ public class CPFInvalidoReceitaValidation implements Validation<Pessoa> {
 	@Override
 	public void validate(Pessoa pessoa) {
 		if(!broker.isCPFValido(pessoa.getCpf())) {
-			throw new BusinessException("");
+			throw new BusinessException(messageSource.getMessage(ValidationMessageKey.CPF_INVALIDO, null, null));
 		}
 		
 	}

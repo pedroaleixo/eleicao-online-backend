@@ -1,7 +1,7 @@
 package br.com.eleicaoonline.dto;
 
 import java.io.Serializable;
-import java.time.OffsetDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -25,10 +25,10 @@ public class EleicaoDTO implements Serializable {
 	private String instituicao;
 
 	@JsonProperty("dataHoraInicio")
-	private OffsetDateTime dataHoraInicio;
+	private Date dataHoraInicio;
 
 	@JsonProperty("dataHoraFim")
-	private OffsetDateTime dataHoraFim;
+	private Date dataHoraFim;
 
 	@JsonProperty("situacao")
 	private SituacaoEleicao situacao;

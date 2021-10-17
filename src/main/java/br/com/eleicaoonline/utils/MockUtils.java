@@ -1,7 +1,7 @@
 package br.com.eleicaoonline.utils;
 
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -111,7 +111,7 @@ public class MockUtils {
 		pessoa1.setId(1L);
 		pessoa1.setCpf(12345678912L);
 		pessoa1.setNome("Carlos Almeida");
-		pessoa1.setDataNascimento(OffsetDateTime.now());
+		pessoa1.setDataNascimento(new Date());
 		pessoa1.setEmail("carlos.almeida@gmail.com");
 		pessoa1.setGenero(Genero.MASCULINO);
 		pessoa1.setEndereco("Av. Paulista, 45, ap 73");
@@ -122,7 +122,7 @@ public class MockUtils {
 		pessoa2.setId(2L);
 		pessoa2.setCpf(42345648215L);
 		pessoa2.setNome("Maria José dos Santos");
-		pessoa2.setDataNascimento(OffsetDateTime.now());
+		pessoa2.setDataNascimento(new Date());
 		pessoa2.setEmail("majose@uol.com");
 		pessoa2.setGenero(Genero.FEMININO);
 		pessoa2.setEndereco("Rua Cel. Aguiar, 67, Centro");
@@ -133,7 +133,7 @@ public class MockUtils {
 		pessoa3.setId(3L);
 		pessoa3.setCpf(78345648219L);
 		pessoa3.setNome("Madalena Trindade Arruda");
-		pessoa3.setDataNascimento(OffsetDateTime.now());
+		pessoa3.setDataNascimento(new Date());
 		pessoa3.setEmail("madalenatrin67a@gmail.com");
 		pessoa3.setGenero(Genero.FEMININO);
 		pessoa3.setEndereco("Av. Deodoro da Fonseca, 901, ap.73, Tatuapé");
@@ -154,8 +154,8 @@ public class MockUtils {
 		eleicao1.setNome("Eleição 1");
 		eleicao1.setInstituicao("Instituição 1");
 		eleicao1.setSituacao(SituacaoEleicao.CADASTRADA);
-		eleicao1.setDataHoraInicio(OffsetDateTime.now());
-		eleicao1.setDataHoraFim(OffsetDateTime.now());
+		eleicao1.setDataHoraInicio(new Date());
+		eleicao1.setDataHoraFim(new Date());
 		lista.add(eleicao1);
 		
 		EleicaoDTO eleicao2 = new EleicaoDTO();
@@ -163,8 +163,8 @@ public class MockUtils {
 		eleicao2.setNome("Eleição 2");
 		eleicao2.setInstituicao("Instituição 2");
 		eleicao2.setSituacao(SituacaoEleicao.INICIADA);
-		eleicao2.setDataHoraInicio(OffsetDateTime.now());
-		eleicao2.setDataHoraFim(OffsetDateTime.now());
+		eleicao2.setDataHoraInicio(new Date());
+		eleicao2.setDataHoraFim(new Date());
 		lista.add(eleicao2);
 		
 		EleicaoDTO eleicao3 = new EleicaoDTO();
@@ -172,8 +172,8 @@ public class MockUtils {
 		eleicao3.setNome("Eleição 3");
 		eleicao3.setInstituicao("Instituição 3");
 		eleicao3.setSituacao(SituacaoEleicao.FINALIZADA);
-		eleicao3.setDataHoraInicio(OffsetDateTime.now());
-		eleicao3.setDataHoraFim(OffsetDateTime.now());
+		eleicao3.setDataHoraInicio(new Date());
+		eleicao3.setDataHoraFim(new Date());
 		lista.add(eleicao3);
 		
 		return lista;

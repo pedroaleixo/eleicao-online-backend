@@ -1,6 +1,8 @@
 package br.com.eleicaoonline.service.impl;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
+import br.com.eleicaoonline.domain.enums.TipoEstatistica;
+import br.com.eleicaoonline.dto.EstatisticaDTO;
 import br.com.eleicaoonline.repository.EleicaoRepository;
 import br.com.eleicaoonline.service.EleicaoService;
 import br.com.eleicaoonline.web.filtro.FiltroEleicao;
@@ -22,6 +26,13 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 
 	@Autowired
 	private EleicaoRepository repository;
+	
+	@Override
+	public List<Eleicao> listarEleicoes() {
+		List<Eleicao> result = new ArrayList<Eleicao>();
+		repository.findAll().forEach(result::add);
+		return result;
+	}
 
 	@Override
 	public Page<Eleicao> listarEleicoes(FiltroEleicao filtro) {
@@ -38,12 +49,18 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 	}
 
 	@Override
-	public Eleicao cadastrarEleicao(Eleicao eleicao) {		
+	public Eleicao cadastrarEleicao(Eleicao eleicao) {	
+		validateEntity(eleicao);
+		
 		return repository.save(eleicao);
 	}
 
 	@Override
 	public Eleicao atualizarEleicao(Eleicao eleicao) {		
+		validateEntity(eleicao);
+		
+		validateBusiness(eleicao, Arrays.asList(entidadeNaoExistenteValidation, eleicaoIniciadaFinalizadaValidation));
+		
 		return repository.save(eleicao);
 	}
 
@@ -52,16 +69,21 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 		Eleicao eleicao = this.buscarEleicaoPeloId(id);
 		
 		validateBusiness(eleicao,
-				Arrays.asList(entidadeNaoExistenteValidation));
+				Arrays.asList(entidadeNaoExistenteValidation, eleicaoIniciadaFinalizadaValidation));
 		
 		repository.deleteById(id);
 	}
 
 	@Override
-	public void configurarEleicao(Configuracao configuracao) {	
+	public Eleicao configurarEleicao(Configuracao configuracao) {	
 		Eleicao eleicao = this.buscarEleicaoPeloId(configuracao.getEleicao().getId());
 		eleicao.setConfiguracao(configuracao);
-		repository.save(eleicao);
+		return repository.save(eleicao);
+	}
+
+	@Override
+	public EstatisticaDTO buscarEstatisticasEleicao(Long id, TipoEstatistica tipo) {		
+		return null;
 	}
 
 }

@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -22,7 +23,8 @@ import lombok.Data;
 public class ComissaoEleitoral {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="comissao_eleitoral_generator")
+	@SequenceGenerator(name="comissao_eleitoral_generator", sequenceName="comissao_eleitoral_seq", allocationSize = 1)
 	@Column(name = "id")
 	private Long id;
 

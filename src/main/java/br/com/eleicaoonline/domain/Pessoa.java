@@ -8,9 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -24,7 +26,8 @@ import lombok.Data;
 public class Pessoa {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="pessoa_generator")
+	@SequenceGenerator(name="pessoa_generator", sequenceName="pessoa_seq", allocationSize = 1)
 	@Column(name = "id")
 	private Long id;
 
@@ -54,6 +57,7 @@ public class Pessoa {
 
 	@NotNull
 	@Size(max = 200)
+	@Email
 	@Column(name = "email")
 	private String email;
 

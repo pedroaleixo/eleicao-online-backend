@@ -25,9 +25,7 @@ public class EleicaoIniciadaFinalizadaValidation implements Validation<Eleicao> 
 		Optional<Eleicao> optEleicao = repository.findById(eleicao.getId());
 		if (optEleicao.isPresent() && (optEleicao.get().getSituacao().equals(SituacaoEleicao.INICIADA)
 				|| optEleicao.get().getSituacao().equals(SituacaoEleicao.FINALIZADA))) {
-			throw new BusinessException("");
-		} else {
-			throw new BusinessException("");
+			throw new BusinessException(messageSource.getMessage(ValidationMessageKey.ELEICAO_INICIADA_FINALIZADA, null, null));
 		}
 
 	}
