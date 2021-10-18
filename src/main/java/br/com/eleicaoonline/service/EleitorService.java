@@ -3,9 +3,9 @@ package br.com.eleicaoonline.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
+import br.com.eleicaoonline.controller.filtro.FiltroVotantes;
 import br.com.eleicaoonline.domain.Eleitor;
-import br.com.eleicaoonline.web.filtro.FiltroPessoa;
-import br.com.eleicaoonline.web.filtro.FiltroVotantes;
 
 public interface EleitorService {
 	

@@ -2,8 +2,8 @@ package br.com.eleicaoonline.service;
 
 import org.springframework.data.domain.Page;
 
+import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.domain.Pessoa;
-import br.com.eleicaoonline.web.filtro.FiltroPessoa;
 
 public interface PessoaService {
 	

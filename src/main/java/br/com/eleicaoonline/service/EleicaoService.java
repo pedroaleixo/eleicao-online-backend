@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import br.com.eleicaoonline.controller.filtro.FiltroEleicao;
 import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.enums.TipoEstatistica;
 import br.com.eleicaoonline.dto.EstatisticaDTO;
-import br.com.eleicaoonline.web.filtro.FiltroEleicao;
 
 public interface EleicaoService {
 

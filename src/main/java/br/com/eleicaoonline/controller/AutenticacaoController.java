@@ -1,4 +1,4 @@
-package br.com.eleicaoonline.web;
+package br.com.eleicaoonline.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @CrossOrigin
 @RequestMapping("/api/autenticacao")
 @Api(value = "/api/autenticacao", tags = {"Login"}, description = "Funcionalidade para autenticar no sistema")
-public class AutenticacaoResource {
+public class AutenticacaoController {
 	
 	@Autowired
 	private JwtTokenUtil jwtTokenUtil;

@@ -12,13 +12,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import br.com.eleicaoonline.controller.filtro.FiltroEleicao;
 import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.enums.TipoEstatistica;
 import br.com.eleicaoonline.dto.EstatisticaDTO;
 import br.com.eleicaoonline.repository.EleicaoRepository;
 import br.com.eleicaoonline.service.EleicaoService;
-import br.com.eleicaoonline.web.filtro.FiltroEleicao;
 
 @Transactional(rollbackOn = { Exception.class })
 @Service

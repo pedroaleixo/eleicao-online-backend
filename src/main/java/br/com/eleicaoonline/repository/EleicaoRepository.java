@@ -7,8 +7,8 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import br.com.eleicaoonline.controller.filtro.FiltroEleicao;
 import br.com.eleicaoonline.domain.Eleicao;
-import br.com.eleicaoonline.web.filtro.FiltroEleicao;
 
 @Repository
 public interface EleicaoRepository extends PagingAndSortingRepository<Eleicao, Long> {

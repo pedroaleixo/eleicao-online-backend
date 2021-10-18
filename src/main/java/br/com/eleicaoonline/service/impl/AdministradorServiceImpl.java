@@ -10,10 +10,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.domain.Administrador;
 import br.com.eleicaoonline.repository.AdministradorRepository;
 import br.com.eleicaoonline.service.AdministradorService;
-import br.com.eleicaoonline.web.filtro.FiltroPessoa;
 
 @Transactional(rollbackOn = { Exception.class })
 @Service

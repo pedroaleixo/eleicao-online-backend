@@ -1,4 +1,4 @@
-package br.com.eleicaoonline.web;
+package br.com.eleicaoonline.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eleicaoonline.constants.Perfis;
+import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.domain.Administrador;
 import br.com.eleicaoonline.dto.AdministradorDTO;
 import br.com.eleicaoonline.exception.response.ExceptionResponse;
 import br.com.eleicaoonline.service.AdministradorService;
 import br.com.eleicaoonline.utils.MapperUtil;
-import br.com.eleicaoonline.web.filtro.FiltroPessoa;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -31,7 +31,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @RestController
 @RequestMapping("/api/administrador")
 @Api(value = "/api/administrador", tags = {"Administrador"}, description = "Funcionalidades dos administradores")
-public class AdministradorResource {
+public class AdministradorController {
 	
 	@Autowired
 	private MapperUtil mapper;

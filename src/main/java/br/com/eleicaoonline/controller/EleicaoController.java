@@ -1,4 +1,4 @@
-package br.com.eleicaoonline.web;
+package br.com.eleicaoonline.controller;
 
 import java.util.List;
 
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eleicaoonline.constants.Perfis;
+import br.com.eleicaoonline.controller.filtro.FiltroEleicao;
 import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.Voto;
@@ -30,7 +31,6 @@ import br.com.eleicaoonline.service.EleicaoService;
 import br.com.eleicaoonline.service.ResultadoService;
 import br.com.eleicaoonline.service.VotoService;
 import br.com.eleicaoonline.utils.MapperUtil;
-import br.com.eleicaoonline.web.filtro.FiltroEleicao;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -42,7 +42,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @RestController
 @RequestMapping("/api/eleicao")
 @Api(value = "/api/eleicao", tags = {"Eleição"}, description = "Funcionalidades das eleições")
-public class EleicaoResource {
+public class EleicaoController {
 	
 	@Autowired
 	private MapperUtil mapper;
