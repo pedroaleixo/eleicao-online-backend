@@ -2,6 +2,7 @@ package br.com.eleicaoonline.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,8 +48,8 @@ public class AdministradorResource {
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured(Perfis.ADMINISTRADOR)
 	@PostMapping("/filtrar")
-	public Page<AdministradorDTO> listarAdministradores(@RequestBody FiltroPessoa filtro) {				
-		return mapper.toPage(service.listarAdministradores(filtro), AdministradorDTO.class);
+	public Page<AdministradorDTO> listarAdministradores(@RequestBody FiltroPessoa filtro, Pageable pageable) {				
+		return mapper.toPage(service.listarAdministradores(filtro, pageable), AdministradorDTO.class);
 	}
 	
 	@Operation(summary = "Busca administrador pelo id")

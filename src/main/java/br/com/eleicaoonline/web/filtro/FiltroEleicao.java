@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-
 /**
  * FiltroEleicaoDTO
  */
@@ -22,7 +21,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-09-28T02:31:47.561Z[GMT]")
 
 public class FiltroEleicao implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	@JsonProperty("nome")
@@ -36,9 +35,9 @@ public class FiltroEleicao implements Serializable {
 
 	@JsonProperty("dataHoraFim")
 	private Date dataHoraFim = null;
-	
+
 	@JsonProperty("situacao")
-	private SituacaoEleicao situacao = null;
+	private Integer situacao = null;
 
 	public FiltroEleicao nome(String nome) {
 		this.nome = nome;
@@ -124,7 +123,7 @@ public class FiltroEleicao implements Serializable {
 		this.dataHoraFim = dataHoraFim;
 	}
 
-	public FiltroEleicao situacao(SituacaoEleicao situacao) {
+	public FiltroEleicao situacao(Integer situacao) {
 		this.situacao = situacao;
 		return this;
 	}
@@ -135,12 +134,11 @@ public class FiltroEleicao implements Serializable {
 	 * @return situacao
 	 **/
 	@Schema(description = "Situação da eleição")
-
 	public SituacaoEleicao getSituacao() {
-		return situacao;
+		return SituacaoEleicao.fromValue(situacao);
 	}
 
-	public void setSituacao(SituacaoEleicao situacao) {
+	public void setSituacao(Integer situacao) {
 		this.situacao = situacao;
 	}
 

@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.validation.Valid;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
@@ -34,7 +32,6 @@ public class EleicaoDTO implements Serializable {
 	private SituacaoEleicao situacao;
 
 	@JsonProperty("cargos")
-	@Valid
 	private List<CargoDTO> cargos;
 
 	@JsonProperty("comissaoEleitoral")

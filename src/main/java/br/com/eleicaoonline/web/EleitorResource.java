@@ -2,6 +2,7 @@ package br.com.eleicaoonline.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,8 +49,8 @@ public class EleitorResource {
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@PostMapping("/filtrar")
-	public Page<EleitorDTO> listarEleitores(@RequestBody FiltroPessoa filtro) {				
-		return mapper.toPage(service.listarEleitores(filtro), EleitorDTO.class);
+	public Page<EleitorDTO> listarEleitores(@RequestBody FiltroPessoa filtro, Pageable pageable) {				
+		return mapper.toPage(service.listarEleitores(filtro, pageable), EleitorDTO.class);
 	}
 	
 	@Operation(summary = "Lista eleitores votantes por filtro")
@@ -61,8 +62,8 @@ public class EleitorResource {
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@PostMapping("/votantes")
-	public Page<EleitorDTO> listarEleitoresVotantes(@RequestBody FiltroVotantes filtro) {				
-		return mapper.toPage(service.listarEleitoresVotantes(filtro), EleitorDTO.class);
+	public Page<EleitorDTO> listarEleitoresVotantes(@RequestBody FiltroVotantes filtro, Pageable pageable) {				
+		return mapper.toPage(service.listarEleitoresVotantes(filtro, pageable), EleitorDTO.class);
 	}
 	
 	@Operation(summary = "Busca eleitor pelo id")

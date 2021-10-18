@@ -1,18 +1,39 @@
 package br.com.eleicaoonline.domain.enums;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum Genero {
 	
-	MASCULINO("masculino"),
+	MASCULINO("Masculino", "M"),
 
-	FEMININO("feminino"),
+	FEMININO("Feminino", "F"),
 	
-	OUTRO("outro");
+	OUTRO("Outro", "O");
 
+	private String label;
 	private String value;
 
-	private Genero(String value) {
+	private Genero(String label, String value) {		
+		this.label = label;
+		this.value = value;
+	}			
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+	
+	public String getLabel() {
+		return label;
+	}
+	
+	public void setValue(String value) {
 		this.value = value;
 	}
+
+	public String getValue() {
+		return value;
+	}	
 
 	@Override
 	public String toString() {

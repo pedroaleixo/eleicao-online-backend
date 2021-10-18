@@ -3,6 +3,7 @@ package br.com.eleicaoonline.service;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
@@ -12,7 +13,7 @@ import br.com.eleicaoonline.web.filtro.FiltroEleicao;
 
 public interface EleicaoService {
 
-	public Page<Eleicao> listarEleicoes(FiltroEleicao filtro);
+	public Page<Eleicao> listarEleicoes(FiltroEleicao filtro, Pageable pageable);
 	
 	public List<Eleicao> listarEleicoes();
 

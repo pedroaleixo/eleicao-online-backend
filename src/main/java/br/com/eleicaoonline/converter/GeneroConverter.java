@@ -4,29 +4,28 @@ import javax.persistence.AttributeConverter;
 
 import br.com.eleicaoonline.domain.enums.Genero;
 
-public class GeneroConverter implements AttributeConverter<Genero, Character> {
+public class GeneroConverter implements AttributeConverter<Genero, String> {
 	
 	@Override
-	public Character convertToDatabaseColumn(Genero from) {
-
-		Character value = 'O';
+	public String convertToDatabaseColumn(Genero from) {
+		String value = Genero.OUTRO.getValue();
 
 		if (from == Genero.FEMININO) {
-			value = 'F';
+			value = Genero.FEMININO.getValue();
 		} else if (from == Genero.MASCULINO) {
-			value = 'M';
+			value = Genero.MASCULINO.getValue();
 		}
 
 		return value;
 	}
 
 	@Override
-	public Genero convertToEntityAttribute(Character to) {
+	public Genero convertToEntityAttribute(String to) {
 		Genero g = Genero.OUTRO;
 		
-		if ('F' == to) {
+		if (Genero.FEMININO.getValue().equals(to)) {
 			g = Genero.FEMININO;
-		} else if ('M' == to) {
+		} else if (Genero.MASCULINO.getValue().equals(to)) {
 			g = Genero.MASCULINO;
 		}
 		return g;

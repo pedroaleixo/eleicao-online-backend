@@ -2,6 +2,7 @@ package br.com.eleicaoonline.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,8 +48,8 @@ public class CandidatoResource {
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@PostMapping("/filtrar")
-	public Page<CandidatoDTO> listarCandidatos(@RequestBody FiltroPessoa filtro) {				
-		return mapper.toPage(service.listarCandidatos(filtro), CandidatoDTO.class);
+	public Page<CandidatoDTO> listarCandidatos(@RequestBody FiltroPessoa filtro, Pageable pageable) {				
+		return mapper.toPage(service.listarCandidatos(filtro, pageable), CandidatoDTO.class);
 	}
 	
 	@Operation(summary = "Busca candidato pelo id")

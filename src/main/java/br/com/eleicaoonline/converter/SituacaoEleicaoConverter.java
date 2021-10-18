@@ -8,7 +8,6 @@ public class SituacaoEleicaoConverter implements AttributeConverter<SituacaoElei
 	
 	@Override
 	public Integer convertToDatabaseColumn(SituacaoEleicao from) {
-
 		Integer value = SituacaoEleicao.CADASTRADA.getValue();
 		
 		if (from == SituacaoEleicao.INICIADA) {

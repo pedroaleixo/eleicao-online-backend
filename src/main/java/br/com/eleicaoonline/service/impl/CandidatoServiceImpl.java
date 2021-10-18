@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import br.com.eleicaoonline.domain.Candidato;
@@ -23,20 +23,16 @@ public class CandidatoServiceImpl extends BaseService implements CandidatoServic
 	private CandidatoRepository repository;
 
 	@Override
-	public Page<Candidato> listarCandidatos(FiltroPessoa filtro) {
-		PageRequest pageReq = PageRequest.of(0, 20);
-		return repository.findAll(pageReq);
+	public Page<Candidato> listarCandidatos(FiltroPessoa filtro, Pageable pageable) {	
+		return repository.findAll(pageable);
 	}
 
 	@Override
 	public Candidato cadastrarCandidato(Candidato candidato) {
 		validateEntity(candidato);
 		
-		validateBusiness(candidato.getEleicao(),
-				Arrays.asList(eleicaoIniciadaFinalizadaValidation));
-		
-		validateBusiness(candidato.getPessoa(),
-				Arrays.asList(cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));
+		validateBusiness(candidato.getEleicao(), Arrays.asList(eleicaoIniciadaFinalizadaValidation,
+				cpfNaoCadastradoValidation, cpfInvalidoReceitaValidation));
 
 		return repository.save(candidato);
 	}
@@ -54,10 +50,8 @@ public class CandidatoServiceImpl extends BaseService implements CandidatoServic
 	public Candidato atualizarCandidato(Candidato candidato) {
 		validateEntity(candidato);
 		
-		validateBusiness(candidato, Arrays.asList(entidadeNaoExistenteValidation));
-		
-		validateBusiness(candidato.getPessoa(),
-				Arrays.asList(cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));
+		validateBusiness(candidato, Arrays.asList(entidadeNaoExistenteValidation, 
+				cpfNaoCadastradoValidation, cpfInvalidoReceitaValidation));
 
 		return repository.save(candidato);
 	}

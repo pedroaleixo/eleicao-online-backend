@@ -5,13 +5,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import br.com.eleicaoonline.domain.enums.Genero;
-import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import br.com.eleicaoonline.dto.AdministradorDTO;
 import br.com.eleicaoonline.dto.CandidatoDTO;
 import br.com.eleicaoonline.dto.ConfiguracaoDTO;
 import br.com.eleicaoonline.dto.EleicaoDTO;
 import br.com.eleicaoonline.dto.EleitorDTO;
+//import br.com.eleicaoonline.dto.EnumDTO;
 import br.com.eleicaoonline.dto.EstatisticaDTO;
 import br.com.eleicaoonline.dto.PessoaDTO;
 import br.com.eleicaoonline.dto.ResultadoDTO;
@@ -113,7 +112,7 @@ public class MockUtils {
 		pessoa1.setNome("Carlos Almeida");
 		pessoa1.setDataNascimento(new Date());
 		pessoa1.setEmail("carlos.almeida@gmail.com");
-		pessoa1.setGenero(Genero.MASCULINO);
+		//pessoa1.setGenero(new EnumDTO(Genero.MASCULINO.getLabel(), Genero.MASCULINO.getValue()));
 		pessoa1.setEndereco("Av. Paulista, 45, ap 73");
 		pessoa1.setTelefone("1196780978");
 		lista.add(pessoa1);
@@ -124,7 +123,7 @@ public class MockUtils {
 		pessoa2.setNome("Maria José dos Santos");
 		pessoa2.setDataNascimento(new Date());
 		pessoa2.setEmail("majose@uol.com");
-		pessoa2.setGenero(Genero.FEMININO);
+		//pessoa2.setGenero(new EnumDTO(Genero.FEMININO.getLabel(), Genero.FEMININO.getValue()));
 		pessoa2.setEndereco("Rua Cel. Aguiar, 67, Centro");
 		pessoa2.setTelefone("1198767970");
 		lista.add(pessoa2);
@@ -135,7 +134,7 @@ public class MockUtils {
 		pessoa3.setNome("Madalena Trindade Arruda");
 		pessoa3.setDataNascimento(new Date());
 		pessoa3.setEmail("madalenatrin67a@gmail.com");
-		pessoa3.setGenero(Genero.FEMININO);
+		//pessoa3.setGenero(new EnumDTO(Genero.FEMININO.getLabel(), Genero.FEMININO.getValue()));
 		pessoa3.setEndereco("Av. Deodoro da Fonseca, 901, ap.73, Tatuapé");
 		pessoa3.setTelefone("1198767970");
 		lista.add(pessoa3);
@@ -153,7 +152,7 @@ public class MockUtils {
 		eleicao1.setId(1L);
 		eleicao1.setNome("Eleição 1");
 		eleicao1.setInstituicao("Instituição 1");
-		eleicao1.setSituacao(SituacaoEleicao.CADASTRADA);
+		//eleicao1.setSituacao(new EnumDTO(SituacaoEleicao.CADASTRADA.getLabel(), SituacaoEleicao.CADASTRADA.getValue()+""));
 		eleicao1.setDataHoraInicio(new Date());
 		eleicao1.setDataHoraFim(new Date());
 		lista.add(eleicao1);
@@ -162,7 +161,7 @@ public class MockUtils {
 		eleicao2.setId(2L);
 		eleicao2.setNome("Eleição 2");
 		eleicao2.setInstituicao("Instituição 2");
-		eleicao2.setSituacao(SituacaoEleicao.INICIADA);
+		//eleicao2.setSituacao(new EnumDTO(SituacaoEleicao.INICIADA.getLabel(), SituacaoEleicao.INICIADA.getValue()+""));
 		eleicao2.setDataHoraInicio(new Date());
 		eleicao2.setDataHoraFim(new Date());
 		lista.add(eleicao2);
@@ -171,7 +170,7 @@ public class MockUtils {
 		eleicao3.setId(3L);
 		eleicao3.setNome("Eleição 3");
 		eleicao3.setInstituicao("Instituição 3");
-		eleicao3.setSituacao(SituacaoEleicao.FINALIZADA);
+		//eleicao3.setSituacao(new EnumDTO(SituacaoEleicao.FINALIZADA.getLabel(), SituacaoEleicao.FINALIZADA.getValue()+""));
 		eleicao3.setDataHoraInicio(new Date());
 		eleicao3.setDataHoraFim(new Date());
 		lista.add(eleicao3);

@@ -17,7 +17,7 @@ import br.com.eleicaoonline.web.filtro.FiltroPessoa;
 
 @Transactional(rollbackOn = { Exception.class })
 @Service
-public class PessoaServiceImpl extends BaseService implements PessoaService {	
+public class PessoaServiceImpl extends BaseService implements PessoaService {
 
 	@Autowired
 	private PessoaRepository repository;
@@ -31,17 +31,16 @@ public class PessoaServiceImpl extends BaseService implements PessoaService {
 	@Override
 	public Pessoa cadastrarPessoa(Pessoa pessoa) {
 		validateEntity(pessoa);
-		
-		validateBusiness(pessoa,
-				Arrays.asList(cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));
+
+		validateBusiness(pessoa, Arrays.asList(cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));
 
 		return repository.save(pessoa);
 	}
 
 	@Override
-	public Pessoa buscarPessoaPeloId(Long id) {	
+	public Pessoa buscarPessoaPeloId(Long id) {
 		Optional<Pessoa> optAdmin = repository.findById(id);
-		if(optAdmin.isPresent()) {
+		if (optAdmin.isPresent()) {
 			return optAdmin.get();
 		}
 		return null;
@@ -50,9 +49,9 @@ public class PessoaServiceImpl extends BaseService implements PessoaService {
 	@Override
 	public Pessoa atualizarPessoa(Pessoa pessoa) {
 		validateEntity(pessoa);
-		
-		validateBusiness(pessoa,
-				Arrays.asList(entidadeNaoExistenteValidation, cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));
+
+		validateBusiness(pessoa, Arrays.asList(entidadeNaoExistenteValidation, cpfInvalidoReceitaValidation,
+				cpfNaoCadastradoValidation));
 
 		return repository.save(pessoa);
 	}
@@ -60,11 +59,10 @@ public class PessoaServiceImpl extends BaseService implements PessoaService {
 	@Override
 	public void removerPessoa(Long id) {
 		Pessoa Pessoa = this.buscarPessoaPeloId(id);
-		
-		validateBusiness(Pessoa,
-				Arrays.asList(entidadeNaoExistenteValidation));
-		
-		repository.deleteById(id);		
+
+		validateBusiness(Pessoa, Arrays.asList(entidadeNaoExistenteValidation));
+
+		repository.deleteById(id);
 	}
 
 }

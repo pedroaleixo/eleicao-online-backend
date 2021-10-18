@@ -35,8 +35,8 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 	}
 
 	@Override
-	public Page<Eleicao> listarEleicoes(FiltroEleicao filtro) {
-		return repository.findAll(Pageable.unpaged());
+	public Page<Eleicao> listarEleicoes(FiltroEleicao filtro, Pageable pageable) {		
+		return repository.filtrar(filtro, pageable);
 	}
 
 	@Override
@@ -59,7 +59,8 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 	public Eleicao atualizarEleicao(Eleicao eleicao) {		
 		validateEntity(eleicao);
 		
-		validateBusiness(eleicao, Arrays.asList(entidadeNaoExistenteValidation, eleicaoIniciadaFinalizadaValidation));
+		validateBusiness(eleicao, 
+				Arrays.asList(entidadeNaoExistenteValidation, eleicaoIniciadaFinalizadaValidation));
 		
 		return repository.save(eleicao);
 	}
