@@ -24,7 +24,7 @@ public class AdministradorServiceImpl extends BaseService implements Administrad
 
 	@Override
 	public Page<Administrador> listarAdministradores(FiltroPessoa filtro, Pageable pageable) {		
-		return repository.findAll(pageable);
+		return repository.filtrar(filtro, pageable);
 	}
 
 	@Override

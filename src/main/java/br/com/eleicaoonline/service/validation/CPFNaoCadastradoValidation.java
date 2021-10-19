@@ -23,11 +23,13 @@ public class CPFNaoCadastradoValidation implements Validation<Object> {
 	@Override
 	public void validate(Object object) {
 		Pessoa pessoa = null;
-		if(object instanceof Administrador) {
+		if (object instanceof Pessoa) {
+			pessoa = (Pessoa) object;
+		} else if (object instanceof Administrador) {
 			pessoa = ((Administrador) object).getPessoa();
-		} else if(object instanceof Candidato) {
+		} else if (object instanceof Candidato) {
 			pessoa = ((Candidato) object).getPessoa();
-		} else if(object instanceof Eleitor) {
+		} else if (object instanceof Eleitor) {
 			pessoa = ((Eleitor) object).getPessoa();
 		}
 		

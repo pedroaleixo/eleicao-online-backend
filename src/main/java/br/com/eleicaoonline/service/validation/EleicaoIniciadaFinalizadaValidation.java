@@ -6,13 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
+import br.com.eleicaoonline.domain.Candidato;
 import br.com.eleicaoonline.domain.Eleicao;
+import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import br.com.eleicaoonline.exception.BusinessException;
 import br.com.eleicaoonline.repository.EleicaoRepository;
 
 @Component
-public class EleicaoIniciadaFinalizadaValidation implements Validation<Eleicao> {
+public class EleicaoIniciadaFinalizadaValidation implements Validation<Object> {
 
 	@Autowired
 	private MessageSource messageSource;
@@ -21,7 +23,15 @@ public class EleicaoIniciadaFinalizadaValidation implements Validation<Eleicao> 
 	private EleicaoRepository repository;
 
 	@Override
-	public void validate(Eleicao eleicao) {
+	public void validate(Object object) {
+		Eleicao eleicao = null;
+		if (object instanceof Eleicao) {
+			eleicao = (Eleicao) object;
+		} else if (object instanceof Candidato) {
+			eleicao = ((Candidato) object).getEleicao();
+		} else if (object instanceof Eleitor) {
+			eleicao = ((Eleitor) object).getEleicao();
+		}
 		Optional<Eleicao> optEleicao = repository.findById(eleicao.getId());
 		if (optEleicao.isPresent() && (optEleicao.get().getSituacao().equals(SituacaoEleicao.INICIADA)
 				|| optEleicao.get().getSituacao().equals(SituacaoEleicao.FINALIZADA))) {

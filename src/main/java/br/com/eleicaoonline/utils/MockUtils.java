@@ -99,7 +99,6 @@ public class MockUtils {
 	public static ResultadoDTO gerarResultado(){
 		ResultadoDTO res = new ResultadoDTO();
 		res.setId(1L);		
-		res.setCandidatos(gerarListaCandidato());
 		res.setEleicao(gerarEleicao());
 		return res;
 	}

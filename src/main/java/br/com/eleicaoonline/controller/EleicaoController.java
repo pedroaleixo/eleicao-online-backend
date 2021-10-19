@@ -172,7 +172,7 @@ public class EleicaoController {
 	        @ApiResponse(responseCode = "404", description = "Eleição não encontrada", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@GetMapping("/resultado/{idEleicao}")
+	@GetMapping("/{idEleicao}/resultado")
 	public ResultadoDTO buscarResultadoEleicao(@PathVariable("idEleicao") Long idEleicao) {				
 		return mapper.mapTo(resultadoService.buscarResultadoPeloId(idEleicao), ResultadoDTO.class);
 	}

@@ -39,4 +39,9 @@ public class Candidato{
   @ManyToOne
   @JoinColumn(name = "id_eleicao")
   private Eleicao eleicao;
+  
+  @NotNull
+  @ManyToOne
+  @JoinColumn(name = "id_cargo")
+  private Cargo cargo;
 }

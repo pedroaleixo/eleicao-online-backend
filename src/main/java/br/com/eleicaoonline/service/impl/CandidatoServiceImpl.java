@@ -24,14 +24,14 @@ public class CandidatoServiceImpl extends BaseService implements CandidatoServic
 
 	@Override
 	public Page<Candidato> listarCandidatos(FiltroPessoa filtro, Pageable pageable) {	
-		return repository.findAll(pageable);
+		return repository.filtrar(filtro, pageable);
 	}
 
 	@Override
 	public Candidato cadastrarCandidato(Candidato candidato) {
 		validateEntity(candidato);
 		
-		validateBusiness(candidato.getEleicao(), Arrays.asList(eleicaoIniciadaFinalizadaValidation,
+		validateBusiness(candidato, Arrays.asList(eleicaoIniciadaFinalizadaValidation,
 				cpfNaoCadastradoValidation, cpfInvalidoReceitaValidation));
 
 		return repository.save(candidato);

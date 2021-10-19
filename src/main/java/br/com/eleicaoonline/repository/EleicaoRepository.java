@@ -14,8 +14,8 @@ import br.com.eleicaoonline.domain.Eleicao;
 public interface EleicaoRepository extends PagingAndSortingRepository<Eleicao, Long> {
 	
 	@Query("select e from Eleicao e "
-			+ "where (:#{#filtro.nome} is null or lower(e.nome) like lower(concat('%', :#{#filtro.nome},'%'))) "
-			+ "and (:#{#filtro.instituicao} is null or lower(e.instituicao) like lower(concat('%', :#{#filtro.instituicao},'%'))) "
+			+ "where (cast(:#{#filtro.nome} as text) is null or lower(e.nome) like lower(concat('%', cast(:#{#filtro.nome} as text),'%'))) "
+			+ "and (cast(:#{#filtro.instituicao} as text) is null or lower(e.instituicao) like lower(concat('%', cast(:#{#filtro.instituicao} as text),'%'))) "
 			+ "and (cast(cast(:#{#filtro.dataHoraInicio} as text) as timestamp) is null or e.dataHoraInicio >= :#{#filtro.dataHoraInicio})"
 	        + "and (cast(cast(:#{#filtro.dataHoraFim} as text) as timestamp) is null or e.dataHoraFim <= :#{#filtro.dataHoraFim})"
 	        + "and (:#{#filtro.situacao} is null or e.situacao = :#{#filtro.situacao})")

@@ -25,7 +25,7 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 
 	@Override
 	public Page<Eleitor> listarEleitores(FiltroPessoa filtro, Pageable pageable) {	
-		return repository.findAll(pageable);
+		return repository.filtrar(filtro, pageable);
 	}
 	
 	public Page<Eleitor> listarEleitoresVotantes(FiltroVotantes filtro, Pageable pageable){		
@@ -36,7 +36,7 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 	public Eleitor cadastrarEleitor(Eleitor eleitor) {
 		validateEntity(eleitor);
 		
-		validateBusiness(eleitor.getEleicao(), Arrays.asList(eleicaoIniciadaFinalizadaValidation,
+		validateBusiness(eleitor, Arrays.asList(eleicaoIniciadaFinalizadaValidation,
 				cpfNaoCadastradoValidation, cpfInvalidoReceitaValidation));
 
 		return repository.save(eleitor);

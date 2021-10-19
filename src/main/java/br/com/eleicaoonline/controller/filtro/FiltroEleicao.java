@@ -135,7 +135,10 @@ public class FiltroEleicao implements Serializable {
 	 **/
 	@Schema(description = "Situação da eleição")
 	public SituacaoEleicao getSituacao() {
-		return SituacaoEleicao.fromValue(situacao);
+		if(situacao != null) {
+			return SituacaoEleicao.fromValue(situacao);
+		}
+		return null;
 	}
 
 	public void setSituacao(Integer situacao) {
