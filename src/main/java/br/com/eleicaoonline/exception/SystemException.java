@@ -7,5 +7,9 @@ public class SystemException extends RuntimeException {
 	public SystemException(Throwable t) {
 		super(t);
 	}
+	
+	public SystemException(String msg) {
+		super(msg, null);
+	}
 
 }

@@ -17,6 +17,7 @@ import br.com.eleicaoonline.constants.Perfis;
 import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.controller.filtro.FiltroVotantes;
 import br.com.eleicaoonline.domain.Eleitor;
+import br.com.eleicaoonline.dto.EleicaoDTO;
 import br.com.eleicaoonline.dto.EleitorDTO;
 import br.com.eleicaoonline.exception.response.ExceptionResponse;
 import br.com.eleicaoonline.service.EleitorService;
@@ -122,5 +123,19 @@ public class EleitorController {
 	public void removerEleitor(@PathVariable("id") Long id) {	
 		service.removerEleitor(id);
 	}	
+	
+	
+	@Operation(summary = "Lista eleitores por filtro")
+	@ApiResponses(value = { 
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = EleitorDTO.class)))),	       
+	        @ApiResponse(responseCode = "400", description = "Entrada inválida", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "404", description = "Nenhum resultado encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
+	@GetMapping("/{cpf}/eleicoes-disponiveis")
+	public Page<EleicaoDTO> listarEleicoesDisponiveis(@PathVariable("cpf") Long cpf, Pageable pageable) {				
+		return mapper.toPage(service.listarEleicoesDisponiveis(cpf, pageable), EleitorDTO.class);
+	}
 
 }

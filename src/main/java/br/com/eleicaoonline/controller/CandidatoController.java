@@ -48,7 +48,7 @@ public class CandidatoController {
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@PostMapping("/filtrar")
-	public Page<CandidatoDTO> listarCandidatos(@RequestBody FiltroPessoa filtro, Pageable pageable) {				
+	public Page<CandidatoDTO> listarCandidatos(@RequestBody FiltroPessoa filtro, @PathVariable("id") Long id, Pageable pageable) {				
 		return mapper.toPage(service.listarCandidatos(filtro, pageable), CandidatoDTO.class);
 	}
 	

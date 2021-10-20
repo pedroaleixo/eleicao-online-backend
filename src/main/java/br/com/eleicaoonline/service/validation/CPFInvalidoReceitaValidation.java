@@ -10,6 +10,7 @@ import br.com.eleicaoonline.domain.Candidato;
 import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.domain.Pessoa;
 import br.com.eleicaoonline.exception.BusinessException;
+import br.com.eleicaoonline.exception.SystemException;
 
 @Component
 public class CPFInvalidoReceitaValidation implements Validation<Object> {
@@ -21,20 +22,26 @@ public class CPFInvalidoReceitaValidation implements Validation<Object> {
 	private ReceitaFederalBroker broker;
 
 	@Override
-	public void validate(Object object) {
+	public void validate(Object obj) {
 		Pessoa pessoa = null;
-		if (object instanceof Pessoa) {
-			pessoa = (Pessoa) object;
-		} else if (object instanceof Administrador) {
-			pessoa = ((Administrador) object).getPessoa();
-		} else if (object instanceof Candidato) {
-			pessoa = ((Candidato) object).getPessoa();
-		} else if (object instanceof Eleitor) {
-			pessoa = ((Eleitor) object).getPessoa();
-		}
+		
+		if (obj != null) {
+			if (obj instanceof Pessoa) {
+				pessoa = (Pessoa) obj;
+			} else if (obj instanceof Administrador) {
+				pessoa = ((Administrador) obj).getPessoa();
+			} else if (obj instanceof Candidato) {
+				pessoa = ((Candidato) obj).getPessoa();
+			} else if (obj instanceof Eleitor) {
+				pessoa = ((Eleitor) obj).getPessoa();
+			}
 
-		if (!broker.isCPFValido(pessoa.getCpf())) {
-			throw new BusinessException(messageSource.getMessage(ValidationMessageKey.CPF_INVALIDO, null, null));
+			if (!broker.isCPFValido(pessoa.getCpf())) {
+				throw new BusinessException(messageSource.getMessage(ValidationMessageKey.CPF_INVALIDO, null, null));
+			}
+		} else {
+			throw new SystemException(
+					messageSource.getMessage(ValidationMessageKey.ENTIDADE_NAO_EXISTENTE, null, null));
 		}
 
 	}

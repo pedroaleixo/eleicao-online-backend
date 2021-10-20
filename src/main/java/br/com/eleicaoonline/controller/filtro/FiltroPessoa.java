@@ -27,6 +27,9 @@ public class FiltroPessoa implements Serializable {
 
 	@JsonProperty("cpf")
 	private Long cpf = null;
+	
+	@JsonProperty("idEleicao")
+	private Long idEleicao = null;
 
 	@JsonProperty("cargo")
 	private CargoDTO cargo = null;
@@ -70,6 +73,15 @@ public class FiltroPessoa implements Serializable {
 
 	public void setCpf(Long cpf) {
 		this.cpf = cpf;
+	}
+	
+
+	public Long getIdEleicao() {
+		return idEleicao;
+	}
+
+	public void setIdEleicao(Long idEleicao) {
+		this.idEleicao = idEleicao;
 	}
 
 	public FiltroPessoa cargo(CargoDTO cargo) {

@@ -21,6 +21,7 @@ import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.Voto;
 import br.com.eleicaoonline.domain.enums.TipoEstatistica;
+import br.com.eleicaoonline.dto.CargoDTO;
 import br.com.eleicaoonline.dto.ConfiguracaoDTO;
 import br.com.eleicaoonline.dto.EleicaoDTO;
 import br.com.eleicaoonline.dto.EstatisticaDTO;
@@ -80,11 +81,24 @@ public class EleicaoController {
 		return mapper.toPage(service.listarEleicoes(filtro, pageable), EleicaoDTO.class);
 	}
 	
+	
+	@Operation(summary = "Lista os cargos da eleição")
+	@ApiResponses(value = { 
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = EleicaoDTO.class))),	
+	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "404", description = "Cargos não encontrados", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@GetMapping
+	public List<CargoDTO> listarCargosEleicao(@PathVariable("idEleicao") Long idEleicao) {				
+		return mapper.toList(service.listarCargosEleicao(idEleicao), CargoDTO.class);
+	}
+	
 	@Operation(summary = "Busca eleição pelo id")
 	@ApiResponses(value = { 
 	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = EleicaoDTO.class))),	
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
-	        @ApiResponse(responseCode = "404", description = "Candidato não encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "404", description = "Eleição não encontrada", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
@@ -190,8 +204,4 @@ public class EleicaoController {
 	public void cadastrarVoto(@RequestBody VotoDTO voto) {	
 		votoService.cadastrarVoto(mapper.mapTo(voto, Voto.class));
 	}
-	
-	
-	
-
 }

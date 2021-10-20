@@ -11,6 +11,7 @@ import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import br.com.eleicaoonline.exception.BusinessException;
+import br.com.eleicaoonline.exception.SystemException;
 import br.com.eleicaoonline.repository.EleicaoRepository;
 
 @Component
@@ -23,19 +24,26 @@ public class EleicaoIniciadaFinalizadaValidation implements Validation<Object> {
 	private EleicaoRepository repository;
 
 	@Override
-	public void validate(Object object) {
+	public void validate(Object obj) {
 		Eleicao eleicao = null;
-		if (object instanceof Eleicao) {
-			eleicao = (Eleicao) object;
-		} else if (object instanceof Candidato) {
-			eleicao = ((Candidato) object).getEleicao();
-		} else if (object instanceof Eleitor) {
-			eleicao = ((Eleitor) object).getEleicao();
-		}
-		Optional<Eleicao> optEleicao = repository.findById(eleicao.getId());
-		if (optEleicao.isPresent() && (optEleicao.get().getSituacao().equals(SituacaoEleicao.INICIADA)
-				|| optEleicao.get().getSituacao().equals(SituacaoEleicao.FINALIZADA))) {
-			throw new BusinessException(messageSource.getMessage(ValidationMessageKey.ELEICAO_INICIADA_FINALIZADA, null, null));
+
+		if (obj != null) {
+			if (obj instanceof Eleicao) {
+				eleicao = (Eleicao) obj;
+			} else if (obj instanceof Candidato) {
+				eleicao = ((Candidato) obj).getEleicao();
+			} else if (obj instanceof Eleitor) {
+				eleicao = ((Eleitor) obj).getEleicao();
+			}
+			Optional<Eleicao> optEleicao = repository.findById(eleicao.getId());
+			if (optEleicao.isPresent() && (optEleicao.get().getSituacao().equals(SituacaoEleicao.INICIADA)
+					|| optEleicao.get().getSituacao().equals(SituacaoEleicao.FINALIZADA))) {
+				throw new BusinessException(
+						messageSource.getMessage(ValidationMessageKey.ELEICAO_INICIADA_FINALIZADA, null, null));
+			}
+		} else {
+			throw new SystemException(
+					messageSource.getMessage(ValidationMessageKey.ENTIDADE_NAO_EXISTENTE, null, null));
 		}
 
 	}

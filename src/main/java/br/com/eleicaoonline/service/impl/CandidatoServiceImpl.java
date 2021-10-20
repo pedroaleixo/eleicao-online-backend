@@ -14,7 +14,9 @@ import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.domain.Candidato;
 import br.com.eleicaoonline.repository.CandidatoRepository;
 import br.com.eleicaoonline.service.CandidatoService;
+import lombok.extern.java.Log;
 
+@Log
 @Transactional(rollbackOn = { Exception.class })
 @Service
 public class CandidatoServiceImpl extends BaseService implements CandidatoService {	
@@ -23,12 +25,16 @@ public class CandidatoServiceImpl extends BaseService implements CandidatoServic
 	private CandidatoRepository repository;
 
 	@Override
-	public Page<Candidato> listarCandidatos(FiltroPessoa filtro, Pageable pageable) {	
+	public Page<Candidato> listarCandidatos(FiltroPessoa filtro, Pageable pageable) {
+		log.info("Executando listarCandidatos");
+		
 		return repository.filtrar(filtro, pageable);
 	}
 
 	@Override
 	public Candidato cadastrarCandidato(Candidato candidato) {
+		log.info("Executando cadastrarCandidato");
+		
 		validateEntity(candidato);
 		
 		validateBusiness(candidato, Arrays.asList(eleicaoIniciadaFinalizadaValidation,
@@ -39,6 +45,8 @@ public class CandidatoServiceImpl extends BaseService implements CandidatoServic
 
 	@Override
 	public Candidato buscarCandidatoPeloId(Long id) {	
+		log.info("Executando buscarCandidatoPeloId");
+		
 		Optional<Candidato> optAdmin = repository.findById(id);
 		if(optAdmin.isPresent()) {
 			return optAdmin.get();
@@ -48,6 +56,8 @@ public class CandidatoServiceImpl extends BaseService implements CandidatoServic
 
 	@Override
 	public Candidato atualizarCandidato(Candidato candidato) {
+		log.info("Executando atualizarCandidato");
+		
 		validateEntity(candidato);
 		
 		validateBusiness(candidato, Arrays.asList(entidadeNaoExistenteValidation, 
@@ -58,6 +68,8 @@ public class CandidatoServiceImpl extends BaseService implements CandidatoServic
 
 	@Override
 	public void removerCandidato(Long id) {
+		log.info("Executando removerCandidato");
+		
 		Candidato candidato = this.buscarCandidatoPeloId(id);
 		
 		validateBusiness(candidato,

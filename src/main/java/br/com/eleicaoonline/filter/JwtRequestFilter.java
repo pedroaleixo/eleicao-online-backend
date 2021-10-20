@@ -53,12 +53,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 				SecurityContextHolder.getContext().setAuthentication(authentication);
 				
 			} catch (IllegalArgumentException e) {
-				logger.error("Não foi possível obter Token JWT");
+				logger.error("Não foi possível obter token JWT");
 			} catch (ExpiredJwtException e) {
 				logger.error("Token JWT expirado");
 			}
 		} else {
-			logger.warn("Requisição não possui Bearer");
+			logger.warn("Requisição não possui string bearer");
 		}
 
 		chain.doFilter(request, response);

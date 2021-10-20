@@ -14,8 +14,9 @@ import br.com.eleicaoonline.domain.Candidato;
 public interface CandidatoRepository extends PagingAndSortingRepository<Candidato, Long> {
 	
 	@Query("select c from Candidato c "
-			+ "where (cast(:#{#filtro.nome} as text) is null or lower(c.pessoa.nome) like lower(concat('%', cast(:#{#filtro.nome} as text),'%'))) "
+			+ "where c.eleicao.id = :#{#filtro.idEleicao} "
+			+ "and (cast(:#{#filtro.nome} as text) is null or lower(c.pessoa.nome) like lower(concat('%', cast(:#{#filtro.nome} as text),'%'))) "
 			+ "and (:#{#filtro.cpf} is null or c.pessoa.cpf = :#{#filtro.cpf}) ")
-	Page<Candidato> filtrar(@Param("filtro") FiltroPessoa filtro, Pageable pageable);
+	Page<Candidato> filtrar(@Param("filtro") FiltroPessoa filtro, Pageable pageable);	
 
 }
