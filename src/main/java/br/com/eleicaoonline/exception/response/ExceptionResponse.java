@@ -10,7 +10,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@SuppressWarnings("unused")
 public class ExceptionResponse implements Serializable {
 	
 	private static final long serialVersionUID = 1L;	

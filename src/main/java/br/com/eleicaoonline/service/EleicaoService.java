@@ -7,8 +7,10 @@ import org.springframework.data.domain.Pageable;
 
 import br.com.eleicaoonline.controller.filtro.FiltroEleicao;
 import br.com.eleicaoonline.domain.Cargo;
+import br.com.eleicaoonline.domain.ComissaoEleitoral;
 import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
+import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import br.com.eleicaoonline.domain.enums.TipoEstatistica;
 import br.com.eleicaoonline.dto.EstatisticaDTO;
 
@@ -21,6 +23,10 @@ public interface EleicaoService {
 	public List<Cargo> listarCargosEleicao(Long idEleicao);
 
 	public Eleicao buscarEleicaoPeloId(Long id);
+	
+	public List<Eleicao> buscarPorSituacao(SituacaoEleicao situacao);
+	
+	public ComissaoEleitoral buscarMembroComissaoPeloEmail(String email);
 
 	public Eleicao cadastrarEleicao(Eleicao Eleicao);
 

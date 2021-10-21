@@ -53,6 +53,13 @@ public class AdministradorServiceImpl extends BaseService implements Administrad
 		}
 		return null;
 	}
+	
+	@Override
+	public Administrador buscarAdministradorPeloEmail(String email) {		
+		log.info("Executando buscarAdministradorPeloEmail");
+		
+		return repository.findAdministradorByEmail(email);
+	}
 
 	@Override
 	public Administrador atualizarAdministrador(Administrador administrador) {

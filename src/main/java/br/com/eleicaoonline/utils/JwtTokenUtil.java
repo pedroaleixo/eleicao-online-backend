@@ -63,9 +63,17 @@ public class JwtTokenUtil implements Serializable {
 	private Boolean isTokenExpired(String token) {
 		final Date expiration = getExpirationDateFromToken(token);
 		return expiration.before(new Date());
+	}		
+	
+	public String generateToken(UserDetails userDetails) {
+		Map<String, Object> claims = new HashMap<>();		
+		final String authorities = userDetails.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.joining(","));		
+		claims.put(PERFIS, authorities);			
+		return doGenerateToken(claims, userDetails.getUsername());
 	}
-
-	//gera token para user
+	
 	public String generateToken(UserDetails userDetails, Long idEleicao) {
 		Map<String, Object> claims = new HashMap<>();		
 		final String authorities = userDetails.getAuthorities().stream()
@@ -75,6 +83,8 @@ public class JwtTokenUtil implements Serializable {
 		claims.put(ELEICAO, idEleicao);
 		return doGenerateToken(claims, userDetails.getUsername());
 	}
+	
+	
 
 	//Cria o token e define tempo de expiração pra ele
 	private String doGenerateToken(Map<String, Object> claims, String subject) {

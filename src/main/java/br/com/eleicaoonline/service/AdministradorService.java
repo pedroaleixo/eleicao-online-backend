@@ -12,6 +12,8 @@ public interface AdministradorService {
 	
 	public Administrador buscarAdministradorPeloId(Long id);
 	
+	public Administrador buscarAdministradorPeloEmail(String email);
+	
 	public Administrador cadastrarAdministrador(Administrador administrador);
 	
 	public Administrador atualizarAdministrador(Administrador administrador);

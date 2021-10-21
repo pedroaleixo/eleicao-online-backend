@@ -41,7 +41,7 @@ public class PessoaController {
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
-	@GetMapping("/{cpf}")
+	@GetMapping("/cpf/{cpf}")
 	public PessoaDTO buscarPessoaPeloCpf(@PathVariable("cpf") Long cpf) {				
 		return mapper.mapTo(service.buscarPessoaPeloCpf(cpf), PessoaDTO.class);
 	}
@@ -55,7 +55,7 @@ public class PessoaController {
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO, Perfis.ELEITOR})
-	@GetMapping("/{cpf}")
+	@GetMapping("/email/{email}")
 	public PessoaDTO buscarPessoaPeloEmail(@PathVariable("email") String email) {				
 		return mapper.mapTo(service.buscarPessoaPeloEmail(email), PessoaDTO.class);
 	}

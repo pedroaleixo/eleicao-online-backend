@@ -61,6 +61,13 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 		}
 		return null;
 	}
+	
+	@Override
+	public Eleitor buscarEleitorPeloEmail(String email) {		
+		log.info("Executando buscarEleitorPeloEmail");
+		
+		return repository.findEleitorByEmail(email);
+	}
 
 	@Override
 	public Eleitor atualizarEleitor(Eleitor eleitor) {
@@ -92,5 +99,4 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 		
 		return repository.listarEleicoesDisponiveis(cpf, pageable);
 	}
-
 }

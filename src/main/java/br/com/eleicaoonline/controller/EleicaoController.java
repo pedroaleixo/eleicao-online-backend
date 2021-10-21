@@ -89,7 +89,7 @@ public class EleicaoController {
 	        @ApiResponse(responseCode = "404", description = "Cargos não encontrados", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@GetMapping
+	@GetMapping("/{idEleicao}/cargos")
 	public List<CargoDTO> listarCargosEleicao(@PathVariable("idEleicao") Long idEleicao) {				
 		return mapper.toList(service.listarCargosEleicao(idEleicao), CargoDTO.class);
 	}

@@ -14,8 +14,10 @@ import org.springframework.stereotype.Service;
 
 import br.com.eleicaoonline.controller.filtro.FiltroEleicao;
 import br.com.eleicaoonline.domain.Cargo;
+import br.com.eleicaoonline.domain.ComissaoEleitoral;
 import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
+import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import br.com.eleicaoonline.domain.enums.TipoEstatistica;
 import br.com.eleicaoonline.dto.EstatisticaDTO;
 import br.com.eleicaoonline.repository.EleicaoRepository;
@@ -33,6 +35,7 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 
 	@Autowired
 	private EstatisticaRepository estatisticaRepository;
+
 
 	@Override
 	public List<Eleicao> listarEleicoes() {
@@ -54,9 +57,27 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 	public Eleicao buscarEleicaoPeloId(Long id) {
 		log.info("Executando buscarEleicaoPeloId");
 
-		Optional<Eleicao> optAdmin = repository.findById(id);
-		if (optAdmin.isPresent()) {
-			return optAdmin.get();
+		Optional<Eleicao> optEleicao = repository.findById(id);
+		if (optEleicao.isPresent()) {
+			return optEleicao.get();
+		}
+		return null;
+	}
+	
+	@Override
+	public List<Eleicao> buscarPorSituacao(SituacaoEleicao situacao){
+		log.info("Executando buscarPorSituacao");
+		
+		return repository.findBySituacao(situacao);
+	}
+	
+	@Override
+	public ComissaoEleitoral buscarMembroComissaoPeloEmail(String email) {		
+		log.info("Executando buscarMembroComissaoPeloEmail");
+		
+		List<ComissaoEleitoral> comissoes = repository.findComissaoByMembroEmail(email);
+		if(comissoes != null && !comissoes.isEmpty()) {
+			return comissoes.get(0);
 		}
 		return null;
 	}
@@ -115,6 +136,7 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 	@Override
 	public EstatisticaDTO buscarEstatisticasEleicao(Long idEleicao, TipoEstatistica tipo) {
 		log.info("Executando buscarEstatisticasEleicao");
+		
 		EstatisticaDTO dto = new EstatisticaDTO();
 		switch (tipo) {
 		case ELEITORADO_POR_SEXO:
@@ -140,5 +162,7 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 
 		return dto;
 	}
+	
+	
 
 }

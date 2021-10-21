@@ -15,8 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eleicaoonline.constants.Perfis;
+import br.com.eleicaoonline.domain.ComissaoEleitoral;
+import br.com.eleicaoonline.domain.Eleicao;
+import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.dto.CandidatoDTO;
 import br.com.eleicaoonline.exception.response.ExceptionResponse;
+import br.com.eleicaoonline.service.AdministradorService;
+import br.com.eleicaoonline.service.EleicaoService;
+import br.com.eleicaoonline.service.EleitorService;
 import br.com.eleicaoonline.utils.JwtTokenUtil;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
@@ -34,6 +40,16 @@ public class AutenticacaoController {
 	@Autowired
 	private JwtTokenUtil jwtTokenUtil;
 	
+	@Autowired
+	private AdministradorService administradorService;
+	
+	@Autowired
+	private EleicaoService eleicaoService;
+	
+	@Autowired
+	private EleitorService eleitorService;	
+
+	
 	@Operation(summary = "Realiza autenticacao do usuário")
 	@ApiResponses(value = { 
 	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CandidatoDTO.class))),	       
@@ -45,13 +61,36 @@ public class AutenticacaoController {
 	public String gerarToken(OAuth2AuthenticationToken authentication) {
 		String email = authentication.getPrincipal().getAttribute("email").toString();
 		String nome = authentication.getPrincipal().getAttribute("name").toString();
-
+		
 		List<GrantedAuthority> authorithies = new ArrayList<>();
-		authorithies.add(new SimpleGrantedAuthority(Perfis.ADMINISTRADOR));
-		authorithies.add(new SimpleGrantedAuthority(Perfis.COMISSAO));
+		Eleicao eleicao = null;
+		
+		if(administradorService.buscarAdministradorPeloEmail(email) != null) {
+			authorithies.add(new SimpleGrantedAuthority(Perfis.ADMINISTRADOR));
+		}
+		
+		ComissaoEleitoral comissaoEleitoral = eleicaoService.buscarMembroComissaoPeloEmail(email);
+		if(comissaoEleitoral != null) {
+			eleicao = comissaoEleitoral.getEleicao();
+			authorithies.add(new SimpleGrantedAuthority(Perfis.COMISSAO));
+		}
+		
+		Eleitor eleitor = eleitorService.buscarEleitorPeloEmail(email);
+		if(eleitor != null) {
+			eleicao = eleitor.getEleicao();
+			authorithies.add(new SimpleGrantedAuthority(Perfis.ELEITOR));
+		}		
+		
 		UserDetails userDetails = new User(nome, "", authorithies);
-
-		return jwtTokenUtil.generateToken(userDetails, 103L);
+		
+		String token = "";
+		if(eleicao != null) {
+			token = jwtTokenUtil.generateToken(userDetails, eleicao.getId());
+		} else {
+			token = jwtTokenUtil.generateToken(userDetails);
+		}
+		
+		return token;
 
 	}
 

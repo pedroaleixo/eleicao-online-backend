@@ -14,6 +14,8 @@ public interface EleitorService {
 	
 	public Eleitor buscarEleitorPeloId(Long id);
 	
+	public Eleitor buscarEleitorPeloEmail(String email);
+	
 	public Eleitor cadastrarEleitor(Eleitor Eleitor);
 	
 	public Eleitor atualizarEleitor(Eleitor Eleitor);

@@ -24,5 +24,6 @@ public class VotoServiceImpl extends BaseService implements VotoService {
 		
 		repository.save(voto);		
 	}
+	
 
 }

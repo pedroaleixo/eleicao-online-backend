@@ -22,4 +22,8 @@ public interface EleitorRepository extends PagingAndSortingRepository<Eleitor, L
 
 	@Query("select e.eleicao from Eleitor e where e.pessoa.cpf = :cpf")
 	Page<Eleicao> listarEleicoesDisponiveis(@Param("cpf") Long cpf, Pageable pageable);
+	
+	
+	@Query("select e from Eleitor e where e.pessoa.email = :email")
+	Eleitor findEleitorByEmail(@Param("email") String email);
 }
