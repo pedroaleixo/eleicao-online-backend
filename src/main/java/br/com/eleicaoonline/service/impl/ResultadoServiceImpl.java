@@ -4,16 +4,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import br.com.eleicaoonline.domain.Candidato;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.Resultado;
 import br.com.eleicaoonline.repository.CandidatoRepository;
+import br.com.eleicaoonline.repository.EleicaoRepository;
 import br.com.eleicaoonline.repository.ResultadoRepository;
 import br.com.eleicaoonline.repository.VotoRepository;
 import br.com.eleicaoonline.service.ResultadoService;
@@ -24,9 +27,12 @@ import lombok.extern.java.Log;
 @Transactional(rollbackOn = { Exception.class })
 @Service
 public class ResultadoServiceImpl extends BaseService implements ResultadoService {	
-	
+		
 	@Autowired
 	private ResultadoRepository repository;	
+	
+	@Autowired
+	private EleicaoRepository eleicaoRepository;	
 	
 	@Autowired
 	private VotoRepository votoRepository;
@@ -51,7 +57,7 @@ public class ResultadoServiceImpl extends BaseService implements ResultadoServic
 		return repository.save(resultado);
 	}
 	
-	
+	@Async
 	public void calcularResultado(Eleicao e) {
 		log.info("Executando calcularResultado");
 
@@ -67,11 +73,16 @@ public class ResultadoServiceImpl extends BaseService implements ResultadoServic
 		});
 		
 		candVotos.keySet().forEach(id -> {
-			Candidato candidato = candidatoRepository.findById(id).get();
-			candidato.setVotos(candVotos.get(id));
-			candidatoRepository.save(candidato);	
+			Optional<Candidato> optCand = candidatoRepository.findById(id);
+			if (optCand.isPresent()) {
+				Candidato candidato = optCand.get();
+				candidato.setVotos(candVotos.get(id));
+				candidatoRepository.save(candidato);
+			}
 		});		
 		
+		e.setProcessada(true);
+		eleicaoRepository.save(e);
 	}
 
 
@@ -80,7 +91,7 @@ public class ResultadoServiceImpl extends BaseService implements ResultadoServic
 		String decodedMessage = CryptoUtil.decodeMessage(votoCriptografado); 
 		String[] parsed = decodedMessage.split(",");
 		for (String candString : parsed) {
-			ids.add(Long.valueOf(candString));
+			ids.add(Long.valueOf(candString.trim()));
 		}
 		return ids;
 	}

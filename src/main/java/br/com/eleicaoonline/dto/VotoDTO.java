@@ -14,6 +14,9 @@ public class VotoDTO implements Serializable {
 
 	@JsonProperty("id")
 	private Long id;
+	
+	@JsonProperty("idEleitor")
+	private Long idEleitor;
 
 	@JsonProperty("votoCriptografado")
 	private String votoCriptografado;

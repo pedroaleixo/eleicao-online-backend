@@ -19,18 +19,15 @@ import br.com.eleicaoonline.constants.Perfis;
 import br.com.eleicaoonline.controller.filtro.FiltroEleicao;
 import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
-import br.com.eleicaoonline.domain.Voto;
 import br.com.eleicaoonline.domain.enums.TipoEstatistica;
 import br.com.eleicaoonline.dto.CargoDTO;
 import br.com.eleicaoonline.dto.ConfiguracaoDTO;
 import br.com.eleicaoonline.dto.EleicaoDTO;
 import br.com.eleicaoonline.dto.EstatisticaDTO;
 import br.com.eleicaoonline.dto.ResultadoDTO;
-import br.com.eleicaoonline.dto.VotoDTO;
 import br.com.eleicaoonline.exception.response.ExceptionResponse;
 import br.com.eleicaoonline.service.EleicaoService;
 import br.com.eleicaoonline.service.ResultadoService;
-import br.com.eleicaoonline.service.VotoService;
 import br.com.eleicaoonline.utils.MapperUtil;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
@@ -53,9 +50,20 @@ public class EleicaoController {
 	
 	@Autowired
 	private ResultadoService resultadoService;
+
 	
-	@Autowired
-	private VotoService votoService;
+	@Operation(summary = "Lista as eleições")
+	@ApiResponses(value = { 
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = EleicaoDTO.class)))),	       
+	        @ApiResponse(responseCode = "400", description = "Entrada inválida", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "404", description = "Nenhum resultado encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@GetMapping("/processadas")
+	public Page<EleicaoDTO> listarEleicoesProcessadas(Pageable pageable) {				
+		return mapper.toPage(service.listarEleicoesProcessadas(pageable), EleicaoDTO.class);
+	}
+	
 	
 	@Operation(summary = "Lista as eleições")
 	@ApiResponses(value = { 
@@ -190,18 +198,5 @@ public class EleicaoController {
 	public ResultadoDTO buscarResultadoEleicao(@PathVariable("idEleicao") Long idEleicao) {				
 		return mapper.mapTo(resultadoService.buscarResultadoPeloId(idEleicao), ResultadoDTO.class);
 	}
-	
-	
-	@Operation(summary = "Cadastra uma novo voto para a eleição")
-	@ApiResponses(value = { 
-	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json")),	       
-	        @ApiResponse(responseCode = "400", description = "Entrada inválida", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
-	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
-	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
-	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@Secured(Perfis.ELEITOR)
-	@PostMapping("/voto")
-	public void cadastrarVoto(@RequestBody VotoDTO voto) {	
-		votoService.cadastrarVoto(mapper.mapTo(voto, Voto.class));
-	}
+
 }

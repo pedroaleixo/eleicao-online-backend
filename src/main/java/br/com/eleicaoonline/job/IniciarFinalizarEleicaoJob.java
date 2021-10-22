@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import br.com.eleicaoonline.service.EleicaoService;
+import br.com.eleicaoonline.service.ResultadoService;
 import lombok.extern.java.Log;
 
 @Log
@@ -22,6 +23,9 @@ public class IniciarFinalizarEleicaoJob {
 	@Autowired
 	private EleicaoService eleicaoService;
 	
+	@Autowired
+	private ResultadoService resultadoService;
+	
 
 	@Scheduled(cron = "0 0/1 * 1/1 * ?")
 	public void iniciarEleicao() {
@@ -29,10 +33,10 @@ public class IniciarFinalizarEleicaoJob {
 
 		List<Eleicao> eleicoesCadastradas = eleicaoService.buscarPorSituacao(SituacaoEleicao.CADASTRADA);
 		eleicoesCadastradas.stream().forEach(e -> {
-			Date hoje = new Date();
-			if (e.getDataHoraInicio().compareTo(hoje) > 0) {
+			Date hoje = new Date();		
+			if (hoje.after(e.getDataHoraInicio())) {
 				e.setSituacao(SituacaoEleicao.INICIADA);
-				eleicaoService.atualizarEleicao(e);
+				eleicaoService.atualizarEleicaoSemValidacao(e);
 			}
 		});
 
@@ -45,9 +49,11 @@ public class IniciarFinalizarEleicaoJob {
 		List<Eleicao> eleicoesCadastradas = eleicaoService.buscarPorSituacao(SituacaoEleicao.INICIADA);
 		eleicoesCadastradas.stream().forEach(e -> {
 			Date hoje = new Date();
-			if (e.getDataHoraFim().compareTo(hoje) > 0) {
+			if (hoje.after(e.getDataHoraFim())) {
 				e.setSituacao(SituacaoEleicao.FINALIZADA);
-				eleicaoService.atualizarEleicao(e);				
+				eleicaoService.atualizarEleicaoSemValidacao(e);		
+				
+				resultadoService.calcularResultado(e);
 			}
 		});
 

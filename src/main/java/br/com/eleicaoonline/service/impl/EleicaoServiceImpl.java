@@ -52,6 +52,12 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 
 		return repository.filtrar(filtro, pageable);
 	}
+	
+	@Override
+	public Page<Eleicao> listarEleicoesProcessadas(Pageable pageable) {
+		log.info("Executando listarEleicoes");	
+		return repository.findByProcessadaTrue(pageable);
+	}
 
 	@Override
 	public Eleicao buscarEleicaoPeloId(Long id) {
@@ -110,6 +116,13 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 
 		validateBusiness(eleicao, Arrays.asList(entidadeNaoExistenteValidation, eleicaoIniciadaFinalizadaValidation));
 
+		return repository.save(eleicao);
+	}
+	
+	@Override
+	public Eleicao atualizarEleicaoSemValidacao(Eleicao eleicao) {
+		log.info("Executando atualizarEleicaoSemValidacao");
+		
 		return repository.save(eleicao);
 	}
 

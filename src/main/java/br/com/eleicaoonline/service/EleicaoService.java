@@ -20,6 +20,8 @@ public interface EleicaoService {
 	
 	public List<Eleicao> listarEleicoes();
 	
+	public Page<Eleicao> listarEleicoesProcessadas(Pageable pageable);
+	
 	public List<Cargo> listarCargosEleicao(Long idEleicao);
 
 	public Eleicao buscarEleicaoPeloId(Long id);
@@ -30,7 +32,9 @@ public interface EleicaoService {
 
 	public Eleicao cadastrarEleicao(Eleicao Eleicao);
 
-	public Eleicao atualizarEleicao(Eleicao Eleicao);
+	public Eleicao atualizarEleicao(Eleicao Eleicao);	
+	
+	public Eleicao atualizarEleicaoSemValidacao(Eleicao eleicao);
 
 	public void removerEleicao(Long id);
 	
