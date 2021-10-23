@@ -6,31 +6,25 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.eleicaoonline.domain.Candidato;
 import br.com.eleicaoonline.domain.Eleicao;
-import br.com.eleicaoonline.domain.Resultado;
 import br.com.eleicaoonline.repository.CandidatoRepository;
 import br.com.eleicaoonline.repository.EleicaoRepository;
-import br.com.eleicaoonline.repository.ResultadoRepository;
 import br.com.eleicaoonline.repository.VotoRepository;
 import br.com.eleicaoonline.service.ResultadoService;
 import br.com.eleicaoonline.utils.CryptoUtil;
 import lombok.extern.java.Log;
 
 @Log
-@Transactional(rollbackOn = { Exception.class })
+@Transactional(rollbackFor = { Exception.class })
 @Service
 public class ResultadoServiceImpl extends BaseService implements ResultadoService {	
-		
-	@Autowired
-	private ResultadoRepository repository;	
-	
+
 	@Autowired
 	private EleicaoRepository eleicaoRepository;	
 	
@@ -40,22 +34,6 @@ public class ResultadoServiceImpl extends BaseService implements ResultadoServic
 	@Autowired
 	private CandidatoRepository candidatoRepository;
 
-	@Override
-	public Resultado buscarResultadoPeloId(Long id) {	
-		log.info("Executando buscarResultadoPeloId");
-		
-		return repository.findByEleicaoId(id);		
-	}
-	
-	
-	@Override
-	public Resultado cadastrarResultado(Resultado resultado) {
-		log.info("Executando cadastrarResultado");
-		
-		validateEntity(resultado);
-		
-		return repository.save(resultado);
-	}
 	
 	@Async
 	public void calcularResultado(Eleicao e) {

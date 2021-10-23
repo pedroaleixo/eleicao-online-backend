@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.eleicaoonline.domain.enums.Genero;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import br.com.eleicaoonline.domain.enums.TipoEstatistica;
-import br.com.eleicaoonline.dto.ResultadoDTO;
 import br.com.eleicaoonline.exception.response.ExceptionResponse;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,7 +25,7 @@ public class CommonController {
 	
 	@Operation(summary = "Busca a lista de situações da eleição")
 	@ApiResponses(value = { 
-	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ResultadoDTO.class))),	
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = SituacaoEleicao.class))),	
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "404", description = "Situações não encontradas", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
@@ -39,7 +38,7 @@ public class CommonController {
 	
 	@Operation(summary = "Busca a lista de gêneros")
 	@ApiResponses(value = { 
-	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ResultadoDTO.class))),	
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Genero.class))),	
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "404", description = "Gêneros não encontrados", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
@@ -52,7 +51,7 @@ public class CommonController {
 	
 	@Operation(summary = "Busca a lista de tipos de estatísticas")
 	@ApiResponses(value = { 
-	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ResultadoDTO.class))),	
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = TipoEstatistica.class))),	
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "404", description = "Tipos não encontrados", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        

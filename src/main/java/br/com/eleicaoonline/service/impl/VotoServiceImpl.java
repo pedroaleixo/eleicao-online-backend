@@ -3,10 +3,9 @@ package br.com.eleicaoonline.service.impl;
 import java.util.Calendar;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.domain.Voto;
@@ -16,7 +15,7 @@ import br.com.eleicaoonline.service.VotoService;
 import lombok.extern.java.Log;
 
 @Log
-@Transactional(rollbackOn = { Exception.class })
+@Transactional(rollbackFor = { Exception.class })
 @Service
 public class VotoServiceImpl extends BaseService implements VotoService {
 	

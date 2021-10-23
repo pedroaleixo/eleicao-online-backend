@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import br.com.eleicaoonline.domain.Eleicao;
@@ -11,22 +12,29 @@ import br.com.eleicaoonline.domain.Eleicao;
 @Repository
 public interface EstatisticaRepository extends PagingAndSortingRepository<Eleicao, Long> {
 	
-	@Query("select e from Eleicao e")
-	public List<Object[]> buscarEleitoradoPorSexo(Long idEleicao);
+	@Query("select eleitores.pessoa.genero, count(*) from Eleicao e "
+			+ "join e.eleitores eleitores "
+			+ "where e.id = :idEleicao group by eleitores.pessoa.genero")
+	public List<Object[]> buscarEleitoradoPorSexo(@Param("idEleicao") Long idEleicao);
+
+	@Query("select eleitores.pessoa.genero, count(*) from Eleicao e "
+			+ "join e.eleitores eleitores "
+			+ "where e.id = :idEleicao group by eleitores.pessoa.genero")
+	public List<Object[]> buscarEleitoradoPorFaixaEtaria(@Param("idEleicao") Long idEleicao);
 	
-	@Query("select e from Eleicao e")
-	public List<Object[]> buscarEleitoradoPorFaixaEtaria(Long idEleicao);
+	@Query("select candidatos.pessoa.genero, count(*) from Eleicao e "
+			+ "join e.candidatos candidatos "
+			+ "where e.id = :idEleicao group by candidatos.pessoa.genero")
+	public List<Object[]> buscarCandidatosPorSexo(@Param("idEleicao") Long idEleicao);
 	
-	@Query("select e from Eleicao e")
-	public List<Object[]> buscarEleitoradoPorRegiao(Long idEleicao);
+	@Query("select eleitores.pessoa.genero, count(*) from Eleicao e "
+			+ "join e.eleitores eleitores "
+			+ "where e.id = :idEleicao group by eleitores.pessoa.genero")
+	public List<Object[]> buscarCandidatosPorFaixaEtaria(@Param("idEleicao") Long idEleicao);
 	
-	@Query("select e from Eleicao e")
-	public List<Object[]> buscarCandidatosPorSexo(Long idEleicao);
-	
-	@Query("select e from Eleicao e")
-	public List<Object[]> buscarCandidatosPorFaixaEtaria(Long idEleicao);
-	
-	@Query("select e from Eleicao e")
-	public List<Object[]> buscarDistribuicaoVotantesPorDia(Long idEleicao);
+	@Query("select eleitores.pessoa.genero, count(*) from Eleicao e "
+			+ "join e.eleitores eleitores "
+			+ "where e.id = :idEleicao group by eleitores.pessoa.genero")
+	public List<Object[]> buscarDistribuicaoVotantesPorDia(@Param("idEleicao") Long idEleicao);
 
 }

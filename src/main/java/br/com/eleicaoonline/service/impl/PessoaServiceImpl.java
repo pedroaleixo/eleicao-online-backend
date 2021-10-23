@@ -3,12 +3,12 @@ package br.com.eleicaoonline.service.impl;
 import java.util.Arrays;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.domain.Pessoa;
@@ -17,13 +17,14 @@ import br.com.eleicaoonline.service.PessoaService;
 import lombok.extern.java.Log;
 
 @Log
-@Transactional(rollbackOn = { Exception.class })
+@Transactional(rollbackFor = { Exception.class })
 @Service
 public class PessoaServiceImpl extends BaseService implements PessoaService {
 
 	@Autowired
 	private PessoaRepository repository;
 
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
 	public Page<Pessoa> listarPessoas(FiltroPessoa filtro, Pageable pageable) {
 		log.info("Executando listarPessoas");
@@ -42,6 +43,7 @@ public class PessoaServiceImpl extends BaseService implements PessoaService {
 		return repository.save(pessoa);
 	}
 
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
 	public Pessoa buscarPessoaPeloId(Long id) {
 		log.info("Executando buscarPessoaPeloId");
@@ -53,7 +55,7 @@ public class PessoaServiceImpl extends BaseService implements PessoaService {
 		return null;
 	}
 	
-	
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
 	public Pessoa buscarPessoaPeloCpf(Long cpf) {
 		log.info("Executando buscarPessoaPeloCpf");			
@@ -62,6 +64,7 @@ public class PessoaServiceImpl extends BaseService implements PessoaService {
 	}
 	
 	
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
 	public Pessoa buscarPessoaPeloEmail(String email) {
 		log.info("Executando buscarPessoaPeloEmail");			

@@ -3,12 +3,12 @@ package br.com.eleicaoonline.service.impl;
 import java.util.Arrays;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.domain.Administrador;
@@ -17,13 +17,14 @@ import br.com.eleicaoonline.service.AdministradorService;
 import lombok.extern.java.Log;
 
 @Log
-@Transactional(rollbackOn = { Exception.class })
+@Transactional(rollbackFor = { Exception.class })
 @Service
 public class AdministradorServiceImpl extends BaseService implements AdministradorService {
 
 	@Autowired
 	private AdministradorRepository repository;
 
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
 	public Page<Administrador> listarAdministradores(FiltroPessoa filtro, Pageable pageable) {		
 		log.info("Executando listarAdministradores");
@@ -43,6 +44,7 @@ public class AdministradorServiceImpl extends BaseService implements Administrad
 		return repository.save(administrador);
 	}
 
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
 	public Administrador buscarAdministradorPeloId(Long id) {
 		log.info("Executando buscarAdministradorPeloId");
@@ -53,7 +55,8 @@ public class AdministradorServiceImpl extends BaseService implements Administrad
 		}
 		return null;
 	}
-	
+
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
 	public Administrador buscarAdministradorPeloEmail(String email) {		
 		log.info("Executando buscarAdministradorPeloEmail");

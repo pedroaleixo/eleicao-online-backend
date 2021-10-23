@@ -3,12 +3,12 @@ package br.com.eleicaoonline.service.impl;
 import java.util.Arrays;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.domain.Candidato;
@@ -17,13 +17,14 @@ import br.com.eleicaoonline.service.CandidatoService;
 import lombok.extern.java.Log;
 
 @Log
-@Transactional(rollbackOn = { Exception.class })
+@Transactional(rollbackFor = { Exception.class })
 @Service
 public class CandidatoServiceImpl extends BaseService implements CandidatoService {	
 
 	@Autowired
 	private CandidatoRepository repository;
 
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
 	public Page<Candidato> listarCandidatos(FiltroPessoa filtro, Pageable pageable) {
 		log.info("Executando listarCandidatos");
@@ -43,6 +44,7 @@ public class CandidatoServiceImpl extends BaseService implements CandidatoServic
 		return repository.save(candidato);
 	}
 
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
 	public Candidato buscarCandidatoPeloId(Long id) {	
 		log.info("Executando buscarCandidatoPeloId");

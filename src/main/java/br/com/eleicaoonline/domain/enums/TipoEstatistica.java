@@ -9,13 +9,11 @@ public enum TipoEstatistica {
 
 	ELEITORADO_POR_FAIXA_ETARIA("Eleitorado por faixa etária", 1),
 
-	ELEITORADO_POR_REGIAO("Eleitorado por região", 2),
+	CANDIDATO_POR_SEXO("Candidato por sexo", 2),
 
-	CANDIDATO_POR_SEXO("Candidato por sexo", 3),
+	CANDIDATO_POR_FAIXA_ETARIA("Candidato  por faixa etária", 3),
 
-	CANDIDATO_POR_FAIXA_ETARIA("Candidato  por faixa etária", 4),
-
-	DISTRIBUICAO_VOTANTES_DIA("Distribuição de votantes por dia", 5);
+	DISTRIBUICAO_VOTANTES_DIA("Distribuição de votantes por dia", 4);
 
 	private String label;
 	private int value;

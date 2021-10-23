@@ -11,8 +11,6 @@ import br.com.eleicaoonline.domain.ComissaoEleitoral;
 import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
-import br.com.eleicaoonline.domain.enums.TipoEstatistica;
-import br.com.eleicaoonline.dto.EstatisticaDTO;
 
 public interface EleicaoService {
 
@@ -39,7 +37,5 @@ public interface EleicaoService {
 	public void removerEleicao(Long id);
 	
 	public Eleicao configurarEleicao(Configuracao configuracao);
-	
-	public EstatisticaDTO buscarEstatisticasEleicao(Long id, TipoEstatistica tipo);
 
 }

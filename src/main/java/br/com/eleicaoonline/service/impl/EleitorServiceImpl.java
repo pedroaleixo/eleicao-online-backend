@@ -3,12 +3,12 @@ package br.com.eleicaoonline.service.impl;
 import java.util.Arrays;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.controller.filtro.FiltroVotantes;
@@ -19,13 +19,14 @@ import br.com.eleicaoonline.service.EleitorService;
 import lombok.extern.java.Log;
 
 @Log
-@Transactional(rollbackOn = { Exception.class })
+@Transactional(rollbackFor = { Exception.class })
 @Service
 public class EleitorServiceImpl extends BaseService implements EleitorService {	
 
 	@Autowired
 	private EleitorRepository repository;
 
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
 	public Page<Eleitor> listarEleitores(FiltroPessoa filtro, Pageable pageable) {
 		log.info("Executando listarEleitores");
@@ -33,6 +34,8 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 		return repository.filtrar(filtro, pageable);
 	}
 	
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Override
 	public Page<Eleitor> listarEleitoresVotantes(FiltroVotantes filtro, Pageable pageable){		
 		log.info("Executando listarEleitoresVotantes");
 		
@@ -51,6 +54,7 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 		return repository.save(eleitor);
 	}
 
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
 	public Eleitor buscarEleitorPeloId(Long id) {	
 		log.info("Executando buscarEleitorPeloId");
@@ -62,12 +66,14 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 		return null;
 	}
 	
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
 	public Eleitor buscarEleitorPeloEmail(String email) {		
 		log.info("Executando buscarEleitorPeloEmail");
 		
 		return repository.findEleitorByEmail(email);
 	}
+	
 
 	@Override
 	public Eleitor atualizarEleitor(Eleitor eleitor) {
@@ -93,6 +99,7 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 		repository.deleteById(id);		
 	}
 	
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
 	public Page<Eleicao> listarEleicoesDisponiveis(Long cpf, Pageable pageable){
 		log.info("Executando listarEleicoesDisponiveis");

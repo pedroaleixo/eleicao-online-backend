@@ -10,10 +10,7 @@ import br.com.eleicaoonline.dto.CandidatoDTO;
 import br.com.eleicaoonline.dto.ConfiguracaoDTO;
 import br.com.eleicaoonline.dto.EleicaoDTO;
 import br.com.eleicaoonline.dto.EleitorDTO;
-//import br.com.eleicaoonline.dto.EnumDTO;
-import br.com.eleicaoonline.dto.EstatisticaDTO;
 import br.com.eleicaoonline.dto.PessoaDTO;
-import br.com.eleicaoonline.dto.ResultadoDTO;
 
 public class MockUtils {	
 	
@@ -83,26 +80,9 @@ public class MockUtils {
 		return conf;
 	}
 	
-	public static EstatisticaDTO gerarEstatistica(){
-		EstatisticaDTO est = new EstatisticaDTO();
-		List<Object[]> valores = new ArrayList<>();
-		Object[] registro1 = {"Homens", "46%"};
-		valores.add(registro1);
-		Object[] registro2 = {"Mulheres", "54%"};
-		valores.add(registro2);
-		est.setValores(valores);
-		est.setEleicao(gerarEleicao());	
-		return est;
-	}
+
 	
-	
-	public static ResultadoDTO gerarResultado(){
-		ResultadoDTO res = new ResultadoDTO();
-		res.setId(1L);		
-		res.setEleicao(gerarEleicao());
-		return res;
-	}
-	
+
 	public static List<PessoaDTO> gerarListaPessoa(){	
 		List<PessoaDTO> lista = new ArrayList<PessoaDTO>();
 		PessoaDTO pessoa1 = new PessoaDTO();
