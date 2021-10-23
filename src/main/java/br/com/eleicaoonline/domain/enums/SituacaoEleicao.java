@@ -8,8 +8,14 @@ public enum SituacaoEleicao {
 	CADASTRADA("Cadastrada", 0),
 
 	INICIADA("Iniciada", 1),
+	
+	EM_PROCESSAMENTO("Em processamento", 2),
+	
+	PROCESSADA("Processada", 3),
+	
+	FALHA_PROCESSAMENTO("Falha no processamento", 4),
 
-	FINALIZADA("Finalizada", 2);
+	FINALIZADA("Finalizada", 5);
 
 	private String label;
 	private int value;

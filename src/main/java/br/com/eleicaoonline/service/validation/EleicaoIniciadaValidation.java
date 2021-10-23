@@ -15,7 +15,7 @@ import br.com.eleicaoonline.exception.SystemException;
 import br.com.eleicaoonline.repository.EleicaoRepository;
 
 @Component
-public class EleicaoIniciadaFinalizadaValidation implements Validation<Object> {
+public class EleicaoIniciadaValidation implements Validation<Object> {
 
 	@Autowired
 	private MessageSource messageSource;
@@ -36,8 +36,7 @@ public class EleicaoIniciadaFinalizadaValidation implements Validation<Object> {
 				eleicao = ((Eleitor) obj).getEleicao();
 			}
 			Optional<Eleicao> optEleicao = repository.findById(eleicao.getId());
-			if (optEleicao.isPresent() && (optEleicao.get().getSituacao().equals(SituacaoEleicao.INICIADA)
-					|| optEleicao.get().getSituacao().equals(SituacaoEleicao.FINALIZADA))) {
+			if (optEleicao.isPresent() && !optEleicao.get().getSituacao().equals(SituacaoEleicao.CADASTRADA)) {
 				throw new BusinessException(
 						messageSource.getMessage(ValidationMessageKey.ELEICAO_INICIADA_FINALIZADA, null, null));
 			}

@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import br.com.eleicaoonline.service.EleicaoService;
-import br.com.eleicaoonline.service.ResultadoService;
 import lombok.extern.java.Log;
 
 @Log
@@ -22,41 +21,30 @@ public class IniciarFinalizarEleicaoJob {
 
 	@Autowired
 	private EleicaoService eleicaoService;
-	
-	@Autowired
-	private ResultadoService resultadoService;
-	
 
 	@Scheduled(cron = "0 0/1 * 1/1 * ?")
-	public void iniciarEleicao() {
+	public void iniciarEleicoesCadastradas() {
 		log.info("Executando o job de iniciar eleição");
 
 		List<Eleicao> eleicoesCadastradas = eleicaoService.buscarPorSituacao(SituacaoEleicao.CADASTRADA);
 		eleicoesCadastradas.stream().forEach(e -> {
-			Date hoje = new Date();		
+			Date hoje = new Date();
 			if (hoje.after(e.getDataHoraInicio())) {
 				e.setSituacao(SituacaoEleicao.INICIADA);
 				eleicaoService.atualizarEleicaoSemValidacao(e);
 			}
 		});
-
 	}
 
-	@Scheduled(cron = "0 0/1 * 1/1 * ?")
-	public void finalizarEleicao() {
-		log.info("Executando o job de finalizar eleição");
+	@Scheduled(cron = "0 0 0/1 1/1 * ? *")
+	public void finalizarEleicoesProcessadas() {
+		log.info("Executando o job de finalizar eleições processadas");
 
-		List<Eleicao> eleicoesCadastradas = eleicaoService.buscarPorSituacao(SituacaoEleicao.INICIADA);
-		eleicoesCadastradas.stream().forEach(e -> {
-			Date hoje = new Date();
-			if (hoje.after(e.getDataHoraFim())) {
-				e.setSituacao(SituacaoEleicao.FINALIZADA);
-				eleicaoService.atualizarEleicaoSemValidacao(e);		
-				
-				resultadoService.calcularResultado(e);
-			}
+		List<Eleicao> eleicoesProcessadas = eleicaoService.buscarPorSituacao(SituacaoEleicao.PROCESSADA);
+		eleicoesProcessadas.stream().forEach(e -> {
+			e.setSituacao(SituacaoEleicao.FINALIZADA);
+			eleicaoService.atualizarEleicaoSemValidacao(e);
 		});
-
 	}
 
 }

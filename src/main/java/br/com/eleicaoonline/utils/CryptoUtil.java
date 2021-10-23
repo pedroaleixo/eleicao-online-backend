@@ -11,7 +11,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -72,6 +74,17 @@ public class CryptoUtil {
 				| BadPaddingException e) {
 			throw new SystemException(e);
 		}
+	}
+	
+
+	public static List<Long> decriptarVoto(String votoCriptografado) {
+		List<Long> ids = new ArrayList<Long>();
+		String decodedMessage = decodeMessage(votoCriptografado); 
+		String[] parsed = decodedMessage.split(",");
+		for (String candString : parsed) {
+			ids.add(Long.valueOf(candString.trim()));
+		}
+		return ids;
 	}
 
 }
