@@ -20,9 +20,11 @@ import br.com.eleicaoonline.controller.filtro.FiltroEleicao;
 import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.enums.TipoEstatistica;
+import br.com.eleicaoonline.dto.CandidatoDTO;
 import br.com.eleicaoonline.dto.CargoDTO;
 import br.com.eleicaoonline.dto.ConfiguracaoDTO;
 import br.com.eleicaoonline.dto.EleicaoDTO;
+import br.com.eleicaoonline.dto.EleitorDTO;
 import br.com.eleicaoonline.dto.EstatisticaDTO;
 import br.com.eleicaoonline.exception.response.ExceptionResponse;
 import br.com.eleicaoonline.service.EleicaoService;
@@ -75,6 +77,31 @@ public class EleicaoController {
 		return mapper.toPage(service.listarEleicoes(filtro, pageable), EleicaoDTO.class);
 	}
 	
+	@Operation(summary = "Lista os candidatos da eleicao")
+	@ApiResponses(value = { 
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = EleicaoDTO.class)))),	       
+	        @ApiResponse(responseCode = "400", description = "Entrada inválida", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "404", description = "Nenhum resultado encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
+	@PostMapping("/{idEleicao}/candidatos")
+	public List<CandidatoDTO> listarCandidatosEleicao(@PathVariable("idEleicao") Long idEleicao) {				
+		return mapper.toList(service.listarCandidatosEleicao(idEleicao), CandidatoDTO.class);
+	}
+	
+	@Operation(summary = "Lista os eleitores da eleicao")
+	@ApiResponses(value = { 
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = EleicaoDTO.class)))),	       
+	        @ApiResponse(responseCode = "400", description = "Entrada inválida", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "404", description = "Nenhum resultado encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
+	@PostMapping("/{idEleicao}/eleitores")
+	public List<EleitorDTO> listarEleitoresEleicao(@PathVariable("idEleicao") Long idEleicao) {				
+		return mapper.toList(service.listarEleitoresEleicao(idEleicao), EleitorDTO.class);
+	}
 	
 	@Operation(summary = "Lista os cargos da eleição")
 	@ApiResponses(value = { 

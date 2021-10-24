@@ -48,8 +48,8 @@ public class AutenticacaoController {
 	
 	@Autowired
 	private EleitorService eleitorService;	
-
 	
+
 	@Operation(summary = "Realiza autenticacao do usuário")
 	@ApiResponses(value = { 
 	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CandidatoDTO.class))),	       

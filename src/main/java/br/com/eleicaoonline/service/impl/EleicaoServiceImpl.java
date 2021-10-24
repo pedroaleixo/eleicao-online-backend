@@ -13,10 +13,12 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.eleicaoonline.controller.filtro.FiltroEleicao;
+import br.com.eleicaoonline.domain.Candidato;
 import br.com.eleicaoonline.domain.Cargo;
 import br.com.eleicaoonline.domain.ComissaoEleitoral;
 import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
+import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import br.com.eleicaoonline.repository.EleicaoRepository;
 import br.com.eleicaoonline.service.EleicaoService;
@@ -78,6 +80,30 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 		List<ComissaoEleitoral> comissoes = repository.findComissaoByMembroEmail(email);
 		if(comissoes != null && !comissoes.isEmpty()) {
 			return comissoes.get(0);
+		}
+		return null;
+	}
+	
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Override
+	public List<Candidato> listarCandidatosEleicao(Long idEleicao) {
+		log.info("Executando listarCandidatosEleicao");
+
+		Optional<Eleicao> optEleicao = repository.findById(idEleicao);
+		if (optEleicao.isPresent()) {
+			return optEleicao.get().getCandidatos();
+		}
+		return null;
+	}
+	
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Override
+	public List<Eleitor> listarEleitoresEleicao(Long idEleicao) {
+		log.info("Executando listarEleitoresEleicao");
+
+		Optional<Eleicao> optEleicao = repository.findById(idEleicao);
+		if (optEleicao.isPresent()) {
+			return optEleicao.get().getEleitores();
 		}
 		return null;
 	}
