@@ -18,8 +18,6 @@ public interface EleicaoService {
 	
 	public List<Eleicao> listarEleicoes();
 	
-	public Page<Eleicao> listarEleicoesProcessadas(Pageable pageable);
-	
 	public List<Cargo> listarCargosEleicao(Long idEleicao);
 
 	public Eleicao buscarEleicaoPeloId(Long id);

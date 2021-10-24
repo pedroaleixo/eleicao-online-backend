@@ -17,24 +17,10 @@ public interface EstatisticaRepository extends PagingAndSortingRepository<Eleica
 			+ "where e.id = :idEleicao group by eleitores.pessoa.genero")
 	public List<Object[]> buscarEleitoradoPorSexo(@Param("idEleicao") Long idEleicao);
 
-	@Query("select eleitores.pessoa.genero, count(*) from Eleicao e "
-			+ "join e.eleitores eleitores "
-			+ "where e.id = :idEleicao group by eleitores.pessoa.genero")
-	public List<Object[]> buscarEleitoradoPorFaixaEtaria(@Param("idEleicao") Long idEleicao);
 	
 	@Query("select candidatos.pessoa.genero, count(*) from Eleicao e "
 			+ "join e.candidatos candidatos "
 			+ "where e.id = :idEleicao group by candidatos.pessoa.genero")
-	public List<Object[]> buscarCandidatosPorSexo(@Param("idEleicao") Long idEleicao);
+	public List<Object[]> buscarCandidatosPorSexo(@Param("idEleicao") Long idEleicao);	
 	
-	@Query("select eleitores.pessoa.genero, count(*) from Eleicao e "
-			+ "join e.eleitores eleitores "
-			+ "where e.id = :idEleicao group by eleitores.pessoa.genero")
-	public List<Object[]> buscarCandidatosPorFaixaEtaria(@Param("idEleicao") Long idEleicao);
-	
-	@Query("select eleitores.pessoa.genero, count(*) from Eleicao e "
-			+ "join e.eleitores eleitores "
-			+ "where e.id = :idEleicao group by eleitores.pessoa.genero")
-	public List<Object[]> buscarDistribuicaoVotantesPorDia(@Param("idEleicao") Long idEleicao);
-
 }

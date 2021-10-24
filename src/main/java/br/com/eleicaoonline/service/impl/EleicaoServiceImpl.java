@@ -48,13 +48,7 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 
 		return repository.filtrar(filtro, pageable);
 	}
-	
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
-	@Override
-	public Page<Eleicao> listarEleicoesProcessadas(Pageable pageable) {
-		log.info("Executando listarEleicoes");	
-		return repository.findByProcessadaTrue(pageable);
-	}
+
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override

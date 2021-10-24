@@ -60,10 +60,6 @@ public class Eleicao {
 	@Convert(converter = SituacaoEleicaoConverter.class)
 	@Column(name = "situacao")
 	private SituacaoEleicao situacao;
-	
-	@NotNull
-	@Column(name = "processada")
-	private Boolean processada;
 
 	@OneToMany(mappedBy = "eleicao", cascade = CascadeType.ALL)
 	private List<Cargo> cargos;
