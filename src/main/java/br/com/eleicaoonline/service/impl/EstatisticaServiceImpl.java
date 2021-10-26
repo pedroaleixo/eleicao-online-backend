@@ -69,8 +69,11 @@ public class EstatisticaServiceImpl extends BaseService implements EstatisticaSe
 		List<Object[]> result = estatisticaRepository.buscarEleitoradoPorSexo(idEleicao);
 
 		result.forEach(registro -> {
+			String label = registro[0].toString();
+			Long valor = Long.valueOf(registro[1].toString());
+			Double percentual = ((double) valor /estatistica.getTotalElementos()) * 100;
 			estatistica.addRegistro(
-					new RegistroEstatisticaDTO(registro[0].toString(), Long.valueOf(registro[1].toString())));
+					new RegistroEstatisticaDTO(label, valor, percentual));
 		});
 		return estatistica;
 	}
@@ -112,7 +115,11 @@ public class EstatisticaServiceImpl extends BaseService implements EstatisticaSe
 			}
 
 			mapFaixas.keySet().forEach(key -> {
-				estatistica.addRegistro(new RegistroEstatisticaDTO(key, mapFaixas.get(key)));
+				String label = key;
+				Long valor = mapFaixas.get(key);
+				Double percentual = ((double) valor /estatistica.getTotalElementos()) * 100;
+				estatistica.addRegistro(
+						new RegistroEstatisticaDTO(label, valor, percentual));
 			});
 		}
 		return estatistica;
@@ -129,8 +136,11 @@ public class EstatisticaServiceImpl extends BaseService implements EstatisticaSe
 		List<Object[]> result = estatisticaRepository.buscarCandidatosPorSexo(idEleicao);
 
 		result.forEach(registro -> {
+			String label = registro[0].toString();
+			Long valor = Long.valueOf(registro[1].toString());
+			Double percentual =  ((double) valor /estatistica.getTotalElementos()) * 100;
 			estatistica.addRegistro(
-					new RegistroEstatisticaDTO(registro[0].toString(), Long.valueOf(registro[1].toString())));
+					new RegistroEstatisticaDTO(label, valor, percentual));
 		});
 		return estatistica;
 	}
@@ -172,7 +182,11 @@ public class EstatisticaServiceImpl extends BaseService implements EstatisticaSe
 			}
 
 			mapFaixas.keySet().forEach(key -> {
-				estatistica.addRegistro(new RegistroEstatisticaDTO(key, mapFaixas.get(key)));
+				String label = key;
+				Long valor = mapFaixas.get(key);
+				Double percentual =  ((double) valor /estatistica.getTotalElementos()) * 100;
+				estatistica.addRegistro(
+						new RegistroEstatisticaDTO(label, valor, percentual));
 			});
 		}
 		return estatistica;
@@ -197,7 +211,11 @@ public class EstatisticaServiceImpl extends BaseService implements EstatisticaSe
 		}
 		
 		mapDias.keySet().forEach(key -> {
-			estatistica.addRegistro(new RegistroEstatisticaDTO(key, mapDias.get(key)));
+			String label = key;
+			Long valor = mapDias.get(key);
+			Double percentual =  ((double) valor /estatistica.getTotalElementos()) * 100;
+			estatistica.addRegistro(
+					new RegistroEstatisticaDTO(label, valor, percentual));
 		});
 
 		return estatistica;

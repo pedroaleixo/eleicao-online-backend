@@ -134,8 +134,8 @@ public class EleitorController {
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@GetMapping("/{cpf}/eleicoes-disponiveis")
-	public Page<EleicaoDTO> listarEleicoesDisponiveis(@PathVariable("cpf") Long cpf, Pageable pageable) {				
-		return mapper.toPage(service.listarEleicoesDisponiveis(cpf, pageable), EleitorDTO.class);
+	public Page<EleicaoDTO> listarEleicoesDisponiveis(@PathVariable("id") Long id, Pageable pageable) {				
+		return mapper.toPage(service.listarEleicoesDisponiveis(id, pageable), EleitorDTO.class);
 	}	
 
 

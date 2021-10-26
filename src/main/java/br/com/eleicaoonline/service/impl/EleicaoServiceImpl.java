@@ -15,10 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.eleicaoonline.controller.filtro.FiltroEleicao;
 import br.com.eleicaoonline.domain.Candidato;
 import br.com.eleicaoonline.domain.Cargo;
-import br.com.eleicaoonline.domain.ComissaoEleitoral;
 import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.Eleitor;
+import br.com.eleicaoonline.domain.Pessoa;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import br.com.eleicaoonline.repository.EleicaoRepository;
 import br.com.eleicaoonline.service.EleicaoService;
@@ -74,14 +74,11 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 	
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
-	public ComissaoEleitoral buscarMembroComissaoPeloEmail(String email) {		
+	public Pessoa buscarMembroComissaoEleitoralPeloEmail(String email) {		
 		log.info("Executando buscarMembroComissaoPeloEmail");
 		
-		List<ComissaoEleitoral> comissoes = repository.findComissaoByMembroEmail(email);
-		if(comissoes != null && !comissoes.isEmpty()) {
-			return comissoes.get(0);
-		}
-		return null;
+		Pessoa membroComissaoEleitoral = repository.findMembroComissaoEleitoralByEmail(email);		
+		return membroComissaoEleitoral;
 	}
 	
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
@@ -118,6 +115,22 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 			return optEleicao.get().getCargos();
 		}
 		return null;
+	}
+	
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Override
+	public List<Eleicao> listarEleicoesPorPessoaEleitor(Long idPessoa) {
+		log.info("Executando listarEleicoesPorPessoaEleitor");
+		
+		return repository.findByPessoaEleitor(idPessoa);
+	}
+	
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Override
+	public List<Eleicao> listarEleicoesPorPessoaMembroComissao(Long idPessoa) {
+		log.info("Executando listarEleicoesPorPessoaMembroComissao");
+
+		return repository.findByPessoaMembroComissao(idPessoa);
 	}
 
 	@Override

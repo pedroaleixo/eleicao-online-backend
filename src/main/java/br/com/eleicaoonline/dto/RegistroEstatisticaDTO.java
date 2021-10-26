@@ -13,12 +13,13 @@ public class RegistroEstatisticaDTO implements Serializable {
 
 	private Long valor;
 
-	private Float percentual;
+	private Double percentual;
 
-	public RegistroEstatisticaDTO(String label, Long valor) {
+	public RegistroEstatisticaDTO(String label, Long valor, Double percentual) {
 		super();
 		this.label = label;
 		this.valor = valor;
+		this.percentual = percentual;
 	}
 
 }

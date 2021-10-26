@@ -30,6 +30,9 @@ public class FiltroVotantes implements Serializable {
 
 	@JsonProperty("votou")
 	private Boolean votou = null;
+	
+	@JsonProperty("eleição")
+	private Long idEleicao = null;
 
 	public FiltroVotantes dataHoraInicio(Date dataHoraInicio) {
 		this.dataHoraInicio = dataHoraInicio;
@@ -91,6 +94,18 @@ public class FiltroVotantes implements Serializable {
 
 	public void setVotou(Boolean votou) {
 		this.votou = votou;
+	}	
+
+	public Long getIdEleicao() {
+		return idEleicao;
+	}
+
+	public void setIdEleicao(Long idEleicao) {
+		this.idEleicao = idEleicao;
+	}
+
+	public Boolean getVotou() {
+		return votou;
 	}
 
 	@Override

@@ -115,6 +115,30 @@ public class EleicaoController {
 		return mapper.toList(service.listarCargosEleicao(idEleicao), CargoDTO.class);
 	}
 	
+	@Operation(summary = "Lista as eleições associadas ao eleitor")
+	@ApiResponses(value = { 
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = EleicaoDTO.class))),	
+	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "404", description = "Cargos não encontrados", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@GetMapping("/eleitor/{idPessoa}")
+	public List<EleicaoDTO> listarEleicoesPorPessoaEleitor(@PathVariable("idPessoa") Long idPessoa){
+		return mapper.toList(service.listarEleicoesPorPessoaEleitor(idPessoa), EleicaoDTO.class);
+	}
+
+	@Operation(summary = "Lista as eleições associadas ao membro da comissão")
+	@ApiResponses(value = { 
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = EleicaoDTO.class))),	
+	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "404", description = "Cargos não encontrados", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@GetMapping("/membro-comissao/{idPessoa}")
+	public List<EleicaoDTO> listarEleicoesPorPessoaMembroComissao(@PathVariable("idPessoa") Long idPessoa){
+		return mapper.toList(service.listarEleicoesPorPessoaMembroComissao(idPessoa), EleicaoDTO.class);
+	}
+	
 	@Operation(summary = "Busca eleição pelo id")
 	@ApiResponses(value = { 
 	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = EleicaoDTO.class))),	

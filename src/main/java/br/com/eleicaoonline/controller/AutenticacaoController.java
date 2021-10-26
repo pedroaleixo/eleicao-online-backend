@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eleicaoonline.constants.Perfis;
-import br.com.eleicaoonline.domain.ComissaoEleitoral;
-import br.com.eleicaoonline.domain.Eleicao;
+import br.com.eleicaoonline.domain.Administrador;
 import br.com.eleicaoonline.domain.Eleitor;
-import br.com.eleicaoonline.dto.CandidatoDTO;
+import br.com.eleicaoonline.domain.Pessoa;
 import br.com.eleicaoonline.exception.response.ExceptionResponse;
 import br.com.eleicaoonline.service.AdministradorService;
 import br.com.eleicaoonline.service.EleicaoService;
@@ -52,7 +50,7 @@ public class AutenticacaoController {
 
 	@Operation(summary = "Realiza autenticacao do usuário")
 	@ApiResponses(value = { 
-	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CandidatoDTO.class))),	       
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))),	       
 	        @ApiResponse(responseCode = "400", description = "Entrada inválida", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
@@ -62,35 +60,27 @@ public class AutenticacaoController {
 		String email = authentication.getPrincipal().getAttribute("email").toString();
 		String nome = authentication.getPrincipal().getAttribute("name").toString();
 		
-		List<GrantedAuthority> authorithies = new ArrayList<>();
-		Eleicao eleicao = null;
-		
-		if(administradorService.buscarAdministradorPeloEmail(email) != null) {
+		List<GrantedAuthority> authorithies = new ArrayList<>();		
+		Pessoa pessoa = null;
+		Administrador admin = administradorService.buscarAdministradorPeloEmail(email);
+		if(admin != null) {
+			pessoa = admin.getPessoa();
 			authorithies.add(new SimpleGrantedAuthority(Perfis.ADMINISTRADOR));
 		}
 		
-		ComissaoEleitoral comissaoEleitoral = eleicaoService.buscarMembroComissaoPeloEmail(email);
-		if(comissaoEleitoral != null) {
-			eleicao = comissaoEleitoral.getEleicao();
+		Pessoa membro = eleicaoService.buscarMembroComissaoEleitoralPeloEmail(email);
+		if(membro != null) {		
+			pessoa = membro;
 			authorithies.add(new SimpleGrantedAuthority(Perfis.COMISSAO));
 		}
 		
 		Eleitor eleitor = eleitorService.buscarEleitorPeloEmail(email);
-		if(eleitor != null) {
-			eleicao = eleitor.getEleicao();
+		if(eleitor != null) {		
+			pessoa = eleitor.getPessoa();
 			authorithies.add(new SimpleGrantedAuthority(Perfis.ELEITOR));
 		}		
 		
-		UserDetails userDetails = new User(nome, "", authorithies);
-		
-		String token = "";
-		if(eleicao != null) {
-			token = jwtTokenUtil.generateToken(userDetails, eleicao.getId());
-		} else {
-			token = jwtTokenUtil.generateToken(userDetails);
-		}
-		
-		return token;
+		return jwtTokenUtil.generateToken(new User(nome, "", authorithies), pessoa.getId());
 
 	}
 

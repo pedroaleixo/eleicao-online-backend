@@ -32,5 +32,8 @@ public class Cargo {
 	@ManyToOne
 	@JoinColumn(name = "id_eleicao")
 	private Eleicao eleicao;
+	
+	@Column(name = "votos_brancos")
+	private Long votosBrancos;
 
 }

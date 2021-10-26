@@ -39,7 +39,7 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 	public Page<Eleitor> listarEleitoresVotantes(FiltroVotantes filtro, Pageable pageable){		
 		log.info("Executando listarEleitoresVotantes");
 		
-		return repository.findAll(pageable);
+		return repository.filtrarEleitoresVotantes(filtro, pageable);
 	}
 
 	@Override
@@ -101,9 +101,9 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 	
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
-	public Page<Eleicao> listarEleicoesDisponiveis(Long cpf, Pageable pageable){
+	public Page<Eleicao> listarEleicoesDisponiveis(Long id, Pageable pageable){
 		log.info("Executando listarEleicoesDisponiveis");
 		
-		return repository.listarEleicoesDisponiveis(cpf, pageable);
+		return repository.listarEleicoesDisponiveis(id, pageable);
 	}
 }
