@@ -19,7 +19,7 @@ import lombok.extern.java.Log;
 @Log
 @Transactional(rollbackFor = { Exception.class })
 @Service
-public class CandidatoServiceImpl extends BaseService implements CandidatoService {	
+public class CandidatoServiceImpl extends BaseService implements CandidatoService {
 
 	@Autowired
 	private CandidatoRepository repository;
@@ -28,29 +28,29 @@ public class CandidatoServiceImpl extends BaseService implements CandidatoServic
 	@Override
 	public Page<Candidato> listarCandidatos(FiltroPessoa filtro, Pageable pageable) {
 		log.info("Executando listarCandidatos");
-		
+
 		return repository.filtrar(filtro, pageable);
 	}
 
 	@Override
 	public Candidato cadastrarCandidato(Candidato candidato) {
 		log.info("Executando cadastrarCandidato");
-		
+
 		validateEntity(candidato);
-		
-		validateBusiness(candidato, Arrays.asList(eleicaoIniciadaFinalizadaValidation,
-				cpfNaoCadastradoValidation, cpfInvalidoReceitaValidation));
+
+		validateBusiness(candidato, Arrays.asList(eleicaoIniciadaFinalizadaValidation, cpfNaoCadastradoValidation,
+				cpfInvalidoReceitaValidation));
 
 		return repository.save(candidato);
 	}
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
-	public Candidato buscarCandidatoPeloId(Long id) {	
+	public Candidato buscarCandidatoPeloId(Long id) {
 		log.info("Executando buscarCandidatoPeloId");
-		
+
 		Optional<Candidato> optAdmin = repository.findById(id);
-		if(optAdmin.isPresent()) {
+		if (optAdmin.isPresent()) {
 			return optAdmin.get();
 		}
 		return null;
@@ -59,10 +59,10 @@ public class CandidatoServiceImpl extends BaseService implements CandidatoServic
 	@Override
 	public Candidato atualizarCandidato(Candidato candidato) {
 		log.info("Executando atualizarCandidato");
-		
+
 		validateEntity(candidato);
-		
-		validateBusiness(candidato, Arrays.asList(entidadeNaoExistenteValidation, 
+
+		validateBusiness(candidato, Arrays.asList(entidadeNaoExistenteValidation, eleicaoIniciadaFinalizadaValidation,
 				cpfNaoCadastradoValidation, cpfInvalidoReceitaValidation));
 
 		return repository.save(candidato);
@@ -71,13 +71,12 @@ public class CandidatoServiceImpl extends BaseService implements CandidatoServic
 	@Override
 	public void removerCandidato(Long id) {
 		log.info("Executando removerCandidato");
-		
+
 		Candidato candidato = this.buscarCandidatoPeloId(id);
-		
-		validateBusiness(candidato,
-				Arrays.asList(entidadeNaoExistenteValidation));
-		
-		repository.deleteById(id);		
+
+		validateBusiness(candidato, Arrays.asList(entidadeNaoExistenteValidation, eleicaoIniciadaFinalizadaValidation));
+
+		repository.deleteById(id);
 	}
 
 }

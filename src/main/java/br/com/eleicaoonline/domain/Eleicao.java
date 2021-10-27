@@ -19,8 +19,6 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import br.com.eleicaoonline.converter.SituacaoEleicaoConverter;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import lombok.Data;
@@ -68,13 +66,11 @@ public class Eleicao {
 	private ComissaoEleitoral comissaoEleitoral;
 	
 	@OneToOne(mappedBy = "eleicao", cascade = CascadeType.ALL)	
-	private Configuracao configuracao;
+	private Configuracao configuracao;	
 	
-	@JsonIgnore
 	@OneToMany(mappedBy = "eleicao", cascade = CascadeType.ALL)
 	private List<Candidato> candidatos;
 	
-	@JsonIgnore
 	@OneToMany(mappedBy = "eleicao", cascade = CascadeType.ALL)
 	private List<Eleitor> eleitores;
 

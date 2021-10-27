@@ -9,7 +9,6 @@ import br.com.eleicaoonline.domain.Candidato;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.exception.BusinessException;
-import br.com.eleicaoonline.exception.SystemException;
 import br.com.eleicaoonline.repository.AdministradorRepository;
 import br.com.eleicaoonline.repository.CandidatoRepository;
 import br.com.eleicaoonline.repository.EleicaoRepository;
@@ -53,7 +52,7 @@ public class EntidadeNaoExistenteValidation implements Validation<Object> {
 						messageSource.getMessage(ValidationMessageKey.ENTIDADE_NAO_EXISTENTE, null, null));
 			}
 		} else {
-			throw new SystemException(
+			throw new BusinessException(
 					messageSource.getMessage(ValidationMessageKey.ENTIDADE_NAO_EXISTENTE, null, null));
 		}
 

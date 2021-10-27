@@ -21,7 +21,7 @@ import lombok.extern.java.Log;
 @Log
 @Transactional(rollbackFor = { Exception.class })
 @Service
-public class EleitorServiceImpl extends BaseService implements EleitorService {	
+public class EleitorServiceImpl extends BaseService implements EleitorService {
 
 	@Autowired
 	private EleitorRepository repository;
@@ -30,80 +30,78 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 	@Override
 	public Page<Eleitor> listarEleitores(FiltroPessoa filtro, Pageable pageable) {
 		log.info("Executando listarEleitores");
-		
+
 		return repository.filtrar(filtro, pageable);
 	}
-	
+
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
-	public Page<Eleitor> listarEleitoresVotantes(FiltroVotantes filtro, Pageable pageable){		
+	public Page<Eleitor> listarEleitoresVotantes(FiltroVotantes filtro, Pageable pageable) {
 		log.info("Executando listarEleitoresVotantes");
-		
+
 		return repository.filtrarEleitoresVotantes(filtro, pageable);
 	}
 
 	@Override
 	public Eleitor cadastrarEleitor(Eleitor eleitor) {
 		log.info("Executando cadastrarEleitor");
-		
+
 		validateEntity(eleitor);
-		
-		validateBusiness(eleitor, Arrays.asList(eleicaoIniciadaFinalizadaValidation,
-				cpfNaoCadastradoValidation, cpfInvalidoReceitaValidation));
+
+		validateBusiness(eleitor, Arrays.asList(eleicaoIniciadaFinalizadaValidation, cpfNaoCadastradoValidation,
+				cpfInvalidoReceitaValidation));
 
 		return repository.save(eleitor);
 	}
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
-	public Eleitor buscarEleitorPeloId(Long id) {	
+	public Eleitor buscarEleitorPeloId(Long id) {
 		log.info("Executando buscarEleitorPeloId");
-		
+
 		Optional<Eleitor> optAdmin = repository.findById(id);
-		if(optAdmin.isPresent()) {
+		if (optAdmin.isPresent()) {
 			return optAdmin.get();
 		}
 		return null;
 	}
-	
+
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
-	public Eleitor buscarEleitorPeloEmail(String email) {		
+	public Eleitor buscarEleitorPeloEmail(String email) {
 		log.info("Executando buscarEleitorPeloEmail");
-		
+
 		return repository.findEleitorByEmail(email);
 	}
-	
 
 	@Override
 	public Eleitor atualizarEleitor(Eleitor eleitor) {
 		log.info("Executando atualizarEleitor");
-		
+
 		validateEntity(eleitor);
-		
-		validateBusiness(eleitor, Arrays.asList(entidadeNaoExistenteValidation, cpfNaoCadastradoValidation,
-				cpfInvalidoReceitaValidation));
-		
+
+		validateBusiness(eleitor, Arrays.asList(entidadeNaoExistenteValidation, eleicaoIniciadaFinalizadaValidation,
+				cpfNaoCadastradoValidation, cpfInvalidoReceitaValidation));
+
 		return repository.save(eleitor);
 	}
 
 	@Override
 	public void removerEleitor(Long id) {
 		log.info("Executando removerEleitor");
-		
+
 		Eleitor Eleitor = this.buscarEleitorPeloId(id);
-		
-		validateBusiness(Eleitor,
-				Arrays.asList(entidadeNaoExistenteValidation));
-		
-		repository.deleteById(id);		
+
+		validateBusiness(Eleitor, Arrays.asList(entidadeNaoExistenteValidation, eleicaoIniciadaFinalizadaValidation));
+
+		repository.deleteById(id);
 	}
-	
+
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
-	public Page<Eleicao> listarEleicoesDisponiveis(Long id, Pageable pageable){
+	public Page<Eleicao> listarEleicoesDisponiveis(Long id, Pageable pageable) {
 		log.info("Executando listarEleicoesDisponiveis");
-		
+
 		return repository.listarEleicoesDisponiveis(id, pageable);
 	}
 }

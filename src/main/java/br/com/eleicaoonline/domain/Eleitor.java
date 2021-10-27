@@ -23,17 +23,15 @@ import lombok.Data;
 public class Eleitor {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="eleitor_generator")
-	@SequenceGenerator(name="eleitor_generator", sequenceName="eleitor_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "eleitor_generator")
+	@SequenceGenerator(name = "eleitor_generator", sequenceName = "eleitor_seq", allocationSize = 1)
 	@Column(name = "id")
 	private Long id;
-	
-	
+
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data_hora_votou")
 	private Date dataHoraVotou;
-
 
 	@NotNull
 	@ManyToOne

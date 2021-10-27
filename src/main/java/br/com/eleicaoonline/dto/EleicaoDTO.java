@@ -36,8 +36,5 @@ public class EleicaoDTO implements Serializable {
 
 	@JsonProperty("comissaoEleitoral")
 	private ComissaoEleitoralDTO comissaoEleitoral;
-	
-	@JsonProperty("candidatos")
-	private List<CandidatoDTO> candidatos;
 
 }

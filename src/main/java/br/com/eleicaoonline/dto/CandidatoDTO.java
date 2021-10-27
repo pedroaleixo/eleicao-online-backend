@@ -22,7 +22,7 @@ public class CandidatoDTO implements Serializable {
 
 	@JsonProperty("pessoa")
 	private PessoaDTO pessoa;
-
+	
 	@JsonProperty("eleicao")
 	private EleicaoDTO eleicao;
 	
