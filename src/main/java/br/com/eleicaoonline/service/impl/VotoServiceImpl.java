@@ -1,5 +1,6 @@
 package br.com.eleicaoonline.service.impl;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Optional;
 
@@ -12,6 +13,7 @@ import br.com.eleicaoonline.domain.Voto;
 import br.com.eleicaoonline.repository.EleitorRepository;
 import br.com.eleicaoonline.repository.VotoRepository;
 import br.com.eleicaoonline.service.VotoService;
+import br.com.eleicaoonline.service.validation.EleicaoNaoIniciadaValidation;
 import lombok.extern.java.Log;
 
 @Log
@@ -24,6 +26,9 @@ public class VotoServiceImpl extends BaseService implements VotoService {
 	
 	@Autowired
 	private EleitorRepository eleitorRepository;
+	
+	@Autowired
+	protected EleicaoNaoIniciadaValidation eleicaoNaoIniciadaValidation;
 
 	@Override
 	public void cadastrarVoto(Voto voto, Long idEleitor) {
@@ -34,6 +39,8 @@ public class VotoServiceImpl extends BaseService implements VotoService {
 		if(optEleitor.isPresent()) {
 			Eleitor eleitor = optEleitor.get();
 			eleitor.setDataHoraVotou(Calendar.getInstance().getTime());
+			
+			validateBusiness(eleitor, Arrays.asList(eleicaoNaoIniciadaValidation));
 			eleitorRepository.save(eleitor);
 		}
 			

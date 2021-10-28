@@ -27,7 +27,7 @@ public interface EleitorRepository extends PagingAndSortingRepository<Eleitor, L
 	
 	@Query("select e from Eleitor e "
 			+ "where e.eleicao.id = :#{#filtro.idEleicao} "
-			+ "and ( ( ( cast(:#{#filtro.votou} as boolean) is null or :#{#filtro.votou} = false ) and e.dataHoraVotou is null) or (:#{#filtro.votou} = true and e.dataHoraVotou is not null) )"
+			+ "and (cast(cast(:#{#filtro.votou} as text) as boolean) is null or ((:#{#filtro.votou} = false and e.dataHoraVotou is null) or (:#{#filtro.votou} = true and e.dataHoraVotou is not null)) )"
 			+ "and (cast(cast(:#{#filtro.dataHoraInicio} as text) as timestamp) is null or e.dataHoraVotou >= :#{#filtro.dataHoraInicio})"
 	        + "and (cast(cast(:#{#filtro.dataHoraFim} as text) as timestamp) is null or e.dataHoraVotou <= :#{#filtro.dataHoraFim})"
 			)

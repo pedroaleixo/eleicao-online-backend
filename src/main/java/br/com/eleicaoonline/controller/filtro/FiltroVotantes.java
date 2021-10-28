@@ -21,7 +21,7 @@ public class FiltroVotantes implements Serializable {
 	@JsonProperty("votou")
 	private Boolean votou;
 
-	@JsonProperty("eleição")
+	@JsonProperty("idEleicao")
 	private Long idEleicao;
 
 }

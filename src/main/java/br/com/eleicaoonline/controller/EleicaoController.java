@@ -85,7 +85,7 @@ public class EleicaoController {
 	        @ApiResponse(responseCode = "404", description = "Nenhum resultado encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
-	@PostMapping("/{idEleicao}/candidatos")
+	@GetMapping("/{idEleicao}/candidatos")
 	public List<CandidatoDTO> listarCandidatosEleicao(@PathVariable("idEleicao") Long idEleicao) {				
 		return mapper.toList(service.listarCandidatosEleicao(idEleicao), CandidatoDTO.class);
 	}
@@ -98,7 +98,7 @@ public class EleicaoController {
 	        @ApiResponse(responseCode = "404", description = "Nenhum resultado encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
-	@PostMapping("/{idEleicao}/eleitores")
+	@GetMapping("/{idEleicao}/eleitores")
 	public List<EleitorDTO> listarEleitoresEleicao(@PathVariable("idEleicao") Long idEleicao) {				
 		return mapper.toList(service.listarEleitoresEleicao(idEleicao), EleitorDTO.class);
 	}

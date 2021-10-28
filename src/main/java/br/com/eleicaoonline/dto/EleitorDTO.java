@@ -1,6 +1,7 @@
 package br.com.eleicaoonline.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -19,5 +20,8 @@ public class EleitorDTO implements Serializable {
 
 	@JsonProperty("eleicao")
 	private EleicaoDTO eleicao;
+	
+	@JsonProperty("dataHoraVotou")
+	private Date dataHoraVotou;
 
 }
