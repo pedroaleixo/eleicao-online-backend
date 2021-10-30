@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -19,7 +20,8 @@ import lombok.Data;
 public class Cargo {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="cargo_generator")
+	@SequenceGenerator(name="cargo_generator", sequenceName="cargo_seq", allocationSize = 1)
 	@Column(name = "id")
 	private Long id;
 

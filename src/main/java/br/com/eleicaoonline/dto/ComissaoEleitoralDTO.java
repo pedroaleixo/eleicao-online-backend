@@ -13,7 +13,7 @@ public class ComissaoEleitoralDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@JsonProperty("id")
-	private Long id;
+	private Long id;	
 
 	@JsonProperty("membros")
 	private List<PessoaDTO> membros;
