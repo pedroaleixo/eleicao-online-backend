@@ -1,12 +1,14 @@
-package br.com.eleicaoonline.utils;
+package br.com.eleicaoonline.test.util;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import br.com.eleicaoonline.domain.enums.Genero;
 import br.com.eleicaoonline.dto.AdministradorDTO;
 import br.com.eleicaoonline.dto.CandidatoDTO;
+import br.com.eleicaoonline.dto.CargoDTO;
 import br.com.eleicaoonline.dto.ConfiguracaoDTO;
 import br.com.eleicaoonline.dto.EleicaoDTO;
 import br.com.eleicaoonline.dto.EleitorDTO;
@@ -15,7 +17,39 @@ import br.com.eleicaoonline.dto.PessoaDTO;
 public class MockUtils {	
 	
 	public static AdministradorDTO gerarAdministrador(){
-		return gerarListaAdministrador().get(0);
+		AdministradorDTO admin = new AdministradorDTO();
+		PessoaDTO pessoa = new PessoaDTO();
+		pessoa.setId(3L);	
+		pessoa.setCpf(37914072877L);
+		admin.setPessoa(pessoa);
+		return admin;
+	}
+	
+	public static CandidatoDTO gerarCandidato(){
+		CandidatoDTO candidato = new CandidatoDTO();
+		PessoaDTO pessoa = new PessoaDTO();
+		pessoa.setId(3L);	
+		pessoa.setCpf(37914072877L);
+		candidato.setPessoa(pessoa);
+		CargoDTO cargo = new CargoDTO();
+		cargo.setId(1L);
+		candidato.setCargo(cargo);
+		EleicaoDTO eleicao = new EleicaoDTO();
+		eleicao.setId(3L);
+		candidato.setEleicao(eleicao);
+		return candidato;
+	}
+	
+	public static EleitorDTO gerarEleitor(){
+		EleitorDTO eleitor = new EleitorDTO();
+		PessoaDTO pessoa = new PessoaDTO();
+		pessoa.setId(3L);	
+		pessoa.setCpf(37914072877L);
+		eleitor.setPessoa(pessoa);		
+		EleicaoDTO eleicao = new EleicaoDTO();
+		eleicao.setId(3L);
+		eleitor.setEleicao(eleicao);
+		return eleitor;
 	}
 	
 	public static List<AdministradorDTO> gerarListaAdministrador(){
@@ -28,13 +62,8 @@ public class MockUtils {
 		}
 	
 		return lista;
-	}
-	
-	
-	public static EleitorDTO gerarEleitor(){
-		return gerarListaEleitor().get(0);
-	}
-	
+	}	
+
 	public static List<EleitorDTO> gerarListaEleitor(){
 		List<EleitorDTO> lista = new ArrayList<>();
 		List<PessoaDTO> pessoas = gerarListaPessoa();
@@ -46,10 +75,6 @@ public class MockUtils {
 		}
 	
 		return lista;
-	}
-	
-	public static CandidatoDTO gerarCandidato(){
-		return gerarListaCandidato().get(0);
 	}
 	
 	public static List<CandidatoDTO> gerarListaCandidato(){
@@ -91,8 +116,8 @@ public class MockUtils {
 		pessoa1.setNome("Carlos Almeida");
 		pessoa1.setDataNascimento(new Date());
 		pessoa1.setEmail("carlos.almeida@gmail.com");
-		//pessoa1.setGenero(new EnumDTO(Genero.MASCULINO.getLabel(), Genero.MASCULINO.getValue()));
-		pessoa1.setEndereco("Av. Paulista, 45, ap 73");
+		pessoa1.setGenero(Genero.MASCULINO);
+		pessoa1.setEndereco("Av. Paulista, 45, ap 73, Vila Maraina, São Paulo-SP");
 		pessoa1.setTelefone("1196780978");
 		lista.add(pessoa1);
 		
@@ -102,8 +127,8 @@ public class MockUtils {
 		pessoa2.setNome("Maria José dos Santos");
 		pessoa2.setDataNascimento(new Date());
 		pessoa2.setEmail("majose@uol.com");
-		//pessoa2.setGenero(new EnumDTO(Genero.FEMININO.getLabel(), Genero.FEMININO.getValue()));
-		pessoa2.setEndereco("Rua Cel. Aguiar, 67, Centro");
+		pessoa2.setGenero(Genero.FEMININO);
+		pessoa2.setEndereco("Rua Cel. Aguiar, 67, Bela Vista, Sâo Paulo-SP");
 		pessoa2.setTelefone("1198767970");
 		lista.add(pessoa2);
 		
@@ -113,8 +138,8 @@ public class MockUtils {
 		pessoa3.setNome("Madalena Trindade Arruda");
 		pessoa3.setDataNascimento(new Date());
 		pessoa3.setEmail("madalenatrin67a@gmail.com");
-		//pessoa3.setGenero(new EnumDTO(Genero.FEMININO.getLabel(), Genero.FEMININO.getValue()));
-		pessoa3.setEndereco("Av. Deodoro da Fonseca, 901, ap.73, Tatuapé");
+		pessoa2.setGenero(Genero.FEMININO);
+		pessoa3.setEndereco("Av. Deodoro da Fonseca, 901, ap.73, Tatuapé, Sâo Paulo-SP");
 		pessoa3.setTelefone("1198767970");
 		lista.add(pessoa3);
 		return lista;

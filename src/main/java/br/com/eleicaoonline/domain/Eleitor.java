@@ -28,7 +28,6 @@ public class Eleitor {
 	@Column(name = "id")
 	private Long id;
 
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data_hora_votou")
 	private Date dataHoraVotou;
