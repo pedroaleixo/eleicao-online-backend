@@ -13,6 +13,7 @@ import br.com.eleicaoonline.dto.ConfiguracaoDTO;
 import br.com.eleicaoonline.dto.EleicaoDTO;
 import br.com.eleicaoonline.dto.EleitorDTO;
 import br.com.eleicaoonline.dto.PessoaDTO;
+import br.com.eleicaoonline.dto.VotoDTO;
 
 public class MockUtils {	
 	
@@ -38,6 +39,21 @@ public class MockUtils {
 		eleicao.setId(3L);
 		candidato.setEleicao(eleicao);
 		return candidato;
+	}
+	
+	public static VotoDTO gerarVoto(){
+		VotoDTO voto = new VotoDTO();
+		EleicaoDTO eleicao = new EleicaoDTO();
+		eleicao.setId(1L);
+		voto.setEleicao(eleicao);
+		voto.setIdEleitor(3L);
+		voto.setVotoCriptografado("JB1o4tBzYmggxWKcFPGwqtZpWh+QQBpYdYbvccdQtDP3SoeFBLNKHqCeOcAHV"
+				+ "mXRgKCZyKQ9Y7f25vRfS9L9Y29yAPMaVkBjLD5Ie41errQTc+a4+homxQAqpbIoYoXX75MZsxi4Ar"
+				+ "rrpTsLsdkrW2sUVn1Ao1bo6zJ7204I+zlcSsUv8qPe/C0vYVyXNabzJ6DECTEtz6ngAeksjw8G7yGq"
+				+ "FPMQzD8+zxw/BKr1EhdpaKcTlDiUcquQ/hVxui8e1m345CmbmXYZoNcjvP6EdJAvLF6qGEu61LaZu0x"
+				+ "vswsQVjDFcS+rnrbRVI/Tf52m6ktU2WGRsAldP6ljZIxVtA==");
+	
+		return voto;
 	}
 	
 	public static EleitorDTO gerarEleitor(){

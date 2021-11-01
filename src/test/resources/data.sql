@@ -24,6 +24,7 @@ INSERT INTO candidato (id, numero, votos, id_pessoa, id_cargo, id_eleicao) VALUE
 
 INSERT INTO eleitor (id, id_pessoa, id_eleicao, data_hora_votou) VALUES (eleitor_seq.nextval, 1, 3, '2021-10-20 21:31:44.942');
 INSERT INTO eleitor (id, id_pessoa, id_eleicao, data_hora_votou) VALUES (eleitor_seq.nextval, 2, 3, '2021-10-27 23:46:00.224');
+INSERT INTO eleitor (id, id_pessoa, id_eleicao, data_hora_votou) VALUES (eleitor_seq.nextval, 2, 1, '2021-10-27 23:46:00.224');
 
 INSERT INTO voto (voto_criptografado, id, id_eleicao) VALUES ('JB1o4tBzYmggxWKcFPGwqtZpWh+QQBpYdYbvccdQtDP3SoeFBLNKHqCeOcAHVmXRgKCZyKQ9Y7f25vRfS9L9Y29yAPMaVkBjLD5Ie41errQTc+a4+homxQAqpbIoYoXX75MZsxi4ArrrpTsLsdkrW2sUVn1Ao1bo6zJ7204I+zlcSsUv8qPe/C0vYVyXNabzJ6DECTEtz6ngAeksjw8G7yGqFPMQzD8+zxw/BKr1EhdpaKcTlDiUcquQ/hVxui8e1m345CmbmXYZoNcjvP6EdJAvLF6qGEu61LaZu0xvswsQVjDFcS+rnrbRVI/Tf52m6ktU2WGRsAldP6ljZIxVtA==', voto_seq.nextval, 3);
 INSERT INTO voto (voto_criptografado, id, id_eleicao) VALUES ('JB1o4tBzYmggxWKcFPGwqtZpWh+QQBpYdYbvccdQtDP3SoeFBLNKHqCeOcAHVmXRgKCZyKQ9Y7f25vRfS9L9Y29yAPMaVkBjLD5Ie41errQTc+a4+homxQAqpbIoYoXX75MZsxi4ArrrpTsLsdkrW2sUVn1Ao1bo6zJ7204I+zlcSsUv8qPe/C0vYVyXNabzJ6DECTEtz6ngAeksjw8G7yGqFPMQzD8+zxw/BKr1EhdpaKcTlDiUcquQ/hVxui8e1m345CmbmXYZoNcjvP6EdJAvLF6qGEu61LaZu0xvswsQVjDFcS+rnrbRVI/Tf52m6ktU2WGRsAldP6ljZIxVtA==', voto_seq.nextval, 3);

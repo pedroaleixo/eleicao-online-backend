@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import br.com.eleicaoonline.domain.Eleicao;
 import lombok.Data;
 
 @Data
@@ -21,5 +20,5 @@ public class VotoDTO implements Serializable {
 	private String votoCriptografado;
 
 	@JsonProperty("eleicao")
-	private Eleicao eleicao;
+	private EleicaoDTO eleicao;
 }
