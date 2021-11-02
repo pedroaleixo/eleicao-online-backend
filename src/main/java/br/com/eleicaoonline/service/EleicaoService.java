@@ -44,6 +44,6 @@ public interface EleicaoService {
 
 	public void removerEleicao(Long id);
 	
-	public Eleicao configurarEleicao(Configuracao configuracao);
+	public Configuracao configurarEleicao(Configuracao configuracao);
 
 }

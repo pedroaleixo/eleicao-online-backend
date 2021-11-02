@@ -72,6 +72,7 @@ public class EleicaoController {
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "404", description = "Nenhum resultado encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@PostMapping("/filtrar")
 	public Page<EleicaoDTO> listarEleicoesPorFiltro(@RequestBody FiltroEleicao filtro, Pageable pageable) {				
 		return mapper.toPage(service.listarEleicoes(filtro, pageable), EleicaoDTO.class);
@@ -110,6 +111,7 @@ public class EleicaoController {
 	        @ApiResponse(responseCode = "404", description = "Cargos não encontrados", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@GetMapping("/{idEleicao}/cargos")
 	public List<CargoDTO> listarCargosEleicao(@PathVariable("idEleicao") Long idEleicao) {				
 		return mapper.toList(service.listarCargosEleicao(idEleicao), CargoDTO.class);
@@ -122,6 +124,7 @@ public class EleicaoController {
 	        @ApiResponse(responseCode = "404", description = "Cargos não encontrados", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ELEITOR})
 	@GetMapping("/eleitor/{idPessoa}")
 	public List<EleicaoDTO> listarEleicoesPorPessoaEleitor(@PathVariable("idPessoa") Long idPessoa){
 		return mapper.toList(service.listarEleicoesPorPessoaEleitor(idPessoa), EleicaoDTO.class);
@@ -134,6 +137,7 @@ public class EleicaoController {
 	        @ApiResponse(responseCode = "404", description = "Cargos não encontrados", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.COMISSAO})
 	@GetMapping("/membro-comissao/{idPessoa}")
 	public List<EleicaoDTO> listarEleicoesPorPessoaMembroComissao(@PathVariable("idPessoa") Long idPessoa){
 		return mapper.toList(service.listarEleicoesPorPessoaMembroComissao(idPessoa), EleicaoDTO.class);
@@ -203,7 +207,7 @@ public class EleicaoController {
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
-	@PutMapping("/configuracao")
+	@PostMapping("/configuracao")
 	public ConfiguracaoDTO atualizarConfiguracao(@RequestBody ConfiguracaoDTO configuracao) {
 		return mapper.mapTo(service.configurarEleicao(mapper.mapTo(configuracao, Configuracao.class)),
 				ConfiguracaoDTO.class);

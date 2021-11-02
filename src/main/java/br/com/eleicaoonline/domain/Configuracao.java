@@ -34,7 +34,7 @@ public class Configuracao {
 	private Boolean ordenarPorNumeros;
 
 	@Column(name = "existira_tempo_sessao")
-	private Boolean existiraTempaoSessao;
+	private Boolean existiraTempoSessao;
 
 	@Column(name = "tempo_sessao")
 	private Integer tempoSessao;

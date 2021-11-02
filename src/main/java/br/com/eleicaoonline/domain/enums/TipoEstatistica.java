@@ -1,6 +1,8 @@
 package br.com.eleicaoonline.domain.enums;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum TipoEstatistica {
@@ -40,10 +42,12 @@ public enum TipoEstatistica {
 	}
 
 	@Override
+	@JsonValue
 	public String toString() {
 		return String.valueOf(value);
 	}
 
+	@JsonCreator
 	public static TipoEstatistica fromValue(int value) {
 		for (TipoEstatistica b : TipoEstatistica.values()) {
 			if (b.value == value) {

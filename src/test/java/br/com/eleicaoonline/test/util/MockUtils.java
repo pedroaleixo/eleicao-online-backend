@@ -68,6 +68,28 @@ public class MockUtils {
 		return eleitor;
 	}
 	
+	public static EleicaoDTO gerarEleicao(){
+		EleicaoDTO eleicao = new EleicaoDTO();	
+		eleicao.setNome("Eleicao5");
+		eleicao.setInstituicao("Instituicao5");	
+		eleicao.setDataHoraInicio(new Date());
+		eleicao.setDataHoraFim(new Date()); 
+		return eleicao;
+	}
+	
+	public static ConfiguracaoDTO gerarConfiguracao(){
+		ConfiguracaoDTO conf = new ConfiguracaoDTO();		
+		conf.setExibirConsultaEleitoresVotantes(false);
+		conf.setExibirNumerosCandidatos(true);
+		conf.setExistiraTempoSessao(true);
+		conf.setTempoSessao(5);
+		conf.setOrdenarPorNumeros(false);
+		EleicaoDTO eleicao = new EleicaoDTO();	
+		eleicao.setId(1L);
+		conf.setEleicao(eleicao);
+		return conf;
+	}
+	
 	public static List<AdministradorDTO> gerarListaAdministrador(){
 		List<AdministradorDTO> lista = new ArrayList<>();
 		List<PessoaDTO> pessoas = gerarListaPessoa();
@@ -109,17 +131,7 @@ public class MockUtils {
 		return lista;
 	}
 	
-	public static ConfiguracaoDTO gerarConfiguracao(){
-		ConfiguracaoDTO conf = new ConfiguracaoDTO();
-		conf.setId(1L);
-		conf.setExibirConsultaEleitoresVotantes(false);
-		conf.setExibirNumerosCandidatos(true);
-		conf.setExistiraTempaoSessao(true);
-		conf.setTempoSessao(5);
-		conf.setOrdenarPorNumeros(false);
-		conf.setEleicao(gerarEleicao());
-		return conf;
-	}
+
 	
 
 	
@@ -162,10 +174,7 @@ public class MockUtils {
 	}
 	
 	
-	public static EleicaoDTO gerarEleicao(){
-		return gerarListaEleicao().get(0);
-	}
-	
+
 	public static List<EleicaoDTO> gerarListaEleicao(){
 		List<EleicaoDTO> lista = new ArrayList<EleicaoDTO>();
 		EleicaoDTO eleicao1 = new EleicaoDTO();

@@ -11,6 +11,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,7 +23,6 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
@@ -30,6 +31,7 @@ import br.com.eleicaoonline.dto.EleitorDTO;
 import br.com.eleicaoonline.dto.PessoaDTO;
 import br.com.eleicaoonline.service.EleitorService;
 import br.com.eleicaoonline.test.util.MockUtils;
+import br.com.eleicaoonline.test.util.TestMapper;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -46,8 +48,12 @@ public class EleitorIntegrationTest {
 	private ObjectMapper objectMapper;
 	
 	@Autowired
+	private TestMapper testMapper;
+	
+	@Autowired
 	private EleitorService eleitorService;
 
+	@SuppressWarnings("unchecked")
 	@WithMockUser(roles = { ADMINISTRADOR, COMISSAO })
 	@Test
 	public void listarEleitoresTest() throws Exception {
@@ -63,13 +69,15 @@ public class EleitorIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		List<EleitorDTO> eleitores = testMapper.deserializePageToList(actualResult, EleitorDTO.class);
+		if (eleitores == null || eleitores.isEmpty()) {
+			fail("Nenhum registro encontrado");
+		} else if(eleitores.size() > 1) {
+			fail("Mais de um registro encontrado");
+		} else {
+			Long actual = eleitores.get(0).getPessoa().getCpf();
 			Long expected = 43983637779L;
 			assertEquals(expected, actual);
-		} else {
-			fail("Nenhum registro encontrado");
 		}
 	}
 	
@@ -83,9 +91,9 @@ public class EleitorIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		EleitorDTO eleitor = testMapper.deserializeToObject(actualResult, EleitorDTO.class);		
+		if (eleitor != null) {
+			Long actual = eleitor.getPessoa().getCpf();
 			Long expected = 43983637779L;
 			assertEquals(expected, actual);
 		} else {
@@ -104,13 +112,13 @@ public class EleitorIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		EleitorDTO eleitor = testMapper.deserializeToObject(actualResult, EleitorDTO.class);		
+		if (eleitor != null) {
+			Long actual = eleitor.getPessoa().getCpf();
 			Long expected = 37914072877L;
 			assertEquals(expected, actual);
 		} else {
-			fail("Nenhum registro encontrado");
+			fail("Falha no cadastro");
 		}
 	}
 	
@@ -135,13 +143,14 @@ public class EleitorIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		EleitorDTO eleitorAlterado = testMapper.deserializeToObject(actualResult, 
+				EleitorDTO.class);		
+		if (eleitorAlterado != null) {
+			Long actual = eleitorAlterado.getPessoa().getCpf();
 			Long expected = 58658233880L;
 			assertEquals(expected, actual);
 		} else {
-			fail("Nenhum registro encontrado");
+			fail("Falha na atualização");
 		}
 	}
 	

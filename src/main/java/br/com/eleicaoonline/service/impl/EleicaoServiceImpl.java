@@ -136,7 +136,9 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 	@Override
 	public Eleicao cadastrarEleicao(Eleicao eleicao) {
 		log.info("Executando cadastrarEleicao");
-
+		
+		eleicao.setSituacao(SituacaoEleicao.CADASTRADA);
+		
 		validateEntity(eleicao);
 
 		return repository.save(eleicao);
@@ -172,11 +174,12 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 	}
 
 	@Override
-	public Eleicao configurarEleicao(Configuracao configuracao) {
+	public Configuracao configurarEleicao(Configuracao configuracao) {
 		log.info("Executando configurarEleicao");
 
 		Eleicao eleicao = this.buscarEleicaoPeloId(configuracao.getEleicao().getId());
 		eleicao.setConfiguracao(configuracao);
-		return repository.save(eleicao);
+		repository.save(eleicao);
+		return eleicao.getConfiguracao();
 	}
 }

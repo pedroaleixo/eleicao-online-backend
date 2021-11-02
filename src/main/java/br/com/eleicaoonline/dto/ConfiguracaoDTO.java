@@ -23,8 +23,8 @@ public class ConfiguracaoDTO implements Serializable {
 	@JsonProperty("exibirConsultaEleitoresVotantes")
 	private Boolean exibirConsultaEleitoresVotantes = false;
 
-	@JsonProperty("existiraTempaoSessao")
-	private Boolean existiraTempaoSessao = false;
+	@JsonProperty("existiraTempoSessao")
+	private Boolean existiraTempoSessao = false;
 
 	@JsonProperty("tempoSessao")
 	private Integer tempoSessao;

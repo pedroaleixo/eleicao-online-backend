@@ -11,6 +11,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,7 +23,6 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
@@ -31,6 +32,7 @@ import br.com.eleicaoonline.dto.EleicaoDTO;
 import br.com.eleicaoonline.dto.PessoaDTO;
 import br.com.eleicaoonline.service.CandidatoService;
 import br.com.eleicaoonline.test.util.MockUtils;
+import br.com.eleicaoonline.test.util.TestMapper;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -42,13 +44,17 @@ public class CandidatoIntegrationTest {
 
 	@Autowired
 	private MockMvc mockMvc;
-
+	
 	@Autowired
 	private ObjectMapper objectMapper;
 	
 	@Autowired
+	private TestMapper testMapper;
+	
+	@Autowired
 	private CandidatoService candidatoService;
 
+	@SuppressWarnings("unchecked")
 	@WithMockUser(roles = { ADMINISTRADOR, COMISSAO })
 	@Test
 	public void listarCandidatosTest() throws Exception {
@@ -63,17 +69,20 @@ public class CandidatoIntegrationTest {
 						.content(objectMapper.writeValueAsString(filtro)))
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
-
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		
+		
+		List<CandidatoDTO> candidatos = testMapper.deserializePageToList(actualResult, CandidatoDTO.class);
+		
+		if (candidatos == null || candidatos.isEmpty()) {
+			fail("Nenhum registro encontrado");
+		} else if(candidatos.size() > 1) {
+			fail("Mais de um registro encontrado");
+		} else {
+			Long actual = candidatos.get(0).getPessoa().getCpf();
 			Long expected = 43983637779L;
 			assertEquals(expected, actual);
-		} else {
-			fail("Nenhum registro encontrado");
-		}
+		}		
 	}
-	
 	
 	@WithMockUser(roles = { ADMINISTRADOR, COMISSAO })
 	@Test
@@ -84,9 +93,9 @@ public class CandidatoIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		CandidatoDTO candidato = testMapper.deserializeToObject(actualResult, CandidatoDTO.class);		
+		if (candidato != null) {
+			Long actual = candidato.getPessoa().getCpf();
 			Long expected = 43983637779L;
 			assertEquals(expected, actual);
 		} else {
@@ -105,13 +114,13 @@ public class CandidatoIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		CandidatoDTO candidato = testMapper.deserializeToObject(actualResult, CandidatoDTO.class);		
+		if (candidato != null) {
+			Long actual = candidato.getPessoa().getCpf();
 			Long expected = 37914072877L;
 			assertEquals(expected, actual);
 		} else {
-			fail("Nenhum registro encontrado");
+			fail("Falha no cadastro");
 		}
 	}
 	
@@ -139,13 +148,14 @@ public class CandidatoIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		CandidatoDTO candidatoAlterado = testMapper.deserializeToObject(actualResult, 
+				CandidatoDTO.class);		
+		if (candidatoAlterado != null) {
+			Long actual = candidatoAlterado.getPessoa().getCpf();
 			Long expected = 58658233880L;
 			assertEquals(expected, actual);
 		} else {
-			fail("Nenhum registro encontrado");
+			fail("Falha na atualização");
 		}
 	}
 	

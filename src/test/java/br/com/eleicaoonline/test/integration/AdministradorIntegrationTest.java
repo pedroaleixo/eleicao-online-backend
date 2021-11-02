@@ -10,6 +10,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,7 +22,6 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
@@ -28,6 +29,7 @@ import br.com.eleicaoonline.dto.AdministradorDTO;
 import br.com.eleicaoonline.dto.PessoaDTO;
 import br.com.eleicaoonline.service.AdministradorService;
 import br.com.eleicaoonline.test.util.MockUtils;
+import br.com.eleicaoonline.test.util.TestMapper;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -44,8 +46,12 @@ public class AdministradorIntegrationTest {
 	private ObjectMapper objectMapper;
 	
 	@Autowired
+	private TestMapper testMapper;
+	
+	@Autowired
 	private AdministradorService administradorService;
 
+	@SuppressWarnings("unchecked")
 	@WithMockUser(roles = { ADMINISTRADOR })
 	@Test
 	public void listarAdministradoresTest() throws Exception {
@@ -60,13 +66,15 @@ public class AdministradorIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		List<AdministradorDTO> administradores = testMapper.deserializePageToList(actualResult, AdministradorDTO.class);
+		if (administradores == null || administradores.isEmpty()) {
+			fail("Nenhum registro encontrado");
+		} else if(administradores.size() > 1) {
+			fail("Mais de um registro encontrado");
+		} else {
+			Long actual = administradores.get(0).getPessoa().getCpf();
 			Long expected = 43983637779L;
 			assertEquals(expected, actual);
-		} else {
-			fail("Nenhum registro encontrado");
 		}
 	}
 	
@@ -80,9 +88,9 @@ public class AdministradorIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		AdministradorDTO administrador = testMapper.deserializeToObject(actualResult, AdministradorDTO.class);		
+		if (administrador != null) {
+			Long actual = administrador.getPessoa().getCpf();
 			Long expected = 43983637779L;
 			assertEquals(expected, actual);
 		} else {
@@ -101,13 +109,13 @@ public class AdministradorIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		AdministradorDTO administrador = testMapper.deserializeToObject(actualResult, AdministradorDTO.class);		
+		if (administrador != null) {
+			Long actual = administrador.getPessoa().getCpf();
 			Long expected = 37914072877L;
 			assertEquals(expected, actual);
 		} else {
-			fail("Nenhum registro encontrado");
+			fail("Falha no cadastro");
 		}
 	}
 	
@@ -129,13 +137,14 @@ public class AdministradorIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		AdministradorDTO administradorAlterado = testMapper.deserializeToObject(actualResult, 
+				AdministradorDTO.class);		
+		if (administradorAlterado != null) {
+			Long actual = administradorAlterado.getPessoa().getCpf();
 			Long expected = 58658233880L;
 			assertEquals(expected, actual);
 		} else {
-			fail("Nenhum registro encontrado");
+			fail("Falha na atualização");
 		}
 	}
 	

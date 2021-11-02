@@ -17,8 +17,8 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import br.com.eleicaoonline.dto.PessoaDTO;
+import br.com.eleicaoonline.test.util.TestMapper;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -30,9 +30,9 @@ public class PessoaIntegrationTest {
 
 	@Autowired
 	private MockMvc mockMvc;
-
+	
 	@Autowired
-	private ObjectMapper objectMapper;
+	private TestMapper testMapper;
 
 	@WithMockUser(roles = { ADMINISTRADOR, COMISSAO })
 	@Test
@@ -44,13 +44,13 @@ public class PessoaIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		PessoaDTO pessoa = testMapper.deserializeToObject(actualResult, PessoaDTO.class);
+		if (pessoa == null) {
+			fail("Nenhum registro encontrado");
+		} else {
+			Long actual = pessoa.getCpf();
 			Long expected = 43983637779L;
 			assertEquals(expected, actual);
-		} else {
-			fail("Nenhum registro encontrado");
 		}
 	}
 	
@@ -65,13 +65,13 @@ public class PessoaIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		JsonNode node = objectMapper.readTree(actualResult).findValue("cpf");
-		if (node != null) {
-			Long actual = node.asLong();
+		PessoaDTO pessoa = testMapper.deserializeToObject(actualResult, PessoaDTO.class);
+		if (pessoa == null) {
+			fail("Nenhum registro encontrado");
+		} else {
+			Long actual = pessoa.getCpf();
 			Long expected = 43983637779L;
 			assertEquals(expected, actual);
-		} else {
-			fail("Nenhum registro encontrado");
 		}
 	}
 }
