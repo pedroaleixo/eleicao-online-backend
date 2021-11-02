@@ -44,7 +44,7 @@ public class MockUtils {
 	public static VotoDTO gerarVoto(){
 		VotoDTO voto = new VotoDTO();
 		EleicaoDTO eleicao = new EleicaoDTO();
-		eleicao.setId(1L);
+		eleicao.setId(2L);
 		voto.setEleicao(eleicao);
 		voto.setIdEleitor(3L);
 		voto.setVotoCriptografado("JB1o4tBzYmggxWKcFPGwqtZpWh+QQBpYdYbvccdQtDP3SoeFBLNKHqCeOcAHV"

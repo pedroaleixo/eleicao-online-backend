@@ -6,7 +6,7 @@ INSERT INTO administrador (id, id_pessoa) VALUES (administrador_seq.nextval, 1);
 INSERT INTO administrador (id, id_pessoa) VALUES (administrador_seq.nextval, 2);
 
 INSERT INTO eleicao (nome, instituicao, data_hora_inicio, data_hora_fim, situacao, id) VALUES ('Eleicao1', 'Instituicao1', '2021-10-13 21:31:44.942', '2021-10-14 21:31:44.942', 0, eleicao_seq.nextval);
-INSERT INTO eleicao (nome, instituicao, data_hora_inicio, data_hora_fim, situacao, id) VALUES ('Eleicao2', 'Instituicao2', '2021-10-14 21:31:44.942', '2021-10-15 21:31:44.942', 2, eleicao_seq.nextval);
+INSERT INTO eleicao (nome, instituicao, data_hora_inicio, data_hora_fim, situacao, id) VALUES ('Eleicao2', 'Instituicao2', '2021-10-14 21:31:44.942', '2021-10-15 21:31:44.942', 1, eleicao_seq.nextval);
 INSERT INTO eleicao (nome, instituicao, data_hora_inicio, data_hora_fim, situacao, id) VALUES ('Eleicao3', 'Instituicao3', '2021-10-15 21:31:44.942', '2021-10-16 21:31:44.942', 0, eleicao_seq.nextval);
 INSERT INTO eleicao (nome, instituicao, data_hora_inicio, data_hora_fim, situacao, id) VALUES ('Eleicao4', 'Instituicao4', '2021-10-16 21:31:44.942', '2021-10-17 21:31:44.942', 5, eleicao_seq.nextval);
 
