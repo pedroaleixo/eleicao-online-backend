@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import br.com.eleicaoonline.domain.Candidato;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.Eleitor;
+import br.com.eleicaoonline.domain.Voto;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import br.com.eleicaoonline.exception.BusinessException;
 import br.com.eleicaoonline.exception.SystemException;
@@ -34,6 +35,8 @@ public class EleicaoNaoIniciadaValidation implements Validation<Object> {
 				eleicao = ((Candidato) obj).getEleicao();
 			} else if (obj instanceof Eleitor) {
 				eleicao = ((Eleitor) obj).getEleicao();
+			} else if (obj instanceof Voto) {
+				eleicao = ((Voto) obj).getEleicao();
 			}
 			Optional<Eleicao> optEleicao = repository.findById(eleicao.getId());
 			if (optEleicao.isPresent() && !optEleicao.get().getSituacao().equals(SituacaoEleicao.INICIADA)) {

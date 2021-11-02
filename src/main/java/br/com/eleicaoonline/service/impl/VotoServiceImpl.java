@@ -33,14 +33,17 @@ public class VotoServiceImpl extends BaseService implements VotoService {
 	@Override
 	public void cadastrarVoto(Voto voto, Long idEleitor) {
 		log.info("Executando cadastrarVoto");
+		
+		validateEntity(voto);
+		
+		validateBusiness(voto, Arrays.asList(eleicaoNaoIniciadaValidation));
+		
 		repository.save(voto);	
 		
 		Optional<Eleitor> optEleitor = eleitorRepository.findById(idEleitor);
 		if(optEleitor.isPresent()) {
 			Eleitor eleitor = optEleitor.get();
 			eleitor.setDataHoraVotou(Calendar.getInstance().getTime());
-			
-			validateBusiness(eleitor, Arrays.asList(eleicaoNaoIniciadaValidation));
 			eleitorRepository.save(eleitor);
 		}
 			
