@@ -74,11 +74,10 @@ public class EleicaoServiceImpl extends BaseService implements EleicaoService {
 	
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
-	public Pessoa buscarMembroComissaoEleitoralPeloEmail(String email) {		
+	public List<Pessoa> buscarMembroComissaoEleitoralPeloEmail(String email) {		
 		log.info("Executando buscarMembroComissaoPeloEmail");
-		
-		Pessoa membroComissaoEleitoral = repository.findMembroComissaoEleitoralByEmail(email);		
-		return membroComissaoEleitoral;
+			
+		return repository.findMembroComissaoEleitoralByEmail(email);
 	}
 	
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)

@@ -34,7 +34,7 @@ public interface EleicaoService {
 	
 	public List<Eleicao> buscarPorSituacao(SituacaoEleicao situacao);
 	
-	public Pessoa buscarMembroComissaoEleitoralPeloEmail(String email);
+	public List<Pessoa> buscarMembroComissaoEleitoralPeloEmail(String email);
 
 	public Eleicao cadastrarEleicao(Eleicao Eleicao);
 

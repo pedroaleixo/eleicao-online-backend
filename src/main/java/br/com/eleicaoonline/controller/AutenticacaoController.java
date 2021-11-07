@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.eleicaoonline.constants.Perfis;
 import br.com.eleicaoonline.domain.Administrador;
+import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.domain.Pessoa;
 import br.com.eleicaoonline.exception.response.ExceptionResponse;
@@ -64,7 +65,8 @@ public class AutenticacaoController {
 		String email = authentication.getPrincipal().getAttribute("email").toString();
 		String nome = authentication.getPrincipal().getAttribute("name").toString();
 		
-		List<GrantedAuthority> authorithies = new ArrayList<>();		
+		List<GrantedAuthority> authorithies = new ArrayList<>();	
+		List<Eleicao> eleicoesAssociadas = new ArrayList<Eleicao>();
 		Pessoa pessoa = null;
 		Administrador admin = administradorService.buscarAdministradorPeloEmail(email);
 		if(admin != null) {
@@ -72,19 +74,21 @@ public class AutenticacaoController {
 			authorithies.add(new SimpleGrantedAuthority(Perfis.ADMINISTRADOR));
 		}
 		
-		Pessoa membro = eleicaoService.buscarMembroComissaoEleitoralPeloEmail(email);
-		if(membro != null) {		
-			pessoa = membro;
+		List<Pessoa> membros = eleicaoService.buscarMembroComissaoEleitoralPeloEmail(email);
+		if(membros != null) {
 			authorithies.add(new SimpleGrantedAuthority(Perfis.COMISSAO));
 		}
 		
-		Eleitor eleitor = eleitorService.buscarEleitorPeloEmail(email);
-		if(eleitor != null) {		
-			pessoa = eleitor.getPessoa();
+		List<Eleitor> eleitores = eleitorService.buscarEleitorPeloEmail(email);
+		if (eleitores != null) {
+			for (Eleitor eleitor : eleitores) {
+				pessoa = eleitor.getPessoa();
+				eleicoesAssociadas.add(eleitor.getEleicao());
+			}
 			authorithies.add(new SimpleGrantedAuthority(Perfis.ELEITOR));
-		}		
+		}	
 		
-		String token = jwtTokenUtil.generateToken(new User(nome, "", authorithies), pessoa.getId());
+		String token = jwtTokenUtil.generateToken(new User(nome, "", authorithies), pessoa, eleicoesAssociadas);
 		
 		return new ModelAndView("redirect:" + loginRedirectionUrl+"?token="+token);
 	}	

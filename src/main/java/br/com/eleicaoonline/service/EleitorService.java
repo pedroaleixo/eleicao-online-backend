@@ -1,5 +1,7 @@
 package br.com.eleicaoonline.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -14,7 +16,7 @@ public interface EleitorService {
 	
 	public Eleitor buscarEleitorPeloId(Long id);
 	
-	public Eleitor buscarEleitorPeloEmail(String email);
+	public List<Eleitor> buscarEleitorPeloEmail(String email);
 	
 	public Eleitor cadastrarEleitor(Eleitor Eleitor);
 	

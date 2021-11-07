@@ -1,5 +1,7 @@
 package br.com.eleicaoonline.repository;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -35,7 +37,7 @@ public interface EleitorRepository extends PagingAndSortingRepository<Eleitor, L
 	
 	
 	@Query("select e from Eleitor e where e.pessoa.email = :email")
-	Eleitor findEleitorByEmail(@Param("email") String email);
+	List<Eleitor> findEleitorByEmail(@Param("email") String email);
 	
 	
 }

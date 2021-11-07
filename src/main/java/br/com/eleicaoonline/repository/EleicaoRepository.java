@@ -30,7 +30,7 @@ public interface EleicaoRepository extends PagingAndSortingRepository<Eleicao, L
 	
 	
 	@Query("select membro from Eleicao e join e.comissaoEleitoral.membros membro where membro.email = :email")
-	Pessoa findMembroComissaoEleitoralByEmail(@Param("email") String email);
+	List<Pessoa> findMembroComissaoEleitoralByEmail(@Param("email") String email);
 	
 	@Query("select e from Eleicao e join e.eleitores eleitor where eleitor.pessoa.id = :idPessoa")
 	List<Eleicao> findByPessoaEleitor(@Param("idPessoa") Long idPessoa);

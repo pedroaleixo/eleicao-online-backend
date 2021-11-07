@@ -1,6 +1,7 @@
 package br.com.eleicaoonline.service.impl;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +69,7 @@ public class EleitorServiceImpl extends BaseService implements EleitorService {
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
-	public Eleitor buscarEleitorPeloEmail(String email) {
+	public List<Eleitor> buscarEleitorPeloEmail(String email) {
 		log.info("Executando buscarEleitorPeloEmail");
 
 		return repository.findEleitorByEmail(email);

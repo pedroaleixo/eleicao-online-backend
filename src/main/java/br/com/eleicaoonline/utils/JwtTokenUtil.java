@@ -15,6 +15,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import br.com.eleicaoonline.domain.Eleicao;
+import br.com.eleicaoonline.domain.Pessoa;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -24,8 +26,9 @@ public class JwtTokenUtil implements Serializable {
 	
 	private static final String PERFIS = "perfis";
 	private static final String PESSOA = "pessoa";
+	private static final String ELEICOES = "eleicoes";
 	private static final long serialVersionUID = -2550185165626007488L;
-	public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+	public static final long JWT_TOKEN_VALIDITY = 15 * 60;
 
 	@Value("${jwt.secret}")
 	private String secret;
@@ -74,13 +77,20 @@ public class JwtTokenUtil implements Serializable {
 		return doGenerateToken(claims, userDetails.getUsername());
 	}
 	
-	public String generateToken(UserDetails userDetails, Long idPessoa) {
+	public String generateToken(UserDetails userDetails, Pessoa pessoa, List<Eleicao> eleicoes) {
 		Map<String, Object> claims = new HashMap<>();		
-		final String authorities = userDetails.getAuthorities().stream()
+		final List<String> authorities = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.joining(","));		
+                .collect(Collectors.toList());		
+		
+		List<Long> idEleicoes = new ArrayList<Long>();
+		if(eleicoes != null && !eleicoes.isEmpty()) {
+			idEleicoes = eleicoes.stream().map(Eleicao::getId).collect(Collectors.toList());
+		}		
+		
 		claims.put(PERFIS, authorities);	
-		claims.put(PESSOA, idPessoa);
+		claims.put(PESSOA, pessoa.getId());
+		claims.put(ELEICOES, idEleicoes);
 		return doGenerateToken(claims, userDetails.getUsername());
 	}
 	
