@@ -24,6 +24,7 @@ import br.com.eleicaoonline.exception.response.ExceptionResponse;
 import br.com.eleicaoonline.service.AdministradorService;
 import br.com.eleicaoonline.service.EleicaoService;
 import br.com.eleicaoonline.service.EleitorService;
+import br.com.eleicaoonline.service.PessoaService;
 import br.com.eleicaoonline.utils.JwtTokenUtil;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
@@ -43,6 +44,9 @@ public class AutenticacaoController {
 	
 	@Autowired
 	private AdministradorService administradorService;
+	
+	@Autowired
+	private PessoaService pessoaService;
 	
 	@Autowired
 	private EleicaoService eleicaoService;
@@ -68,29 +72,42 @@ public class AutenticacaoController {
 		List<GrantedAuthority> authorithies = new ArrayList<>();	
 		List<Eleicao> eleicoesAssociadas = new ArrayList<Eleicao>();
 		Pessoa pessoa = null;
+		
 		Administrador admin = administradorService.buscarAdministradorPeloEmail(email);
 		if(admin != null) {
 			pessoa = admin.getPessoa();
 			authorithies.add(new SimpleGrantedAuthority(Perfis.ADMINISTRADOR));
 		}
 		
-		List<Pessoa> membros = eleicaoService.buscarMembroComissaoEleitoralPeloEmail(email);
-		if(membros != null) {
+		Pessoa membro = eleicaoService.buscarMembroComissaoEleitoralPeloEmail(email);
+		if(membro != null) {
+			pessoa = membro;
 			authorithies.add(new SimpleGrantedAuthority(Perfis.COMISSAO));
 		}
 		
 		List<Eleitor> eleitores = eleitorService.buscarEleitorPeloEmail(email);
-		if (eleitores != null) {
+		if (eleitores != null && !eleitores.isEmpty()) {
 			for (Eleitor eleitor : eleitores) {
 				pessoa = eleitor.getPessoa();
 				eleicoesAssociadas.add(eleitor.getEleicao());
 			}
-			authorithies.add(new SimpleGrantedAuthority(Perfis.ELEITOR));
+			authorithies.add(new SimpleGrantedAuthority(Perfis.ELEITOR));			
 		}	
 		
-		String token = jwtTokenUtil.generateToken(new User(nome, "", authorithies), pessoa, eleicoesAssociadas);
+		String token = "";
+		if(authorithies.isEmpty()) {
+			pessoa = pessoaService.buscarPessoaPeloEmail(email);
+			if(pessoa != null) {
+				authorithies.add(new SimpleGrantedAuthority(Perfis.PESSOA));
+			}
+		} else {
+			token = "?token="+jwtTokenUtil.generateToken(new User(nome, "", authorithies), pessoa, eleicoesAssociadas);
+		}
 		
-		return new ModelAndView("redirect:" + loginRedirectionUrl+"?token="+token);
+		
+		
+		
+		return new ModelAndView("redirect:" + loginRedirectionUrl+token);
 	}	
 
 }
