@@ -14,6 +14,7 @@ import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.domain.Pessoa;
 import br.com.eleicaoonline.repository.PessoaRepository;
 import br.com.eleicaoonline.service.PessoaService;
+import br.com.eleicaoonline.service.validation.CPFCadastradoValidation;
 import lombok.extern.java.Log;
 
 @Log
@@ -23,6 +24,9 @@ public class PessoaServiceImpl extends BaseService implements PessoaService {
 
 	@Autowired
 	private PessoaRepository repository;
+	
+	@Autowired
+	private CPFCadastradoValidation cpfCadastradoValidation;
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	@Override
@@ -38,7 +42,8 @@ public class PessoaServiceImpl extends BaseService implements PessoaService {
 		
 		validateEntity(pessoa);
 
-		validateBusiness(pessoa, Arrays.asList(cpfInvalidoReceitaValidation, cpfNaoCadastradoValidation));
+		validateBusiness(pessoa, Arrays.asList(cpfInvalidoReceitaValidation, 
+				cpfCadastradoValidation, emailCadastradoValidation));
 
 		return repository.save(pessoa);
 	}

@@ -70,7 +70,6 @@ public class PessoaController {
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO, Perfis.PESSOA})
 	@PostMapping
 	public PessoaDTO cadastrarPessoa(@RequestBody PessoaDTO pessoa) {
 		return mapper.mapTo(service.cadastrarPessoa(mapper.mapTo(pessoa, Pessoa.class)), PessoaDTO.class);

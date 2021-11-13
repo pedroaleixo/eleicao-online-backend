@@ -37,7 +37,6 @@ public class Pessoa {
 	private String nome;
 
 	@NotNull
-	@Size(max = 11)
 	@Column(name = "cpf")
 	private Long cpf;
 

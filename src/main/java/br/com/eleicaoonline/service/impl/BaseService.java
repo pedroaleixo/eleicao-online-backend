@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import br.com.eleicaoonline.service.validation.CPFInvalidoReceitaValidation;
 import br.com.eleicaoonline.service.validation.CPFNaoCadastradoValidation;
 import br.com.eleicaoonline.service.validation.EleicaoNaoCadastradaValidation;
+import br.com.eleicaoonline.service.validation.EmailCadastradoValidation;
 import br.com.eleicaoonline.service.validation.EntidadeNaoExistenteValidation;
 import br.com.eleicaoonline.service.validation.Validation;
 
@@ -33,6 +34,9 @@ public class BaseService {
 	
 	@Autowired
 	protected EleicaoNaoCadastradaValidation eleicaoIniciadaFinalizadaValidation;
+	
+	@Autowired
+	protected EmailCadastradoValidation emailCadastradoValidation;
 	
 	
 	protected <T> void validate(T entity, List<? extends Validation<T>> validations) {		
