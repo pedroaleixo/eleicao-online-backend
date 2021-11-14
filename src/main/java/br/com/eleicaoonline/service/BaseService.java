@@ -1,4 +1,4 @@
-package br.com.eleicaoonline.service.impl;
+package br.com.eleicaoonline.service;
 
 import java.util.List;
 import java.util.Set;

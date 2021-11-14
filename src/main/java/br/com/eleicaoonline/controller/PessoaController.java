@@ -1,6 +1,8 @@
 package br.com.eleicaoonline.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,7 @@ import br.com.eleicaoonline.domain.Pessoa;
 import br.com.eleicaoonline.dto.EleitorDTO;
 import br.com.eleicaoonline.dto.PessoaDTO;
 import br.com.eleicaoonline.exception.response.ExceptionResponse;
+import br.com.eleicaoonline.service.AutenticacaoService;
 import br.com.eleicaoonline.service.PessoaService;
 import br.com.eleicaoonline.utils.MapperUtil;
 import io.swagger.annotations.Api;
@@ -34,6 +37,13 @@ public class PessoaController {
 	
 	@Autowired
 	private PessoaService service;
+	
+	@Autowired
+	private AutenticacaoService	autenticacaoService;
+	
+	@Value("${login.redirection.url}")
+	private String loginRedirectionUrl;		
+
 	
 	
 	@Operation(summary = "Busca pessoa pelo cpf")
@@ -70,9 +80,37 @@ public class PessoaController {
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO, Perfis.ELEITOR})
 	@PostMapping
 	public PessoaDTO cadastrarPessoa(@RequestBody PessoaDTO pessoa) {
 		return mapper.mapTo(service.cadastrarPessoa(mapper.mapTo(pessoa, Pessoa.class)), PessoaDTO.class);
 	}
+	
+	
+	@Operation(summary = "Cadastra uma nova pessoa")
+	@ApiResponses(value = { 
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = PessoaDTO.class))),	       
+	        @ApiResponse(responseCode = "400", description = "Entrada inválida", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@PostMapping("/publico")
+	public PessoaDTO cadastrarPessoaPublico(@RequestBody PessoaDTO pessoa) {
+		return mapper.mapTo(service.cadastrarPessoa(mapper.mapTo(pessoa, Pessoa.class)), PessoaDTO.class);
+	}
+	
+	@Operation(summary = "Gera token da pessoa")
+	@ApiResponses(value = { 
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = PessoaDTO.class))),	       
+	        @ApiResponse(responseCode = "400", description = "Entrada inválida", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@GetMapping(value = "/token/{id}", produces = MediaType.TEXT_PLAIN_VALUE)
+	public String gerarTokenPessoa(@PathVariable("id") Long id) {
+		Pessoa pessoa = service.buscarPessoaPeloId(id);			
+		return autenticacaoService.gerarToken(pessoa.getEmail(), pessoa.getNome(), false);		
+	}
+
 
 }

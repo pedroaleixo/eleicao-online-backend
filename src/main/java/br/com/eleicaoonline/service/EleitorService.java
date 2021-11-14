@@ -1,31 +1,100 @@
 package br.com.eleicaoonline.service;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.controller.filtro.FiltroVotantes;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.Eleitor;
+import br.com.eleicaoonline.repository.EleitorRepository;
+import br.com.eleicaoonline.service.EleitorService;
+import lombok.extern.java.Log;
 
-public interface EleitorService {
-	
-	public Page<Eleitor> listarEleitores(FiltroPessoa filtro, Pageable pageable);
-	
-	public Eleitor buscarEleitorPeloId(Long id);
-	
-	public List<Eleitor> buscarEleitorPeloEmail(String email);
-	
-	public Eleitor cadastrarEleitor(Eleitor Eleitor);
-	
-	public Eleitor atualizarEleitor(Eleitor Eleitor);
-	
-	public void removerEleitor(Long id);
-	
-	public Page<Eleitor> listarEleitoresVotantes(FiltroVotantes filtro, Pageable pageable);
-	
-	public Page<Eleicao> listarEleicoesDisponiveis(Long cpf, Pageable pageable);
+@Log
+@Transactional(rollbackFor = { Exception.class })
+@Service
+public class EleitorService extends BaseService {
 
+	@Autowired
+	private EleitorRepository repository;
+
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	public Page<Eleitor> listarEleitores(FiltroPessoa filtro, Pageable pageable) {
+		log.info("Executando listarEleitores");
+
+		return repository.filtrar(filtro, pageable);
+	}
+
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	public Page<Eleitor> listarEleitoresVotantes(FiltroVotantes filtro, Pageable pageable) {
+		log.info("Executando listarEleitoresVotantes");
+
+		return repository.filtrarEleitoresVotantes(filtro, pageable);
+	}
+
+	public Eleitor cadastrarEleitor(Eleitor eleitor) {
+		log.info("Executando cadastrarEleitor");
+
+		validateEntity(eleitor);
+
+		validateBusiness(eleitor, Arrays.asList(eleicaoIniciadaFinalizadaValidation, cpfNaoCadastradoValidation,
+				cpfInvalidoReceitaValidation));
+
+		return repository.save(eleitor);
+	}
+
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	public Eleitor buscarEleitorPeloId(Long id) {
+		log.info("Executando buscarEleitorPeloId");
+
+		Optional<Eleitor> optAdmin = repository.findById(id);
+		if (optAdmin.isPresent()) {
+			return optAdmin.get();
+		}
+		return null;
+	}
+
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	public List<Eleitor> buscarEleitorPeloEmail(String email) {
+		log.info("Executando buscarEleitorPeloEmail");
+
+		return repository.findEleitorByEmail(email);
+	}
+
+	public Eleitor atualizarEleitor(Eleitor eleitor) {
+		log.info("Executando atualizarEleitor");
+
+		validateEntity(eleitor);
+
+		validateBusiness(eleitor, Arrays.asList(entidadeNaoExistenteValidation, eleicaoIniciadaFinalizadaValidation,
+				cpfNaoCadastradoValidation, cpfInvalidoReceitaValidation));
+
+		return repository.save(eleitor);
+	}
+
+	public void removerEleitor(Long id) {
+		log.info("Executando removerEleitor");
+
+		Eleitor Eleitor = this.buscarEleitorPeloId(id);
+
+		validateBusiness(Eleitor, Arrays.asList(entidadeNaoExistenteValidation, eleicaoIniciadaFinalizadaValidation));
+
+		repository.deleteById(id);
+	}
+
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	public Page<Eleicao> listarEleicoesDisponiveis(Long id, Pageable pageable) {
+		log.info("Executando listarEleicoesDisponiveis");
+
+		return repository.listarEleicoesDisponiveis(id, pageable);
+	}
 }

@@ -1,13 +1,7 @@
 package br.com.eleicaoonline.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,17 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.eleicaoonline.constants.Perfis;
-import br.com.eleicaoonline.domain.Administrador;
-import br.com.eleicaoonline.domain.Eleicao;
-import br.com.eleicaoonline.domain.Eleitor;
-import br.com.eleicaoonline.domain.Pessoa;
 import br.com.eleicaoonline.exception.response.ExceptionResponse;
-import br.com.eleicaoonline.service.AdministradorService;
-import br.com.eleicaoonline.service.EleicaoService;
-import br.com.eleicaoonline.service.EleitorService;
-import br.com.eleicaoonline.service.PessoaService;
-import br.com.eleicaoonline.utils.JwtTokenUtil;
+import br.com.eleicaoonline.service.AutenticacaoService;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -40,19 +25,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 public class AutenticacaoController {
 	
 	@Autowired
-	private JwtTokenUtil jwtTokenUtil;
-	
-	@Autowired
-	private AdministradorService administradorService;
-	
-	@Autowired
-	private PessoaService pessoaService;
-	
-	@Autowired
-	private EleicaoService eleicaoService;
-	
-	@Autowired
-	private EleitorService eleitorService;	
+	private AutenticacaoService	autenticacaoService;
 	
 	@Value("${login.redirection.url}")
 	private String loginRedirectionUrl;		
@@ -69,43 +42,7 @@ public class AutenticacaoController {
 		String email = authentication.getPrincipal().getAttribute("email").toString();
 		String nome = authentication.getPrincipal().getAttribute("name").toString();
 		
-		List<GrantedAuthority> authorithies = new ArrayList<>();	
-		List<Eleicao> eleicoesAssociadas = new ArrayList<Eleicao>();
-		Pessoa pessoa = null;
-		
-		Administrador admin = administradorService.buscarAdministradorPeloEmail(email);
-		if(admin != null) {
-			pessoa = admin.getPessoa();
-			authorithies.add(new SimpleGrantedAuthority(Perfis.ADMINISTRADOR));
-		}
-		
-		Pessoa membro = eleicaoService.buscarMembroComissaoEleitoralPeloEmail(email);
-		if(membro != null) {
-			pessoa = membro;
-			authorithies.add(new SimpleGrantedAuthority(Perfis.COMISSAO));
-		}
-		
-		List<Eleitor> eleitores = eleitorService.buscarEleitorPeloEmail(email);
-		if (eleitores != null && !eleitores.isEmpty()) {
-			for (Eleitor eleitor : eleitores) {
-				pessoa = eleitor.getPessoa();
-				eleicoesAssociadas.add(eleitor.getEleicao());
-			}
-			authorithies.add(new SimpleGrantedAuthority(Perfis.ELEITOR));			
-		}	
-		
-		String token = "";
-		if(authorithies.isEmpty()) {
-			pessoa = pessoaService.buscarPessoaPeloEmail(email);
-			if(pessoa != null) {
-				authorithies.add(new SimpleGrantedAuthority(Perfis.PESSOA));
-			}
-		} else {
-			token = "?token="+jwtTokenUtil.generateToken(new User(nome, "", authorithies), pessoa, eleicoesAssociadas);
-		}
-		
-		
-		
+		String token = autenticacaoService.gerarToken(email, nome, true);			
 		
 		return new ModelAndView("redirect:" + loginRedirectionUrl+token);
 	}	

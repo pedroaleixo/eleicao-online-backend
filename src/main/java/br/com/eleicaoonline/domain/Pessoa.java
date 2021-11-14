@@ -45,7 +45,6 @@ public class Pessoa {
 	@Column(name = "data_nascimento")
 	private Date dataNascimento;
 
-	@NotNull
 	@Convert(converter = GeneroConverter.class)
 	@Column(name = "genero")
 	private Genero genero;
