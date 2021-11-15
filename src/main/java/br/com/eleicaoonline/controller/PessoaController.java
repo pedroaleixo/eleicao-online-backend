@@ -94,23 +94,10 @@ public class PessoaController {
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@PostMapping("/publico")
-	public PessoaDTO cadastrarPessoaPublico(@RequestBody PessoaDTO pessoa) {
-		return mapper.mapTo(service.cadastrarPessoa(mapper.mapTo(pessoa, Pessoa.class)), PessoaDTO.class);
+	@PostMapping(value = "/publico", produces = MediaType.TEXT_PLAIN_VALUE)
+	public String cadastrarPessoaPublico(@RequestBody PessoaDTO pessoa) {
+		Pessoa pessoaCadastrada = service.cadastrarPessoa(mapper.mapTo(pessoa, Pessoa.class));
+		return autenticacaoService.gerarToken(pessoaCadastrada.getEmail(), pessoaCadastrada.getNome(), false);	
 	}
-	
-	@Operation(summary = "Gera token da pessoa")
-	@ApiResponses(value = { 
-	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = PessoaDTO.class))),	       
-	        @ApiResponse(responseCode = "400", description = "Entrada inválida", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
-	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
-	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
-	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@GetMapping(value = "/token/{id}", produces = MediaType.TEXT_PLAIN_VALUE)
-	public String gerarTokenPessoa(@PathVariable("id") Long id) {
-		Pessoa pessoa = service.buscarPessoaPeloId(id);			
-		return autenticacaoService.gerarToken(pessoa.getEmail(), pessoa.getNome(), false);		
-	}
-
 
 }

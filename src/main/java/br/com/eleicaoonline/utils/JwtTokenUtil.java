@@ -2,7 +2,6 @@ package br.com.eleicaoonline.utils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -48,10 +47,11 @@ public class JwtTokenUtil implements Serializable {
 		return claimsResolver.apply(claims);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<String> getPerfisFromToken(String token) {
 		if(token != null) {
-			String stringPerfis = getAllClaimsFromToken(token).get("perfis").toString();	
-			return Arrays.asList(stringPerfis.split(","));
+			List<String> stringPerfis = (List<String>) getAllClaimsFromToken(token).get("perfis");	
+			return stringPerfis;
 		}
 		
 		return new ArrayList<String>();

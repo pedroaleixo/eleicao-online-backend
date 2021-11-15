@@ -17,5 +17,8 @@ public class CargoDTO implements Serializable {
 	@JsonProperty("nome")
 	private String nome = null;
 	
+	@JsonProperty("votosBrancos")
+	private String votosBrancos = null;
+	
 
 }
