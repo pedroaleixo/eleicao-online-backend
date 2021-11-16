@@ -114,10 +114,10 @@ public class EleicaoService extends BaseService {
 	}
 	
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
-	public List<Eleicao> listarEleicoesPorPessoaEleitor(Long idPessoa) {
+	public Page<Eleicao> listarEleicoesPorPessoaEleitor(Long idPessoa, Pageable pageable) {
 		log.info("Executando listarEleicoesPorPessoaEleitor");
 		
-		return repository.findByPessoaEleitor(idPessoa);
+		return repository.findByPessoaEleitor(idPessoa, pageable);
 	}
 	
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)

@@ -126,8 +126,8 @@ public class EleicaoController {
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
 	@Secured({Perfis.ELEITOR, Perfis.PESSOA})
 	@GetMapping("/eleitor/{idPessoa}")
-	public List<EleicaoDTO> listarEleicoesPorPessoaEleitor(@PathVariable("idPessoa") Long idPessoa){
-		return mapper.toList(service.listarEleicoesPorPessoaEleitor(idPessoa), EleicaoDTO.class);
+	public Page<EleicaoDTO> listarEleicoesPorPessoaEleitor(@PathVariable("idPessoa") Long idPessoa, Pageable pageable){
+		return mapper.toPage(service.listarEleicoesPorPessoaEleitor(idPessoa, pageable), EleicaoDTO.class);
 	}
 
 	@Operation(summary = "Lista as eleições associadas ao membro da comissão")
