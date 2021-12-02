@@ -36,6 +36,19 @@ public class CryptoUtil {
 		}
 
 	}
+	
+	public static String getPublicKeyAsString() {
+		byte[] keyBytes;
+		try {
+			keyBytes = Files.readAllBytes(Paths.get("public_key.der"));
+			X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
+			KeyFactory kf = KeyFactory.getInstance("RSA");
+			return Base64.getEncoder().encodeToString(kf.generatePublic(spec).getEncoded());
+		} catch (IOException | NoSuchAlgorithmException | InvalidKeySpecException e) {
+			throw new SystemException(e);
+		}
+
+	}
 
 	public static Key getPrivateKey() {
 		try {

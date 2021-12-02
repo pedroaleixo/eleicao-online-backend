@@ -168,7 +168,7 @@ public class EleicaoIntegrationTest {
 				.andExpect(status().isOk())
 				.andReturn().getResponse().getContentAsString();
 
-		List<EleitorDTO> eleitores = testMapper.deserializeToList(actualResult, EleitorDTO.class);
+		List<EleitorDTO> eleitores = testMapper.deserializePageToList(actualResult, EleitorDTO.class);
 		if (eleitores == null || eleitores.isEmpty()) {
 			fail("Nenhum registro encontrado");
 		} else if(eleitores.size() != 2 ) {

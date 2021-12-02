@@ -12,8 +12,8 @@ INSERT INTO eleicao (nome, instituicao, data_hora_inicio, data_hora_fim, situaca
 
 INSERT INTO configuracao (id, id_eleicao, exibir_numeros_candidatos, exibir_consulta_eleitores_votantes, ordernar_por_numeros, existira_tempo_sessao, tempo_sessao) VALUES (configuracao_seq.nextval, 3, true, false, true, true, 13);
 
-INSERT INTO cargo (id, nome, id_eleicao, votos_brancos) VALUES (cargo_seq.nextval, 'Presidente', 3, 0);
-INSERT INTO cargo (id, nome, id_eleicao, votos_brancos) VALUES (cargo_seq.nextval, 'Conselheiro',3, 0);
+INSERT INTO cargo (id, nome, id_eleicao, votos_brancos, escolhas) VALUES (cargo_seq.nextval, 'Presidente', 3, 0, 1);
+INSERT INTO cargo (id, nome, id_eleicao, votos_brancos, escolhas) VALUES (cargo_seq.nextval, 'Conselheiro',3, 0, 5);
 
 INSERT INTO comissao_eleitoral (id, id_eleicao) VALUES (comissao_eleitoral_seq.nextval, 3);
 

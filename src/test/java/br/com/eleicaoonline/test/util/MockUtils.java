@@ -46,7 +46,7 @@ public class MockUtils {
 		EleicaoDTO eleicao = new EleicaoDTO();
 		eleicao.setId(2L);
 		voto.setEleicao(eleicao);
-		voto.setIdEleitor(3L);
+		voto.setIdPessoa(3L);
 		voto.setVotoCriptografado("JB1o4tBzYmggxWKcFPGwqtZpWh+QQBpYdYbvccdQtDP3SoeFBLNKHqCeOcAHV"
 				+ "mXRgKCZyKQ9Y7f25vRfS9L9Y29yAPMaVkBjLD5Ie41errQTc+a4+homxQAqpbIoYoXX75MZsxi4Ar"
 				+ "rrpTsLsdkrW2sUVn1Ao1bo6zJ7204I+zlcSsUv8qPe/C0vYVyXNabzJ6DECTEtz6ngAeksjw8G7yGq"

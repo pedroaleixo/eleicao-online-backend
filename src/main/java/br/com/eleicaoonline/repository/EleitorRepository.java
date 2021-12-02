@@ -39,5 +39,8 @@ public interface EleitorRepository extends PagingAndSortingRepository<Eleitor, L
 	@Query("select e from Eleitor e where e.pessoa.email = :email")
 	List<Eleitor> findEleitorByEmail(@Param("email") String email);
 	
+	@Query("select e from Eleitor e where e.pessoa.id = :id and e.eleicao.id = :idEleicao")
+	Eleitor findEleitorByPessoaId(@Param("id") Long id, @Param("idEleicao") Long idEleicao);
+	
 	
 }

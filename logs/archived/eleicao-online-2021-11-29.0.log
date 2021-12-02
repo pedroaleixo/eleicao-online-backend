@@ -1,0 +1,44 @@
+2021-11-29 00:00:00,004 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de finalizar eleições processadas
+2021-11-29 00:00:00,073 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-11-29 00:00:00,083 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-11-29 00:00:00,083 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-11-29 00:00:00,089 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-11-29 00:00:00,090 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-11-29 00:00:00,131 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-11-29 00:00:00,132 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-11-29 00:00:00,781 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-1] Executando listarEleicoesPorPessoaEleitor
+2021-11-29 00:01:00,002 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-11-29 00:01:00,003 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-11-29 00:01:00,009 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-11-29 00:01:00,010 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-11-29 00:01:00,018 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-11-29 00:01:00,018 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-11-29 00:01:59,860 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-6] Executando listarEleicoesPorPessoaEleitor
+2021-11-29 00:02:00,001 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-11-29 00:02:00,001 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-11-29 00:02:00,050 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-11-29 00:02:00,050 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-11-29 00:02:00,055 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-11-29 00:02:00,055 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-11-29 00:02:07,350 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-7] Executando buscarEleicaoPeloId
+2021-11-29 00:02:07,478 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-8] Executando listarEleicoesPorPessoaEleitor
+2021-11-29 00:02:07,576 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-7] Executando listarCandidatosEleicao
+2021-11-29 00:02:24,573 INFO br.com.eleicaoonline.service.VotoService [https-jsse-nio-8443-exec-3] Executando cadastrarVoto
+2021-11-29 00:02:24,915 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-5] Executando listarEleicoesPorPessoaEleitor
+2021-11-29 00:02:38,757 WARN br.com.eleicaoonline.filter.JwtRequestFilter [https-jsse-nio-8443-exec-1] Requisição não possui string bearer
+2021-11-29 00:02:38,763 INFO br.com.eleicaoonline.service.AutenticacaoService [https-jsse-nio-8443-exec-1] Executando gerarToken
+2021-11-29 00:02:38,765 INFO br.com.eleicaoonline.service.AdministradorService [https-jsse-nio-8443-exec-1] Executando buscarAdministradorPeloEmail
+2021-11-29 00:02:38,780 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-1] Executando buscarMembroComissaoPeloEmail
+2021-11-29 00:02:38,785 INFO br.com.eleicaoonline.service.EleitorService [https-jsse-nio-8443-exec-1] Executando buscarEleitorPeloEmail
+2021-11-29 00:02:40,019 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-8] Executando listarEleicoesPorPessoaEleitor
+2021-11-29 00:02:55,496 WARN br.com.eleicaoonline.filter.JwtRequestFilter [https-jsse-nio-8443-exec-7] Requisição não possui string bearer
+2021-11-29 00:02:55,499 INFO br.com.eleicaoonline.service.AutenticacaoService [https-jsse-nio-8443-exec-7] Executando gerarToken
+2021-11-29 00:02:55,500 INFO br.com.eleicaoonline.service.AdministradorService [https-jsse-nio-8443-exec-7] Executando buscarAdministradorPeloEmail
+2021-11-29 00:02:55,508 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-7] Executando buscarMembroComissaoPeloEmail
+2021-11-29 00:02:55,512 INFO br.com.eleicaoonline.service.EleitorService [https-jsse-nio-8443-exec-7] Executando buscarEleitorPeloEmail
+2021-11-29 00:03:00,007 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-11-29 00:03:00,010 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-11-29 00:03:00,032 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-11-29 00:03:00,033 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-11-29 00:03:00,043 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-11-29 00:03:00,044 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao

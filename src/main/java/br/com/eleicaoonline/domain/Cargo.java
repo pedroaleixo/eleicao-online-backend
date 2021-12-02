@@ -37,5 +37,9 @@ public class Cargo {
 	
 	@Column(name = "votos_brancos")
 	private Long votosBrancos;
+	
+	@NotNull
+	@Column(name = "escolhas")
+	private Long escolhas;
 
 }

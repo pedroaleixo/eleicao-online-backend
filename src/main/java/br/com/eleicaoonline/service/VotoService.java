@@ -2,7 +2,6 @@ package br.com.eleicaoonline.service;
 
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,8 +11,9 @@ import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.domain.Voto;
 import br.com.eleicaoonline.repository.EleitorRepository;
 import br.com.eleicaoonline.repository.VotoRepository;
-import br.com.eleicaoonline.service.VotoService;
 import br.com.eleicaoonline.service.validation.EleicaoNaoIniciadaValidation;
+import br.com.eleicaoonline.utils.CryptoUtil;
+import br.com.eleicaoonline.utils.RSAUtil;
 import lombok.extern.java.Log;
 
 @Log
@@ -30,7 +30,7 @@ public class VotoService extends BaseService {
 	@Autowired
 	protected EleicaoNaoIniciadaValidation eleicaoNaoIniciadaValidation;
 
-	public void cadastrarVoto(Voto voto, Long idEleitor) {
+	public void cadastrarVoto(Voto voto, Long idPessoa) {
 		log.info("Executando cadastrarVoto");
 		
 		validateEntity(voto);
@@ -39,13 +39,17 @@ public class VotoService extends BaseService {
 		
 		repository.save(voto);	
 		
-		Optional<Eleitor> optEleitor = eleitorRepository.findById(idEleitor);
-		if(optEleitor.isPresent()) {
-			Eleitor eleitor = optEleitor.get();
+		Eleitor eleitor = eleitorRepository.findEleitorByPessoaId(idPessoa, voto.getEleicao().getId());
+		if(eleitor != null) {			
 			eleitor.setDataHoraVotou(Calendar.getInstance().getTime());
 			eleitorRepository.save(eleitor);
 		}
 			
+	}
+
+	public String obterChavePublica() {
+		String chavePublica = CryptoUtil.getPublicKeyAsString();
+        return RSAUtil.pemStringPrint(chavePublica);
 	}
 	
 
