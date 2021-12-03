@@ -79,6 +79,19 @@ public class EleitorController {
 	public EleitorDTO buscarEleitorPeloId(@PathVariable("id") Long id) {				
 		return mapper.mapTo(service.buscarEleitorPeloId(id), EleitorDTO.class);
 	}
+	
+	@Operation(summary = "Busca eleitor pelo id da pessoa")
+	@ApiResponses(value = { 
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = EleitorDTO.class))),	
+	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "404", description = "Candidato não encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ELEITOR})
+	@GetMapping("/pessoa/{idPessoa}/{idEleicao}")
+	public EleitorDTO buscarEleitorPeloIdPessoa(@PathVariable("idPessoa") Long idPessoa, @PathVariable("idEleicao") Long idEleicao) {				
+		return mapper.mapTo(service.buscarEleitorPeloIdPessoa(idPessoa, idEleicao), EleitorDTO.class);
+	}
 
     
 	@Operation(summary = "Cadastra um novo eleitor")

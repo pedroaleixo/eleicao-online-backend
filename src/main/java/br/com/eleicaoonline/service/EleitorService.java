@@ -62,6 +62,13 @@ public class EleitorService extends BaseService {
 		}
 		return null;
 	}
+	
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	public Eleitor buscarEleitorPeloIdPessoa(Long idPessoa, Long idEleicao) {
+		log.info("Executando buscarEleitorPeloIdPessoa");
+		
+		return repository.findEleitorByPessoaId(idPessoa, idEleicao);
+	}
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	public List<Eleitor> buscarEleitorPeloEmail(String email) {
