@@ -4568,3 +4568,938 @@ Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo can
 2021-12-05 14:58:01,652 INFO org.springframework.scheduling.quartz.SchedulerFactoryBean [restartedMain] Starting Quartz Scheduler now
 2021-12-05 14:58:01,653 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler quartzScheduler_$_NON_CLUSTERED started.
 2021-12-05 14:58:01,674 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started EleicaoOnlineApplication in 15.858 seconds (JVM running for 16.813)
+2021-12-05 20:15:00,502 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.0.Final
+2021-12-05 20:15:00,567 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting EleicaoOnlineApplication using Java 15 on DESKTOP-GB6D24J with PID 22368 (C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend\target\classes started by Pedro in C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend)
+2021-12-05 20:15:00,578 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-12-05 20:15:00,579 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2021-12-05 20:15:00,808 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-05 20:15:00,810 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-05 20:15:05,168 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-05 20:15:05,421 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 235 ms. Found 7 JPA repository interfaces.
+2021-12-05 20:15:09,832 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'springAsyncConfig' of type [br.com.eleicaoonline.config.SpringAsyncConfig$$EnhancerBySpringCGLIB$$649105c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:15:10,136 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@286ae586' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:15:10,144 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityConfig' of type [br.com.eleicaoonline.config.MethodSecurityConfig$$EnhancerBySpringCGLIB$$812a9506] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:15:10,172 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:15:11,756 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8443 (http)
+2021-12-05 20:15:11,785 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8443"]
+2021-12-05 20:15:11,788 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-12-05 20:15:11,790 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-12-05 20:15:12,262 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-12-05 20:15:12,264 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 11445 ms
+2021-12-05 20:15:12,910 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2021-12-05 20:15:13,394 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-05 20:15:13,589 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-12-05 20:15:14,069 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-05 20:15:14,603 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-12-05 20:15:15,476 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-12-05 20:15:15,821 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-12-05 20:15:20,383 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-05 20:15:20,418 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-05 20:15:20,779 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-05 20:15:29,583 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@685f3993, org.springframework.security.web.context.SecurityContextPersistenceFilter@7fd45d5, org.springframework.security.web.header.HeaderWriterFilter@2eed43be, org.springframework.web.filter.CorsFilter@56ccd51a, org.springframework.security.web.authentication.logout.LogoutFilter@194cd78a, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@4a45153f, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5693b3bd, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@68626e07, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@83cb2b4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2adca166, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10e64d6c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@48b5ef1c, org.springframework.security.web.session.SessionManagementFilter@76c4eaa3, org.springframework.security.web.access.ExceptionTranslationFilter@7b476b53, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7914913a]
+2021-12-05 20:15:30,190 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-12-05 20:15:31,559 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Using default implementation for ThreadExecutor
+2021-12-05 20:15:31,602 INFO org.quartz.core.SchedulerSignalerImpl [restartedMain] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-12-05 20:15:31,603 INFO org.quartz.core.QuartzScheduler [restartedMain] Quartz Scheduler v.2.3.2 created.
+2021-12-05 20:15:31,605 INFO org.quartz.simpl.RAMJobStore [restartedMain] RAMJobStore initialized.
+2021-12-05 20:15:31,609 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-12-05 20:15:31,610 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2021-12-05 20:15:31,611 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler version: 2.3.2
+2021-12-05 20:15:31,612 INFO org.quartz.core.QuartzScheduler [restartedMain] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6edf3472
+2021-12-05 20:15:32,328 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8443"]
+2021-12-05 20:15:32,421 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8443 (http) with context path ''
+2021-12-05 20:15:33,089 INFO org.springframework.scheduling.quartz.SchedulerFactoryBean [restartedMain] Starting Quartz Scheduler now
+2021-12-05 20:15:33,092 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2021-12-05 20:15:33,151 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started EleicaoOnlineApplication in 34.095 seconds (JVM running for 36.404)
+2021-12-05 20:16:00,034 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:16:00,050 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:16:00,253 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:16:00,254 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:16:00,339 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:16:00,340 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:17:00,006 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:17:00,008 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:17:00,031 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:17:00,032 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:17:00,039 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:17:00,040 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:18:00,077 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:18:00,077 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:18:00,097 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:18:00,097 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:18:00,126 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:18:00,127 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:19:00,008 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:19:00,010 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:19:00,022 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:19:00,023 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:19:00,033 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:19:00,034 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:20:00,004 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:20:00,005 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:20:00,036 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:20:00,036 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:20:00,043 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:20:00,044 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:21:00,041 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:21:00,041 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:21:00,169 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:21:00,170 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:21:00,175 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:21:00,177 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:22:00,004 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:22:00,005 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:22:00,074 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:22:00,076 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:22:00,138 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:22:00,139 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:23:00,003 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:23:00,004 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:23:00,011 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:23:00,012 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:23:00,032 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:23:00,032 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:23:42,315 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8443-exec-1] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x070xb60x010x000x070xb20x030x030xf3-80xaaS0x070xcb0x0c0x810x8e0x030xb10xb20xef0xd70xca0xf10x06|0xec:0x8a0x1d0x0b0x89W0x860x840x040xf60x84M ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:419)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:269)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+2021-12-05 20:23:42,315 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8443-exec-2] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x030xdam0xa50x920x0c0x040x1b0x04Hr*FG0xba0x810xe2V0x87hI0x17/0xef0xack0x9700xa7sc0x000x81 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:419)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:269)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+2021-12-05 20:24:00,003 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:24:00,004 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:24:00,034 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:24:00,035 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:24:00,047 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:24:00,048 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:25:00,010 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:25:00,011 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:25:00,045 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:25:00,045 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:25:00,052 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:25:00,053 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:26:00,012 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:26:00,013 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:26:00,034 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:26:00,035 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:26:00,043 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:26:00,043 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:26:56,983 INFO org.quartz.core.QuartzScheduler [Thread-4] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-12-05 20:26:57,025 INFO org.springframework.scheduling.quartz.SchedulerFactoryBean [Thread-4] Shutting down Quartz Scheduler
+2021-12-05 20:26:57,030 INFO org.quartz.core.QuartzScheduler [Thread-4] Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2021-12-05 20:26:57,031 INFO org.quartz.core.QuartzScheduler [Thread-4] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-12-05 20:26:57,032 INFO org.quartz.core.QuartzScheduler [Thread-4] Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2021-12-05 20:26:57,055 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [Thread-4] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-05 20:26:57,063 INFO com.zaxxer.hikari.HikariDataSource [Thread-4] HikariPool-1 - Shutdown initiated...
+2021-12-05 20:26:57,072 INFO com.zaxxer.hikari.HikariDataSource [Thread-4] HikariPool-1 - Shutdown completed.
+2021-12-05 20:26:57,340 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting EleicaoOnlineApplication using Java 15 on DESKTOP-GB6D24J with PID 22368 (C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend\target\classes started by Pedro in C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend)
+2021-12-05 20:26:57,341 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-12-05 20:26:57,343 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2021-12-05 20:26:58,966 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-05 20:26:59,151 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 183 ms. Found 7 JPA repository interfaces.
+2021-12-05 20:26:59,437 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'springAsyncConfig' of type [br.com.eleicaoonline.config.SpringAsyncConfig$$EnhancerBySpringCGLIB$$649105c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:26:59,511 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@174dc7ae' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:26:59,517 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityConfig' of type [br.com.eleicaoonline.config.MethodSecurityConfig$$EnhancerBySpringCGLIB$$812a9506] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:26:59,523 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:26:59,751 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8443 (https)
+2021-12-05 20:26:59,755 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8443"]
+2021-12-05 20:26:59,758 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-12-05 20:26:59,758 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-12-05 20:26:59,891 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-12-05 20:26:59,892 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2538 ms
+2021-12-05 20:27:00,044 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2021-12-05 20:27:00,309 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-05 20:27:00,324 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Starting...
+2021-12-05 20:27:00,378 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Start completed.
+2021-12-05 20:27:00,379 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-12-05 20:27:01,986 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-05 20:27:01,988 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-05 20:27:02,101 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-05 20:27:03,782 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@485b2b73, org.springframework.security.web.context.SecurityContextPersistenceFilter@7c0d6449, org.springframework.security.web.header.HeaderWriterFilter@1bb53374, org.springframework.web.filter.CorsFilter@5a4330e6, org.springframework.security.web.authentication.logout.LogoutFilter@22f16b78, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@280ea993, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@6e18033d, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@696840f7, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@7dc580c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@60c7975a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@525b26a5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29f3b221, org.springframework.security.web.session.SessionManagementFilter@476f9ced, org.springframework.security.web.access.ExceptionTranslationFilter@2387fa28, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@67ceb896]
+2021-12-05 20:27:17,733 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.0.Final
+2021-12-05 20:27:17,800 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting EleicaoOnlineApplication using Java 15 on DESKTOP-GB6D24J with PID 19732 (C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend\target\classes started by Pedro in C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend)
+2021-12-05 20:27:17,801 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-12-05 20:27:17,801 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2021-12-05 20:27:18,085 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-05 20:27:18,086 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-05 20:27:23,973 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-05 20:27:24,278 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 269 ms. Found 7 JPA repository interfaces.
+2021-12-05 20:27:25,960 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'springAsyncConfig' of type [br.com.eleicaoonline.config.SpringAsyncConfig$$EnhancerBySpringCGLIB$$649105c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:27:26,353 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@286ae586' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:27:26,368 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityConfig' of type [br.com.eleicaoonline.config.MethodSecurityConfig$$EnhancerBySpringCGLIB$$812a9506] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:27:26,405 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:27:28,872 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8443 (https)
+2021-12-05 20:27:28,940 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8443"]
+2021-12-05 20:27:28,943 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-12-05 20:27:28,944 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-12-05 20:27:29,639 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-12-05 20:27:29,640 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 11551 ms
+2021-12-05 20:27:30,552 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2021-12-05 20:27:31,132 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-05 20:27:31,289 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-12-05 20:27:31,765 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-05 20:27:32,318 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-12-05 20:27:32,748 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-12-05 20:27:32,828 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-12-05 20:27:35,692 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-05 20:27:35,717 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-05 20:27:36,314 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-05 20:27:44,241 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@21322a9d, org.springframework.security.web.context.SecurityContextPersistenceFilter@45f4e47b, org.springframework.security.web.header.HeaderWriterFilter@78e6ac4b, org.springframework.web.filter.CorsFilter@7c18ef7a, org.springframework.security.web.authentication.logout.LogoutFilter@3ac17b52, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@50250f90, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@678f94e4, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@b15733e, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5009eeaa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@43c17338, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c9b4a9f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6c7802fd, org.springframework.security.web.session.SessionManagementFilter@5b7d5802, org.springframework.security.web.access.ExceptionTranslationFilter@25a712b5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@685f3993]
+2021-12-05 20:27:44,862 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-12-05 20:27:46,028 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Using default implementation for ThreadExecutor
+2021-12-05 20:27:46,072 INFO org.quartz.core.SchedulerSignalerImpl [restartedMain] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-12-05 20:27:46,074 INFO org.quartz.core.QuartzScheduler [restartedMain] Quartz Scheduler v.2.3.2 created.
+2021-12-05 20:27:46,082 INFO org.quartz.simpl.RAMJobStore [restartedMain] RAMJobStore initialized.
+2021-12-05 20:27:46,094 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-12-05 20:27:46,094 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2021-12-05 20:27:46,095 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler version: 2.3.2
+2021-12-05 20:27:46,096 INFO org.quartz.core.QuartzScheduler [restartedMain] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6f2b1130
+2021-12-05 20:27:46,579 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8443"]
+2021-12-05 20:27:47,590 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8443 (https) with context path ''
+2021-12-05 20:27:48,100 INFO org.springframework.scheduling.quartz.SchedulerFactoryBean [restartedMain] Starting Quartz Scheduler now
+2021-12-05 20:27:48,101 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2021-12-05 20:27:48,138 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started EleicaoOnlineApplication in 32.735 seconds (JVM running for 34.666)
+2021-12-05 20:28:00,048 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:28:00,070 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:28:00,241 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:28:00,242 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:28:00,259 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:28:00,260 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:29:00,019 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:29:00,020 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:29:00,036 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:29:00,037 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:29:00,044 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:29:00,045 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:29:28,140 INFO org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8443-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-05 20:29:28,141 INFO org.springframework.web.servlet.FrameworkServlet [https-jsse-nio-8443-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-12-05 20:29:28,145 INFO org.springframework.web.servlet.FrameworkServlet [https-jsse-nio-8443-exec-1] Completed initialization in 4 ms
+2021-12-05 20:29:36,922 WARN br.com.eleicaoonline.filter.JwtRequestFilter [https-jsse-nio-8443-exec-7] Requisição não possui string bearer
+2021-12-05 20:29:36,969 INFO br.com.eleicaoonline.service.AutenticacaoService [https-jsse-nio-8443-exec-7] Executando gerarToken
+2021-12-05 20:29:36,978 INFO br.com.eleicaoonline.service.AdministradorService [https-jsse-nio-8443-exec-7] Executando buscarAdministradorPeloEmail
+2021-12-05 20:29:37,049 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-7] Executando buscarMembroComissaoPeloEmail
+2021-12-05 20:29:37,081 INFO br.com.eleicaoonline.service.EleitorService [https-jsse-nio-8443-exec-7] Executando buscarEleitorPeloEmail
+2021-12-05 20:29:45,791 ERROR br.com.eleicaoonline.exception.GlobalExceptionHandler [https-jsse-nio-8443-exec-7] Acesso negado: 
+org.springframework.security.access.AccessDeniedException: Acesso negado
+	at org.springframework.security.access.vote.AffirmativeBased.decide(AffirmativeBased.java:73)
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.attemptAuthorization(AbstractSecurityInterceptor.java:238)
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.beforeInvocation(AbstractSecurityInterceptor.java:208)
+	at org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor.invoke(MethodSecurityInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at br.com.eleicaoonline.controller.EleicaoController$$EnhancerBySpringCGLIB$$4301fa64.listarEleicoesPorPessoaEleitor(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at br.com.eleicaoonline.filter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:64)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:121)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:237)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:223)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:218)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:178)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+2021-12-05 20:29:45,854 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [https-jsse-nio-8443-exec-7] Resolved [org.springframework.security.access.AccessDeniedException: Acesso negado]
+2021-12-05 20:30:00,004 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:30:00,005 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:30:00,032 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:30:00,033 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:30:00,047 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:30:00,048 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:30:12,360 WARN br.com.eleicaoonline.filter.JwtRequestFilter [https-jsse-nio-8443-exec-4] Requisição não possui string bearer
+2021-12-05 20:30:12,373 INFO br.com.eleicaoonline.service.AutenticacaoService [https-jsse-nio-8443-exec-4] Executando gerarToken
+2021-12-05 20:30:12,374 INFO br.com.eleicaoonline.service.AdministradorService [https-jsse-nio-8443-exec-4] Executando buscarAdministradorPeloEmail
+2021-12-05 20:30:12,391 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-4] Executando buscarMembroComissaoPeloEmail
+2021-12-05 20:30:12,398 INFO br.com.eleicaoonline.service.EleitorService [https-jsse-nio-8443-exec-4] Executando buscarEleitorPeloEmail
+2021-12-05 20:30:13,396 ERROR br.com.eleicaoonline.exception.GlobalExceptionHandler [https-jsse-nio-8443-exec-1] Acesso negado: 
+org.springframework.security.access.AccessDeniedException: Acesso negado
+	at org.springframework.security.access.vote.AffirmativeBased.decide(AffirmativeBased.java:73)
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.attemptAuthorization(AbstractSecurityInterceptor.java:238)
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.beforeInvocation(AbstractSecurityInterceptor.java:208)
+	at org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor.invoke(MethodSecurityInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at br.com.eleicaoonline.controller.EleicaoController$$EnhancerBySpringCGLIB$$4301fa64.listarEleicoesPorPessoaEleitor(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at br.com.eleicaoonline.filter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:64)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:121)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:237)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:223)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:218)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:178)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+2021-12-05 20:30:13,403 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [https-jsse-nio-8443-exec-1] Resolved [org.springframework.security.access.AccessDeniedException: Acesso negado]
+2021-12-05 20:31:00,009 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:31:00,010 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:31:00,019 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:31:00,019 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:31:00,024 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:31:00,024 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:32:00,003 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:32:00,004 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:32:00,037 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:32:00,038 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:32:00,051 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:32:00,052 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:33:46,413 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting EleicaoOnlineApplication using Java 15 on DESKTOP-GB6D24J with PID 1748 (C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend\target\classes started by Pedro in C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend)
+2021-12-05 20:33:46,420 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-12-05 20:33:46,421 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2021-12-05 20:33:46,427 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.0.Final
+2021-12-05 20:33:46,534 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-05 20:33:46,536 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-05 20:33:49,532 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-05 20:33:49,732 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 184 ms. Found 7 JPA repository interfaces.
+2021-12-05 20:33:50,642 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'springAsyncConfig' of type [br.com.eleicaoonline.config.SpringAsyncConfig$$EnhancerBySpringCGLIB$$d66e1fed] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:33:50,820 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5de66093' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:33:50,825 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityConfig' of type [br.com.eleicaoonline.config.MethodSecurityConfig$$EnhancerBySpringCGLIB$$514fa497] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:33:50,840 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-05 20:33:52,058 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8443 (https)
+2021-12-05 20:33:52,082 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8443"]
+2021-12-05 20:33:52,083 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-12-05 20:33:52,086 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-12-05 20:33:52,394 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-12-05 20:33:52,396 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 5859 ms
+2021-12-05 20:33:52,717 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2021-12-05 20:33:53,027 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-05 20:33:53,181 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-12-05 20:33:53,450 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-05 20:33:53,656 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-12-05 20:33:53,952 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-12-05 20:33:54,018 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-12-05 20:33:56,595 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-05 20:33:56,619 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-05 20:33:56,932 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-05 20:34:03,308 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5142f2b5, org.springframework.security.web.context.SecurityContextPersistenceFilter@2436b7db, org.springframework.security.web.header.HeaderWriterFilter@4cc8f81, org.springframework.web.filter.CorsFilter@264cdbcc, org.springframework.security.web.authentication.logout.LogoutFilter@3d4055e5, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@527640a0, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@428785e2, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@290c512a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@215cafab, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1910b229, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@795db4a6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@581ce0ea, org.springframework.security.web.session.SessionManagementFilter@4f02834d, org.springframework.security.web.access.ExceptionTranslationFilter@6a257857, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4d7d1750]
+2021-12-05 20:34:03,648 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-12-05 20:34:04,536 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Using default implementation for ThreadExecutor
+2021-12-05 20:34:04,559 INFO org.quartz.core.SchedulerSignalerImpl [restartedMain] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-12-05 20:34:04,560 INFO org.quartz.core.QuartzScheduler [restartedMain] Quartz Scheduler v.2.3.2 created.
+2021-12-05 20:34:04,562 INFO org.quartz.simpl.RAMJobStore [restartedMain] RAMJobStore initialized.
+2021-12-05 20:34:04,564 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-12-05 20:34:04,564 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2021-12-05 20:34:04,565 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler version: 2.3.2
+2021-12-05 20:34:04,566 INFO org.quartz.core.QuartzScheduler [restartedMain] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@29df90ee
+2021-12-05 20:34:05,348 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8443"]
+2021-12-05 20:34:06,464 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8443 (https) with context path ''
+2021-12-05 20:34:07,076 INFO org.springframework.scheduling.quartz.SchedulerFactoryBean [restartedMain] Starting Quartz Scheduler now
+2021-12-05 20:34:07,077 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2021-12-05 20:34:07,105 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started EleicaoOnlineApplication in 21.77 seconds (JVM running for 22.952)
+2021-12-05 20:34:25,155 INFO org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8443-exec-9] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-05 20:34:25,157 INFO org.springframework.web.servlet.FrameworkServlet [https-jsse-nio-8443-exec-9] Initializing Servlet 'dispatcherServlet'
+2021-12-05 20:34:25,162 INFO org.springframework.web.servlet.FrameworkServlet [https-jsse-nio-8443-exec-9] Completed initialization in 3 ms
+2021-12-05 20:34:25,971 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-9] Executando listarEleicoesPorPessoaEleitor
+2021-12-05 20:34:36,113 WARN br.com.eleicaoonline.filter.JwtRequestFilter [https-jsse-nio-8443-exec-10] Requisição não possui string bearer
+2021-12-05 20:34:36,128 INFO br.com.eleicaoonline.service.AutenticacaoService [https-jsse-nio-8443-exec-10] Executando gerarToken
+2021-12-05 20:34:36,134 INFO br.com.eleicaoonline.service.AdministradorService [https-jsse-nio-8443-exec-10] Executando buscarAdministradorPeloEmail
+2021-12-05 20:34:36,206 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-10] Executando buscarMembroComissaoPeloEmail
+2021-12-05 20:34:36,226 INFO br.com.eleicaoonline.service.EleitorService [https-jsse-nio-8443-exec-10] Executando buscarEleitorPeloEmail
+2021-12-05 20:34:37,168 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-6] Executando listarEleicoesPorPessoaEleitor
+2021-12-05 20:34:48,069 WARN br.com.eleicaoonline.filter.JwtRequestFilter [https-jsse-nio-8443-exec-1] Requisição não possui string bearer
+2021-12-05 20:34:48,077 INFO br.com.eleicaoonline.service.AutenticacaoService [https-jsse-nio-8443-exec-1] Executando gerarToken
+2021-12-05 20:34:48,078 INFO br.com.eleicaoonline.service.AdministradorService [https-jsse-nio-8443-exec-1] Executando buscarAdministradorPeloEmail
+2021-12-05 20:34:48,088 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-1] Executando buscarMembroComissaoPeloEmail
+2021-12-05 20:34:48,097 INFO br.com.eleicaoonline.service.EleitorService [https-jsse-nio-8443-exec-1] Executando buscarEleitorPeloEmail
+2021-12-05 20:34:49,037 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-10] Executando listarEleicoesPorPessoaEleitor
+2021-12-05 20:34:56,544 WARN br.com.eleicaoonline.filter.JwtRequestFilter [https-jsse-nio-8443-exec-4] Requisição não possui string bearer
+2021-12-05 20:34:56,549 INFO br.com.eleicaoonline.service.AutenticacaoService [https-jsse-nio-8443-exec-4] Executando gerarToken
+2021-12-05 20:34:56,550 INFO br.com.eleicaoonline.service.AdministradorService [https-jsse-nio-8443-exec-4] Executando buscarAdministradorPeloEmail
+2021-12-05 20:34:56,558 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-4] Executando buscarMembroComissaoPeloEmail
+2021-12-05 20:34:56,564 INFO br.com.eleicaoonline.service.EleitorService [https-jsse-nio-8443-exec-4] Executando buscarEleitorPeloEmail
+2021-12-05 20:34:57,657 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-3] Executando listarEleicoesPorPessoaEleitor
+2021-12-05 20:34:58,023 INFO br.com.eleicaoonline.service.EleitorService [https-jsse-nio-8443-exec-8] Executando buscarEleitorPeloIdPessoa
+2021-12-05 20:35:00,022 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:35:00,023 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:35:00,058 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:35:00,059 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:35:00,070 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:35:00,072 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:36:00,004 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:36:00,005 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:36:00,020 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:36:00,021 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:36:00,029 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:36:00,030 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:36:16,802 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-5] Executando buscarEleicaoPeloId
+2021-12-05 20:36:16,946 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-7] Executando listarEleicoesPorPessoaEleitor
+2021-12-05 20:36:17,085 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-9] Executando listarCandidatosEleicao
+2021-12-05 20:37:00,033 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:37:00,034 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:37:00,051 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:37:00,053 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:37:00,063 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:37:00,064 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:38:00,009 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:38:00,011 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:38:00,039 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:38:00,040 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:38:00,056 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:38:00,057 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:39:00,013 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:39:00,014 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:39:00,040 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:39:00,041 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:39:00,051 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:39:00,052 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:40:00,010 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:40:00,011 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:40:00,022 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:40:00,022 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:40:00,026 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:40:00,027 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:40:16,127 WARN br.com.eleicaoonline.filter.JwtRequestFilter [https-jsse-nio-8443-exec-5] Requisição não possui string bearer
+2021-12-05 20:40:16,134 INFO br.com.eleicaoonline.service.AutenticacaoService [https-jsse-nio-8443-exec-5] Executando gerarToken
+2021-12-05 20:40:16,134 INFO br.com.eleicaoonline.service.AdministradorService [https-jsse-nio-8443-exec-5] Executando buscarAdministradorPeloEmail
+2021-12-05 20:40:16,144 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-5] Executando buscarMembroComissaoPeloEmail
+2021-12-05 20:40:16,150 INFO br.com.eleicaoonline.service.EleitorService [https-jsse-nio-8443-exec-5] Executando buscarEleitorPeloEmail
+2021-12-05 20:40:17,183 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-5] Executando listarEleicoes
+2021-12-05 20:41:00,337 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:41:00,337 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:41:00,705 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:41:00,706 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:41:00,852 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:41:00,853 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:42:00,025 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:42:00,026 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:42:00,032 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:42:00,033 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:42:00,037 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:42:00,038 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:43:00,002 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:43:00,003 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:43:00,017 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:43:00,018 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:43:00,024 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:43:00,024 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:44:00,078 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:44:00,078 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:44:00,109 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:44:00,110 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:44:00,114 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:44:00,115 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:45:00,003 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:45:00,003 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:45:00,021 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:45:00,023 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:45:00,028 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:45:00,029 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:46:00,028 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:46:00,028 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:46:00,043 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:46:00,043 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:46:00,049 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:46:00,049 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:46:56,979 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-2] Executando listarEleicoes
+2021-12-05 20:47:00,015 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:47:00,015 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:47:00,027 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:47:00,028 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:47:00,035 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:47:00,036 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:48:00,013 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:48:00,014 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:48:00,023 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:48:00,023 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:48:00,030 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:48:00,031 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:48:08,777 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-2] Executando listarEleicoes
+2021-12-05 20:49:00,004 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:49:00,005 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:49:00,020 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:49:00,020 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:49:00,030 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:49:00,030 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:50:00,005 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:50:00,006 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:50:00,017 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:50:00,018 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:50:00,024 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:50:00,024 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:51:00,079 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:51:00,079 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:51:00,302 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:51:00,303 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:51:00,387 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:51:00,388 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:51:37,724 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-5] Executando listarEleicoes
+2021-12-05 20:51:57,496 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-9] Executando listarEleicoes
+2021-12-05 20:52:00,005 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:52:00,006 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:52:00,014 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:52:00,015 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:52:00,038 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:52:00,039 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:52:17,644 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-1] Executando listarEleicoes
+2021-12-05 20:53:00,003 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:53:00,004 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:53:00,017 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:53:00,017 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:53:00,025 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:53:00,026 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:54:00,003 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:54:00,004 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:54:00,013 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:54:00,013 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:54:00,019 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:54:00,020 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:55:00,007 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:55:00,009 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:55:00,030 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:55:00,031 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:55:00,041 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:55:00,041 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:56:00,008 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:56:00,010 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:56:00,036 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:56:00,036 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:56:00,045 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:56:00,045 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:57:00,034 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:57:00,036 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:57:00,047 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:57:00,048 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:57:00,058 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:57:00,058 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:57:19,426 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-1] Executando listarEleicoes
+2021-12-05 20:57:33,466 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-7] Executando listarEleicoes
+2021-12-05 20:58:00,013 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:58:00,014 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:58:00,029 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:58:00,029 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:58:00,036 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:58:00,036 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:58:07,338 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-8] Executando listarEleicoes
+2021-12-05 20:58:27,003 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-4] Executando listarEleicoes
+2021-12-05 20:59:00,184 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 20:59:00,185 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:59:00,198 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 20:59:00,199 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:59:00,213 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 20:59:00,213 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 20:59:43,405 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-4] Executando listarEleicoes
+2021-12-05 21:00:00,027 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 21:00:00,028 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:00:00,038 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de finalizar eleições processadas
+2021-12-05 21:00:00,039 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:00:00,045 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 21:00:00,046 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:00:00,051 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 21:00:00,051 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:00:21,845 WARN br.com.eleicaoonline.filter.JwtRequestFilter [https-jsse-nio-8443-exec-9] Requisição não possui string bearer
+2021-12-05 21:00:21,849 INFO br.com.eleicaoonline.service.AutenticacaoService [https-jsse-nio-8443-exec-9] Executando gerarToken
+2021-12-05 21:00:21,850 INFO br.com.eleicaoonline.service.AdministradorService [https-jsse-nio-8443-exec-9] Executando buscarAdministradorPeloEmail
+2021-12-05 21:00:21,863 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-9] Executando buscarMembroComissaoPeloEmail
+2021-12-05 21:00:21,867 INFO br.com.eleicaoonline.service.EleitorService [https-jsse-nio-8443-exec-9] Executando buscarEleitorPeloEmail
+2021-12-05 21:00:22,756 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-3] Executando listarEleicoes
+2021-12-05 21:01:00,010 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 21:01:00,011 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:01:00,023 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 21:01:00,024 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:01:00,027 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 21:01:00,028 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:02:00,036 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 21:02:00,037 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:02:00,048 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 21:02:00,049 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:02:00,053 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 21:02:00,053 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:03:00,020 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 21:03:00,021 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:03:00,030 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 21:03:00,031 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:03:00,038 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 21:03:00,038 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:03:43,940 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-1] Executando listarEleicoes
+2021-12-05 21:04:00,010 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 21:04:00,011 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:04:00,029 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 21:04:00,029 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:04:00,034 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 21:04:00,035 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:04:50,586 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-1] Executando listarEleicoes
+2021-12-05 21:05:00,003 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 21:05:00,004 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:05:00,010 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 21:05:00,011 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:05:00,024 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 21:05:00,025 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:05:14,296 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-7] Executando listarEleicoes
+2021-12-05 21:05:46,062 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-8] Executando listarEleicoes
+2021-12-05 21:06:00,020 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 21:06:00,026 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:06:00,043 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 21:06:00,043 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:06:00,047 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 21:06:00,047 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:07:00,010 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 21:07:00,012 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:07:00,056 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 21:07:00,057 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:07:00,065 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 21:07:00,065 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:07:20,994 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-8] Executando listarEleicoes
+2021-12-05 21:08:00,004 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 21:08:00,005 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:08:00,012 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 21:08:00,012 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:08:00,055 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 21:08:00,055 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:08:02,125 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-6] Executando listarEleicoes
+2021-12-05 21:08:26,877 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-4] Executando listarEleicoes
+2021-12-05 21:08:48,820 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-2] Executando listarEleicoes
+2021-12-05 21:09:00,009 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 21:09:00,010 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:09:00,054 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 21:09:00,055 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:09:00,061 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 21:09:00,061 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:09:02,670 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-10] Executando listarEleicoes
+2021-12-05 21:10:00,004 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 21:10:00,005 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:10:00,011 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 21:10:00,011 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:10:00,023 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 21:10:00,024 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:10:31,357 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-5] Executando listarEleicoes
+2021-12-05 21:11:00,093 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 21:11:00,094 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:11:00,268 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 21:11:00,269 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:11:00,306 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 21:11:00,307 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 21:11:34,203 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-5] Executando listarEleicoes
+2021-12-05 21:11:48,465 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-9] Executando listarEleicoes
+2021-12-05 22:03:23,512 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:03:23,513 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:03:24,956 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:03:24,956 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:03:25,521 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:03:25,522 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:03:25,539 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de finalizar eleições processadas
+2021-12-05 22:03:25,539 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:03:46,919 WARN com.zaxxer.hikari.pool.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51m52s616ms951µs100ns).
+2021-12-05 22:04:00,036 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:04:00,036 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:04:00,049 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:04:00,050 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:04:00,055 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:04:00,056 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:04:17,630 WARN br.com.eleicaoonline.filter.JwtRequestFilter [https-jsse-nio-8443-exec-1] Requisição não possui string bearer
+2021-12-05 22:04:17,634 INFO br.com.eleicaoonline.service.AutenticacaoService [https-jsse-nio-8443-exec-1] Executando gerarToken
+2021-12-05 22:04:17,635 INFO br.com.eleicaoonline.service.AdministradorService [https-jsse-nio-8443-exec-1] Executando buscarAdministradorPeloEmail
+2021-12-05 22:04:17,646 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-1] Executando buscarMembroComissaoPeloEmail
+2021-12-05 22:04:17,651 INFO br.com.eleicaoonline.service.EleitorService [https-jsse-nio-8443-exec-1] Executando buscarEleitorPeloEmail
+2021-12-05 22:04:18,869 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-1] Executando listarEleicoes
+2021-12-05 22:05:00,025 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:05:00,027 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:05:00,044 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:05:00,045 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:05:00,049 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:05:00,050 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:06:00,011 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:06:00,015 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:06:00,054 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:06:00,056 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:06:00,067 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:06:00,068 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:07:00,018 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:07:00,021 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:07:00,045 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:07:00,045 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:07:00,057 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:07:00,058 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:08:00,017 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:08:00,019 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:08:00,058 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:08:00,059 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:08:00,070 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:08:00,070 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:09:00,002 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:09:00,004 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:09:00,016 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:09:00,017 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:09:00,022 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:09:00,023 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:10:00,004 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:10:00,005 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:10:00,038 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:10:00,038 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:10:00,047 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:10:00,047 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:11:00,016 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:11:00,017 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:11:00,042 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:11:00,043 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:11:00,049 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:11:00,049 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:12:00,015 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:12:00,015 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:12:00,029 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:12:00,029 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:12:00,032 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:12:00,032 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:13:00,003 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:13:00,004 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:13:00,017 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:13:00,017 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:13:00,030 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:13:00,030 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:14:00,004 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:14:00,005 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:14:00,053 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:14:00,054 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:14:00,060 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:14:00,060 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:15:00,007 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:15:00,008 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:15:00,038 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:15:00,038 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:15:00,044 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:15:00,045 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:16:00,097 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:16:00,098 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:16:00,131 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:16:00,132 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:16:00,138 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:16:00,138 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:17:00,019 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:17:00,021 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:17:00,047 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:17:00,047 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:17:00,056 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2021-12-05 22:17:00,056 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:18:00,032 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2021-12-05 22:18:00,034 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:18:00,052 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2021-12-05 22:18:00,052 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2021-12-05 22:18:00,061 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
