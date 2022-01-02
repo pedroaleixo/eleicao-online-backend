@@ -93,7 +93,7 @@ public class CryptoUtil {
 	public static List<Long> decriptarVoto(String votoCriptografado) {
 		List<Long> ids = new ArrayList<Long>();
 		String decodedMessage = decodeMessage(votoCriptografado); 
-		String[] parsed = decodedMessage.split(",");
+		String[] parsed = decodedMessage.replace("[", "").replace("]", "").split(",");
 		for (String candString : parsed) {
 			ids.add(Long.valueOf(candString.trim()));
 		}
