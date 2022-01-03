@@ -26,7 +26,7 @@ public class CalcularResultadoEleicaoJob {
 	@Autowired
 	private ResultadoService resultadoService;
 
-	@Scheduled(cron = "* 0/1 * * * ?")
+	@Scheduled(cron = "0 * * * * *")
 	public void calcularResultadosEleicoesIniciadas() {
 		log.info("Executando o job de calcular os resultados das eleições iniciadas");
 
@@ -41,7 +41,7 @@ public class CalcularResultadoEleicaoJob {
 		});
 	}
 
-	@Scheduled(cron = "* 0/1 * * * ?")
+	@Scheduled(cron = "0 * * * * *")
 	public void calcularResultadosEleicoesComFalha() {
 		log.info("Executando o job de calcular os resultados das eleições com falha");
 
