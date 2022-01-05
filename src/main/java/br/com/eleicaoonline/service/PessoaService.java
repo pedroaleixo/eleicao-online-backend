@@ -32,7 +32,7 @@ public class PessoaService extends BaseService {
 	public Page<Pessoa> listarPessoas(FiltroPessoa filtro, Pageable pageable) {
 		log.info("Executando listarPessoas");
 		
-		return repository.findAll(pageable);
+		return repository.filtrar(filtro, pageable);
 	}
 
 	public Pessoa cadastrarPessoa(Pessoa pessoa) {
