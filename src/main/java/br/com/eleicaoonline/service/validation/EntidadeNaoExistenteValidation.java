@@ -8,11 +8,13 @@ import br.com.eleicaoonline.domain.Administrador;
 import br.com.eleicaoonline.domain.Candidato;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.Eleitor;
+import br.com.eleicaoonline.domain.Pessoa;
 import br.com.eleicaoonline.exception.BusinessException;
 import br.com.eleicaoonline.repository.AdministradorRepository;
 import br.com.eleicaoonline.repository.CandidatoRepository;
 import br.com.eleicaoonline.repository.EleicaoRepository;
 import br.com.eleicaoonline.repository.EleitorRepository;
+import br.com.eleicaoonline.repository.PessoaRepository;
 
 @Component
 public class EntidadeNaoExistenteValidation implements Validation<Object> {
@@ -25,6 +27,9 @@ public class EntidadeNaoExistenteValidation implements Validation<Object> {
 	
 	@Autowired
 	private EleicaoRepository eleicaoRepository;
+	
+	@Autowired
+	private PessoaRepository pessoaRepository;
 	
 	@Autowired
 	private CandidatoRepository candidatoRepository;
@@ -41,6 +46,8 @@ public class EntidadeNaoExistenteValidation implements Validation<Object> {
 				existe = administradorRepository.existsById(((Administrador) obj).getId());
 			} else if (obj instanceof Eleicao) {
 				existe = eleicaoRepository.existsById(((Eleicao) obj).getId());
+			} else if (obj instanceof Pessoa) {
+				existe = pessoaRepository.existsById(((Pessoa) obj).getId());
 			} else if (obj instanceof Candidato) {
 				existe = candidatoRepository.existsById(((Candidato) obj).getId());
 			} else if (obj instanceof Eleitor) {
