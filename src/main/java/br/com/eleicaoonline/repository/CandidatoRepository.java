@@ -19,5 +19,8 @@ public interface CandidatoRepository extends PagingAndSortingRepository<Candidat
 			+ "and (:#{#filtro.cpf} is null or c.pessoa.cpf = :#{#filtro.cpf}) "
 			+ "and (:#{#filtro.idCargo} is null or c.cargo.id = :#{#filtro.idCargo}) ")
 	Page<Candidato> filtrar(@Param("filtro") FiltroPessoa filtro, Pageable pageable);	
+	
+	@Query("select count(*) > 0 from Candidato can where can.id = :idCandidato and can.eleicao.situacao <> 0")
+	Boolean candidatoAssociadoEleicaoNaoCadastrada(@Param("id") Long idCandidato);
 
 }

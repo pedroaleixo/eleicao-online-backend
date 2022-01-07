@@ -42,5 +42,8 @@ public interface EleitorRepository extends PagingAndSortingRepository<Eleitor, L
 	@Query("select e from Eleitor e where e.pessoa.id = :id and e.eleicao.id = :idEleicao")
 	Eleitor findEleitorByPessoaId(@Param("id") Long id, @Param("idEleicao") Long idEleicao);
 	
+	@Query("select count(*) > 0 from Eleitor ele where ele.id = :idEleitor and ele.eleicao.situacao <> 0")
+	Boolean eleitorAssociadoEleicaoNaoCadastrada(@Param("id") Long idEleitor);
+	
 	
 }

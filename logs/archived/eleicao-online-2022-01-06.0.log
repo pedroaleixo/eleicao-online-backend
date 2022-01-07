@@ -1,0 +1,170 @@
+2022-01-06 22:45:29,466 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.0.Final
+2022-01-06 22:45:29,496 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting EleicaoOnlineApplication using Java 15 on DESKTOP-GB6D24J with PID 3080 (C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend\target\classes started by Pedro in C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend)
+2022-01-06 22:45:29,516 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.5, Spring v5.3.10
+2022-01-06 22:45:29,521 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2022-01-06 22:45:30,118 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-01-06 22:45:30,120 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-01-06 22:45:36,400 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-06 22:45:36,805 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 381 ms. Found 7 JPA repository interfaces.
+2022-01-06 22:45:39,074 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'springAsyncConfig' of type [br.com.eleicaoonline.config.SpringAsyncConfig$$EnhancerBySpringCGLIB$$f963085c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-06 22:45:39,733 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@247de4bd' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-06 22:45:39,739 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityConfig' of type [br.com.eleicaoonline.config.MethodSecurityConfig$$EnhancerBySpringCGLIB$$74448d06] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-06 22:45:39,764 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-06 22:45:42,872 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8443 (https)
+2022-01-06 22:45:42,971 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8443"]
+2022-01-06 22:45:42,972 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-01-06 22:45:42,974 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.53]
+2022-01-06 22:45:43,749 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-01-06 22:45:43,751 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 13571 ms
+2022-01-06 22:45:44,648 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-01-06 22:45:46,036 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-06 22:45:46,307 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-01-06 22:45:46,948 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-06 22:45:47,382 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-01-06 22:45:48,090 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-01-06 22:45:48,204 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-01-06 22:45:53,591 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-06 22:45:53,625 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-06 22:45:54,351 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-06 22:46:04,998 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51112200, org.springframework.security.web.context.SecurityContextPersistenceFilter@5ac8b37a, org.springframework.security.web.header.HeaderWriterFilter@51ee3ec3, org.springframework.web.filter.CorsFilter@681949a, org.springframework.security.web.authentication.logout.LogoutFilter@423cbb0e, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@413d5d56, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@4669a8ed, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@715c21b8, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@730e013, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5185fc5f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@487ef3a8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@37b9b4bc, org.springframework.security.web.session.SessionManagementFilter@62540914, org.springframework.security.web.access.ExceptionTranslationFilter@7b271b23, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3547a644]
+2022-01-06 22:46:06,040 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2022-01-06 22:46:07,995 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Using default implementation for ThreadExecutor
+2022-01-06 22:46:08,057 INFO org.quartz.core.SchedulerSignalerImpl [restartedMain] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2022-01-06 22:46:08,061 INFO org.quartz.core.QuartzScheduler [restartedMain] Quartz Scheduler v.2.3.2 created.
+2022-01-06 22:46:08,074 INFO org.quartz.simpl.RAMJobStore [restartedMain] RAMJobStore initialized.
+2022-01-06 22:46:08,088 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2022-01-06 22:46:08,096 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2022-01-06 22:46:08,097 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler version: 2.3.2
+2022-01-06 22:46:08,098 INFO org.quartz.core.QuartzScheduler [restartedMain] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@206f08c2
+2022-01-06 22:46:08,839 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8443"]
+2022-01-06 22:46:09,829 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8443 (https) with context path ''
+2022-01-06 22:46:10,603 INFO org.springframework.scheduling.quartz.SchedulerFactoryBean [restartedMain] Starting Quartz Scheduler now
+2022-01-06 22:46:10,605 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2022-01-06 22:46:10,654 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started EleicaoOnlineApplication in 42.889 seconds (JVM running for 46.066)
+2022-01-06 22:47:00,049 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2022-01-06 22:47:00,063 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:47:00,401 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2022-01-06 22:47:00,402 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:47:00,476 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de finalizar eleições processadas
+2022-01-06 22:47:00,477 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:47:00,514 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2022-01-06 22:47:00,515 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:48:00,168 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de finalizar eleições processadas
+2022-01-06 22:48:00,169 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:48:00,253 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2022-01-06 22:48:00,254 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:48:00,316 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2022-01-06 22:48:00,316 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:48:00,370 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2022-01-06 22:48:00,371 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:49:00,063 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2022-01-06 22:49:00,064 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:49:00,079 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de finalizar eleições processadas
+2022-01-06 22:49:00,079 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:49:00,095 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2022-01-06 22:49:00,095 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:49:00,101 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2022-01-06 22:49:00,102 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:50:00,005 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2022-01-06 22:50:00,006 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:50:00,013 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de finalizar eleições processadas
+2022-01-06 22:50:00,014 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:50:00,025 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2022-01-06 22:50:00,025 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:50:00,031 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2022-01-06 22:50:00,032 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:50:30,114 INFO org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8443-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-06 22:50:30,115 INFO org.springframework.web.servlet.FrameworkServlet [https-jsse-nio-8443-exec-1] Initializing Servlet 'dispatcherServlet'
+2022-01-06 22:50:30,121 INFO org.springframework.web.servlet.FrameworkServlet [https-jsse-nio-8443-exec-1] Completed initialization in 6 ms
+2022-01-06 22:51:00,021 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2022-01-06 22:51:00,024 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:51:00,039 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2022-01-06 22:51:00,041 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:51:00,047 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de finalizar eleições processadas
+2022-01-06 22:51:00,048 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:51:00,057 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2022-01-06 22:51:00,058 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:52:00,004 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2022-01-06 22:52:00,004 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:52:00,014 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2022-01-06 22:52:00,015 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:52:00,019 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2022-01-06 22:52:00,020 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:52:00,024 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de finalizar eleições processadas
+2022-01-06 22:52:00,024 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 22:52:38,927 INFO org.quartz.core.QuartzScheduler [Thread-4] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2022-01-06 22:52:40,077 INFO org.springframework.scheduling.quartz.SchedulerFactoryBean [Thread-4] Shutting down Quartz Scheduler
+2022-01-06 22:52:40,079 INFO org.quartz.core.QuartzScheduler [Thread-4] Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2022-01-06 22:52:40,080 INFO org.quartz.core.QuartzScheduler [Thread-4] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2022-01-06 22:52:40,080 INFO org.quartz.core.QuartzScheduler [Thread-4] Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2022-01-06 22:52:40,153 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [Thread-4] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-01-06 22:52:40,161 INFO com.zaxxer.hikari.HikariDataSource [Thread-4] HikariPool-1 - Shutdown initiated...
+2022-01-06 22:52:40,191 INFO com.zaxxer.hikari.HikariDataSource [Thread-4] HikariPool-1 - Shutdown completed.
+2022-01-06 22:52:42,118 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting EleicaoOnlineApplication using Java 15 on DESKTOP-GB6D24J with PID 3080 (C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend\target\classes started by Pedro in C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend)
+2022-01-06 22:52:42,118 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.5, Spring v5.3.10
+2022-01-06 22:52:42,119 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2022-01-06 23:58:03,218 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.0.Final
+2022-01-06 23:58:03,320 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting EleicaoOnlineApplication using Java 15 on DESKTOP-GB6D24J with PID 11556 (C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend\target\classes started by Pedro in C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend)
+2022-01-06 23:58:03,321 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.5, Spring v5.3.10
+2022-01-06 23:58:03,322 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2022-01-06 23:58:03,578 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-01-06 23:58:03,580 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-01-06 23:58:10,715 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-06 23:58:11,113 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 373 ms. Found 7 JPA repository interfaces.
+2022-01-06 23:58:13,483 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'springAsyncConfig' of type [br.com.eleicaoonline.config.SpringAsyncConfig$$EnhancerBySpringCGLIB$$e91bd1f5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-06 23:58:14,267 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3f9fb0c4' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-06 23:58:14,274 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityConfig' of type [br.com.eleicaoonline.config.MethodSecurityConfig$$EnhancerBySpringCGLIB$$63fd569f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-06 23:58:14,332 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-06 23:58:17,869 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8443 (https)
+2022-01-06 23:58:17,909 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8443"]
+2022-01-06 23:58:17,911 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-01-06 23:58:17,912 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.53]
+2022-01-06 23:58:18,573 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-01-06 23:58:18,579 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 14997 ms
+2022-01-06 23:58:19,567 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-01-06 23:58:20,562 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-06 23:58:21,150 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-01-06 23:58:22,572 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-06 23:58:22,948 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-01-06 23:58:23,493 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-01-06 23:58:23,610 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-01-06 23:58:28,011 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-06 23:58:28,033 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-06 23:58:28,684 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-06 23:58:37,112 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@280a2563, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b69371, org.springframework.security.web.header.HeaderWriterFilter@32e599a0, org.springframework.web.filter.CorsFilter@76789048, org.springframework.security.web.authentication.logout.LogoutFilter@30815a3, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@2e3f5db7, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@7f40a157, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5c86dbeb, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@a15c1e0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c22f297, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@16a0220d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@686b473b, org.springframework.security.web.session.SessionManagementFilter@276a550b, org.springframework.security.web.access.ExceptionTranslationFilter@4aa8b2ca, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@64c8e5ac]
+2022-01-06 23:58:37,648 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2022-01-06 23:58:38,881 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Using default implementation for ThreadExecutor
+2022-01-06 23:58:38,925 INFO org.quartz.core.SchedulerSignalerImpl [restartedMain] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2022-01-06 23:58:38,926 INFO org.quartz.core.QuartzScheduler [restartedMain] Quartz Scheduler v.2.3.2 created.
+2022-01-06 23:58:38,928 INFO org.quartz.simpl.RAMJobStore [restartedMain] RAMJobStore initialized.
+2022-01-06 23:58:38,930 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2022-01-06 23:58:38,931 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2022-01-06 23:58:38,931 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler version: 2.3.2
+2022-01-06 23:58:38,932 INFO org.quartz.core.QuartzScheduler [restartedMain] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@2cb21dbe
+2022-01-06 23:58:39,713 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8443"]
+2022-01-06 23:58:40,560 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8443 (https) with context path ''
+2022-01-06 23:58:41,197 INFO org.springframework.scheduling.quartz.SchedulerFactoryBean [restartedMain] Starting Quartz Scheduler now
+2022-01-06 23:58:41,198 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2022-01-06 23:58:41,242 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started EleicaoOnlineApplication in 40.006 seconds (JVM running for 41.852)
+2022-01-06 23:59:00,037 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições iniciadas
+2022-01-06 23:59:00,052 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 23:59:00,187 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2022-01-06 23:59:00,188 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 23:59:00,258 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de finalizar eleições processadas
+2022-01-06 23:59:00,259 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-06 23:59:00,266 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2022-01-06 23:59:00,267 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao

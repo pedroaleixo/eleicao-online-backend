@@ -14,6 +14,7 @@ import br.com.eleicaoonline.service.validation.CPFInvalidoReceitaValidation;
 import br.com.eleicaoonline.service.validation.CPFNaoCadastradoValidation;
 import br.com.eleicaoonline.service.validation.EleicaoNaoCadastradaValidation;
 import br.com.eleicaoonline.service.validation.EmailCadastradoValidation;
+import br.com.eleicaoonline.service.validation.EntidadeAssociadaEleicaoNaoCadastradaValidation;
 import br.com.eleicaoonline.service.validation.EntidadeNaoExistenteValidation;
 import br.com.eleicaoonline.service.validation.Validation;
 
@@ -31,6 +32,9 @@ public class BaseService {
 	
 	@Autowired
 	protected EntidadeNaoExistenteValidation entidadeNaoExistenteValidation;
+	
+	@Autowired
+	protected EntidadeAssociadaEleicaoNaoCadastradaValidation entidadeAssociadaEleicaoNaoCadastradaValidation;
 	
 	@Autowired
 	protected EleicaoNaoCadastradaValidation eleicaoIniciadaFinalizadaValidation;

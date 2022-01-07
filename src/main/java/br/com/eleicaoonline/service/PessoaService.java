@@ -88,7 +88,7 @@ public class PessoaService extends BaseService {
 		
 		Pessoa Pessoa = this.buscarPessoaPeloId(id);
 
-		validateBusiness(Pessoa, Arrays.asList(entidadeNaoExistenteValidation));
+		validateBusiness(Pessoa, Arrays.asList(entidadeNaoExistenteValidation, entidadeAssociadaEleicaoNaoCadastradaValidation));
 
 		repository.deleteById(id);
 	}

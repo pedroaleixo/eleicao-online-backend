@@ -21,5 +21,15 @@ public interface PessoaRepository extends PagingAndSortingRepository<Pessoa, Lon
 	public Pessoa findByCpf(Long cpf);
 	
 	public Pessoa findByEmail(String email);
+	
+	@Query("select count(*) > 0 from Pessoa p "
+			+ "where "
+			+ "p.id = :idPessoa "
+			+ "AND ( "
+			+ "exists (select ele from Eleitor ele where ele.pessoa.id = p.id and ele.eleicao.situacao <> 0) "
+			+ "	OR "
+			+ "exists (select can from Candidato can where can.pessoa.id = p.id and can.eleicao.situacao <> 0) "
+			+ ")")
+	Boolean pessoaAssociadaEleicaoNaoCadastrada(@Param("idPessoa") Long idPessoa);
 
 }
