@@ -1,5 +1,6 @@
 package br.com.eleicaoonline.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class Administrador{
 	private Long id;
 
 	@NotNull
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name = "id_pessoa", referencedColumnName = "id")
 	private Pessoa pessoa;
 

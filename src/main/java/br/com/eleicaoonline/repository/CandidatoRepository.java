@@ -22,5 +22,7 @@ public interface CandidatoRepository extends PagingAndSortingRepository<Candidat
 	
 	@Query("select count(*) > 0 from Candidato can where can.id = :idCandidato and can.eleicao.situacao <> 0")
 	Boolean candidatoAssociadoEleicaoNaoCadastrada(@Param("id") Long idCandidato);
+	
+	public Candidato findByPessoaCpf(Long cpf);
 
 }

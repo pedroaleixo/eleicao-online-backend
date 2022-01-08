@@ -20,5 +20,7 @@ public interface AdministradorRepository extends PagingAndSortingRepository<Admi
 	
 	@Query("select a from Administrador a where a.pessoa.email = :email")
 	Administrador findAdministradorByEmail(@Param("email") String email);
+	
+	public Administrador findByPessoaCpf(Long cpf);
 
 }

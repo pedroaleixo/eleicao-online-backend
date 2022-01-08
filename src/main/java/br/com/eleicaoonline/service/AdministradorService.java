@@ -13,7 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.domain.Administrador;
 import br.com.eleicaoonline.repository.AdministradorRepository;
-import br.com.eleicaoonline.service.AdministradorService;
+import br.com.eleicaoonline.repository.PessoaRepository;
+import br.com.eleicaoonline.service.validation.CPFCadastradoValidation;
 import lombok.extern.java.Log;
 
 @Log
@@ -23,6 +24,12 @@ public class AdministradorService extends BaseService {
 
 	@Autowired
 	private AdministradorRepository repository;
+	
+	@Autowired
+	private PessoaRepository pessoaRepository;
+	
+	@Autowired
+	private CPFCadastradoValidation cpfCadastradoValidation;
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	public Page<Administrador> listarAdministradores(FiltroPessoa filtro, Pageable pageable) {		
@@ -37,7 +44,11 @@ public class AdministradorService extends BaseService {
 		validateEntity(administrador);
 
 		validateBusiness(administrador, 
-				Arrays.asList(cpfNaoCadastradoValidation, cpfInvalidoReceitaValidation));
+				Arrays.asList(cpfCadastradoValidation, cpfInvalidoReceitaValidation));
+		
+		if(administrador.getPessoa().getId() != null) {
+			administrador.setPessoa(pessoaRepository.save(administrador.getPessoa()));
+		}
 
 		return repository.save(administrador);
 	}
@@ -67,7 +78,7 @@ public class AdministradorService extends BaseService {
 		validateEntity(administrador);
 
 		validateBusiness(administrador, Arrays.asList(entidadeNaoExistenteValidation, 
-				cpfNaoCadastradoValidation, cpfInvalidoReceitaValidation));
+				 cpfInvalidoReceitaValidation));
 
 		return repository.save(administrador);
 	}
