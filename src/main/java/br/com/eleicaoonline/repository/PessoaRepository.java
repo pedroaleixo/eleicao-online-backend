@@ -17,7 +17,7 @@ public interface PessoaRepository extends PagingAndSortingRepository<Pessoa, Lon
 	
 	@Query("select p from Pessoa p "
 			+ "where (cast(:#{#filtro.nome} as text) is null or lower(p.nome) like lower(concat('%', cast(:#{#filtro.nome} as text),'%'))) "
-			+ "and (:#{#filtro.cpf} is null or p.cpf = :#{#filtro.cpf}) ")
+			+ "and (:#{#filtro.cpf} is null or p.cpf = :#{#filtro.cpf}) order by p.nome asc")
 	Page<Pessoa> filtrar(@Param("filtro") FiltroPessoa filtro, Pageable pageable);
 	
 	public Pessoa findByCpf(Long cpf);

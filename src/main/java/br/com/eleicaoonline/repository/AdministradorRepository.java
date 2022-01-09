@@ -15,7 +15,7 @@ public interface AdministradorRepository extends PagingAndSortingRepository<Admi
 	
 	@Query("select a from Administrador a "
 			+ "where (cast(:#{#filtro.nome} as text) is null or lower(a.pessoa.nome) like lower(concat('%', cast(:#{#filtro.nome} as text),'%'))) "
-			+ "and ( :#{#filtro.cpf} is null or a.pessoa.cpf = :#{#filtro.cpf} ) ")
+			+ "and ( :#{#filtro.cpf} is null or a.pessoa.cpf = :#{#filtro.cpf} ) order by a.pessoa.nome asc")
 	Page<Administrador> filtrar(@Param("filtro") FiltroPessoa filtro, Pageable pageable);
 	
 	@Query("select a from Administrador a where a.pessoa.email = :email")

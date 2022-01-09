@@ -20,7 +20,7 @@ public interface EleitorRepository extends PagingAndSortingRepository<Eleitor, L
 	@Query("select e from Eleitor e "
 			+ "where e.eleicao.id = :#{#filtro.idEleicao} "
 			+ "and (cast(:#{#filtro.nome} as text) is null or lower(e.pessoa.nome) like lower(concat('%', cast(:#{#filtro.nome} as text),'%'))) "
-			+ "and (:#{#filtro.cpf} is null or e.pessoa.cpf = :#{#filtro.cpf}) ")
+			+ "and (:#{#filtro.cpf} is null or e.pessoa.cpf = :#{#filtro.cpf}) order by e.pessoa.nome asc")
 	Page<Eleitor> filtrar(@Param("filtro") FiltroPessoa filtro, Pageable pageable);
 
 	@Query("select e.eleicao from Eleitor e where e.pessoa.id = :id")

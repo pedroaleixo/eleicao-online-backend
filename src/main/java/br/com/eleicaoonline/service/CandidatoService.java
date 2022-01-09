@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.domain.Candidato;
 import br.com.eleicaoonline.repository.CandidatoRepository;
+import br.com.eleicaoonline.repository.PessoaRepository;
 import br.com.eleicaoonline.service.CandidatoService;
 import lombok.extern.java.Log;
 
@@ -23,6 +24,9 @@ public class CandidatoService extends BaseService {
 
 	@Autowired
 	private CandidatoRepository repository;
+	
+	@Autowired
+	private PessoaRepository pessoaRepository;
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)	
 	public Page<Candidato> listarCandidatos(FiltroPessoa filtro, Pageable pageable) {
@@ -38,6 +42,10 @@ public class CandidatoService extends BaseService {
 
 		validateBusiness(candidato, Arrays.asList(eleicaoIniciadaFinalizadaValidation, cpfCadastradoValidation,
 				cpfInvalidoReceitaValidation));
+		
+		if(candidato.getPessoa().getId() != null) {
+			candidato.setPessoa(pessoaRepository.save(candidato.getPessoa()));
+		}
 
 		return repository.save(candidato);
 	}
