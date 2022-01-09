@@ -1,5 +1,6 @@
 package br.com.eleicaoonline.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +32,7 @@ public class Candidato{
   private Long votos;
   
   @NotNull
-  @ManyToOne
+  @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JoinColumn(name = "id_pessoa")
   private Pessoa pessoa;
   

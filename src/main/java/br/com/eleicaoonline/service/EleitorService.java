@@ -16,6 +16,7 @@ import br.com.eleicaoonline.controller.filtro.FiltroVotantes;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.repository.EleitorRepository;
+import br.com.eleicaoonline.repository.PessoaRepository;
 import br.com.eleicaoonline.service.EleitorService;
 import lombok.extern.java.Log;
 
@@ -26,6 +27,9 @@ public class EleitorService extends BaseService {
 
 	@Autowired
 	private EleitorRepository repository;
+	
+	@Autowired
+	private PessoaRepository pessoaRepository;
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	public Page<Eleitor> listarEleitores(FiltroPessoa filtro, Pageable pageable) {
@@ -46,8 +50,12 @@ public class EleitorService extends BaseService {
 
 		validateEntity(eleitor);
 
-		validateBusiness(eleitor, Arrays.asList(eleicaoIniciadaFinalizadaValidation, cpfNaoCadastradoValidation,
+		validateBusiness(eleitor, Arrays.asList(eleicaoIniciadaFinalizadaValidation, cpfCadastradoValidation,
 				cpfInvalidoReceitaValidation));
+		
+		if(eleitor.getPessoa().getId() != null) {
+			eleitor.setPessoa(pessoaRepository.save(eleitor.getPessoa()));
+		}
 
 		return repository.save(eleitor);
 	}

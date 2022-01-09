@@ -14,7 +14,6 @@ import br.com.eleicaoonline.controller.filtro.FiltroPessoa;
 import br.com.eleicaoonline.domain.Administrador;
 import br.com.eleicaoonline.repository.AdministradorRepository;
 import br.com.eleicaoonline.repository.PessoaRepository;
-import br.com.eleicaoonline.service.validation.CPFCadastradoValidation;
 import lombok.extern.java.Log;
 
 @Log
@@ -26,10 +25,8 @@ public class AdministradorService extends BaseService {
 	private AdministradorRepository repository;
 	
 	@Autowired
-	private PessoaRepository pessoaRepository;
-	
-	@Autowired
-	private CPFCadastradoValidation cpfCadastradoValidation;
+	private PessoaRepository pessoaRepository;	
+
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	public Page<Administrador> listarAdministradores(FiltroPessoa filtro, Pageable pageable) {		

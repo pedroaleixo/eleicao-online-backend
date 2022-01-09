@@ -10,6 +10,7 @@ import javax.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.eleicaoonline.service.validation.CPFCadastradoValidation;
 import br.com.eleicaoonline.service.validation.CPFInvalidoReceitaValidation;
 import br.com.eleicaoonline.service.validation.CPFNaoCadastradoValidation;
 import br.com.eleicaoonline.service.validation.EleicaoNaoCadastradaValidation;
@@ -29,6 +30,9 @@ public class BaseService {
 	
 	@Autowired
 	protected CPFNaoCadastradoValidation cpfNaoCadastradoValidation;
+	
+	@Autowired
+	protected CPFCadastradoValidation cpfCadastradoValidation;
 	
 	@Autowired
 	protected EntidadeNaoExistenteValidation entidadeNaoExistenteValidation;

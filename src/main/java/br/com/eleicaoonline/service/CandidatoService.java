@@ -36,7 +36,7 @@ public class CandidatoService extends BaseService {
 
 		validateEntity(candidato);
 
-		validateBusiness(candidato, Arrays.asList(eleicaoIniciadaFinalizadaValidation, cpfNaoCadastradoValidation,
+		validateBusiness(candidato, Arrays.asList(eleicaoIniciadaFinalizadaValidation, cpfCadastradoValidation,
 				cpfInvalidoReceitaValidation));
 
 		return repository.save(candidato);

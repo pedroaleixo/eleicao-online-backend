@@ -2,6 +2,7 @@ package br.com.eleicaoonline.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +34,7 @@ public class Eleitor {
 	private Date dataHoraVotou;
 
 	@NotNull
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name = "id_pessoa")
 	private Pessoa pessoa;
 
