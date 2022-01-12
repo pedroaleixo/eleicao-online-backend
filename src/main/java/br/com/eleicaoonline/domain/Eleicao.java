@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -59,19 +60,19 @@ public class Eleicao {
 	@Column(name = "situacao")
 	private SituacaoEleicao situacao;
 
-	@OneToMany(mappedBy = "eleicao", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "eleicao", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<Cargo> cargos;
 
-	@OneToOne(mappedBy = "eleicao", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "eleicao", cascade = CascadeType.ALL, orphanRemoval = true)
 	private ComissaoEleitoral comissaoEleitoral;
 	
-	@OneToOne(mappedBy = "eleicao", cascade = CascadeType.ALL)	
+	@OneToOne(mappedBy = "eleicao", cascade = CascadeType.ALL, orphanRemoval = true)	
 	private Configuracao configuracao;	
 	
-	@OneToMany(mappedBy = "eleicao", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "eleicao", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Candidato> candidatos;
 	
-	@OneToMany(mappedBy = "eleicao", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "eleicao", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Eleitor> eleitores;
 
 }

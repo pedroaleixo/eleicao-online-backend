@@ -139,6 +139,12 @@ public class EleicaoService extends BaseService {
 
 	public Eleicao atualizarEleicao(Eleicao eleicao) {
 		log.info("Executando atualizarEleicao");
+		
+		if(eleicao.getCargos() != null) {
+			for (Cargo cargo : eleicao.getCargos()) {
+				cargo.setEleicao(eleicao);
+			}
+		}
 
 		validateEntity(eleicao);
 
