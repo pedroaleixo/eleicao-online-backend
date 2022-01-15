@@ -21,7 +21,7 @@ import br.com.eleicaoonline.domain.Eleitor;
 import br.com.eleicaoonline.domain.Pessoa;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import br.com.eleicaoonline.repository.EleicaoRepository;
-import br.com.eleicaoonline.service.EleicaoService;
+import br.com.eleicaoonline.repository.PessoaRepository;
 import lombok.extern.java.Log;
 
 @Log
@@ -32,6 +32,8 @@ public class EleicaoService extends BaseService {
 	@Autowired
 	private EleicaoRepository repository;
 
+	@Autowired
+	private PessoaRepository pessoaRepository;
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	public List<Eleicao> listarEleicoes() {
@@ -133,23 +135,47 @@ public class EleicaoService extends BaseService {
 		eleicao.setSituacao(SituacaoEleicao.CADASTRADA);
 		
 		validateEntity(eleicao);
-
-		return repository.save(eleicao);
-	}
-
-	public Eleicao atualizarEleicao(Eleicao eleicao) {
-		log.info("Executando atualizarEleicao");
 		
 		if(eleicao.getCargos() != null) {
 			for (Cargo cargo : eleicao.getCargos()) {
 				cargo.setEleicao(eleicao);
 			}
 		}
+		
+		if(eleicao.getComissaoEleitoral() != null) {
+			eleicao.getComissaoEleitoral().setEleicao(eleicao);
+			eleicao.getComissaoEleitoral().getMembros().stream().forEach(n -> {
+				if(n.getId() == null) {
+					pessoaRepository.save(n);
+				}
+			});
+		}
 
+		return repository.save(eleicao);
+	}
+
+	public Eleicao atualizarEleicao(Eleicao eleicao) {
+		log.info("Executando atualizarEleicao");		
+		
 		validateEntity(eleicao);
 
 		validateBusiness(eleicao, Arrays.asList(entidadeNaoExistenteValidation, eleicaoIniciadaFinalizadaValidation));
 
+		if(eleicao.getCargos() != null) {
+			for (Cargo cargo : eleicao.getCargos()) {
+				cargo.setEleicao(eleicao);
+			}
+		}
+		
+		if(eleicao.getComissaoEleitoral() != null) {
+			eleicao.getComissaoEleitoral().setEleicao(eleicao);
+			eleicao.getComissaoEleitoral().getMembros().stream().forEach(n -> {
+				if(n.getId() == null) {
+					pessoaRepository.save(n);
+				}
+			});
+		}
+		
 		return repository.save(eleicao);
 	}
 	
