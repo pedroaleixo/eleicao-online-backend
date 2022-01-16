@@ -213,6 +213,19 @@ public class EleicaoController {
 				ConfiguracaoDTO.class);
 	}
 	
+	@Operation(summary = "Busca a configuração da eleição")
+	@ApiResponses(value = { 
+	        @ApiResponse(responseCode = "200", description = "Sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = List.class))),	
+	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "404", description = "Eleição não encontrada", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
+	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
+	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
+	@GetMapping("/configuracao/{idEleicao}")
+	public ConfiguracaoDTO buscarConfiguracaoEleicao(@PathVariable("idEleicao") Long idEleicao) {	
+		return mapper.mapTo(service.buscarConfiguracaoEleicao(idEleicao), ConfiguracaoDTO.class);
+	}
+	
 	
 	@Operation(summary = "Busca a estatística da eleição")
 	@ApiResponses(value = { 

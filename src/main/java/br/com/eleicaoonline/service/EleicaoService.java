@@ -203,4 +203,15 @@ public class EleicaoService extends BaseService {
 		repository.save(eleicao);
 		return eleicao.getConfiguracao();
 	}
+	
+	public Configuracao buscarConfiguracaoEleicao(Long idEleicao) {
+		log.info("Executando buscarConfiguracaoEleicao");
+
+		List<Configuracao> retorno = repository.findConfiguracaoByEleicaoId(idEleicao);
+		Configuracao configuracao = null;
+		if(retorno != null && !retorno.isEmpty()) {
+			configuracao  = retorno.get(0);
+		}
+		return configuracao;
+	}
 }

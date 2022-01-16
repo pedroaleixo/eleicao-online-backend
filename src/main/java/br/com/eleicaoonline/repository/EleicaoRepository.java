@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import br.com.eleicaoonline.controller.filtro.FiltroEleicao;
+import br.com.eleicaoonline.domain.Configuracao;
 import br.com.eleicaoonline.domain.Eleicao;
 import br.com.eleicaoonline.domain.Pessoa;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
@@ -37,5 +38,8 @@ public interface EleicaoRepository extends PagingAndSortingRepository<Eleicao, L
 	
 	@Query("select e from Eleicao e join e.comissaoEleitoral.membros membro where membro.id = :idPessoa")
 	List<Eleicao> findByPessoaMembroComissao(@Param("idPessoa") Long idPessoa);
+	
+	@Query("select c from Configuracao c where c.eleicao.id = :idEleicao")
+	List<Configuracao> findConfiguracaoByEleicaoId(@Param("idEleicao") Long idEleicao);
 	
 }
