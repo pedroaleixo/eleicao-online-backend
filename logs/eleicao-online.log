@@ -1226,3 +1226,77 @@ Caused by: org.hibernate.QueryException: No data type for node: org.hibernate.hq
 2022-01-16 01:42:13,397 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-3] Executando listarEleicoes por filtro
 2022-01-16 01:42:14,750 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-10] Executando buscarConfiguracaoEleicao
 2022-01-16 01:42:16,521 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-5] Executando listarEleicoes por filtro
+2022-01-16 21:13:46,457 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.0.Final
+2022-01-16 21:13:46,815 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting EleicaoOnlineApplication using Java 15 on DESKTOP-GB6D24J with PID 8988 (C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend\target\classes started by Pedro in C:\Users\Pedro\Documents\Projetos\pessoais\eleicao-online\eleicao-online-backend)
+2022-01-16 21:13:46,817 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.5, Spring v5.3.10
+2022-01-16 21:13:46,817 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2022-01-16 21:13:47,233 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-01-16 21:13:47,233 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-01-16 21:13:52,598 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-16 21:13:52,901 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 278 ms. Found 8 JPA repository interfaces.
+2022-01-16 21:13:54,419 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'springAsyncConfig' of type [br.com.eleicaoonline.config.SpringAsyncConfig$$EnhancerBySpringCGLIB$$2fd3d0de] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-16 21:13:54,718 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1e65bf8d' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-16 21:13:54,721 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityConfig' of type [br.com.eleicaoonline.config.MethodSecurityConfig$$EnhancerBySpringCGLIB$$aab55588] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-16 21:13:54,760 INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-16 21:13:57,128 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8443 (https)
+2022-01-16 21:13:57,158 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["https-jsse-nio-8443"]
+2022-01-16 21:13:57,160 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-01-16 21:13:57,161 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.53]
+2022-01-16 21:13:57,691 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-01-16 21:13:57,693 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 10351 ms
+2022-01-16 21:13:58,237 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-01-16 21:13:58,916 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-16 21:13:59,417 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-01-16 21:14:00,393 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-16 21:14:01,280 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-01-16 21:14:01,997 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-01-16 21:14:02,119 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-01-16 21:14:05,607 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-16 21:14:05,632 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-16 21:14:06,038 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-16 21:14:11,675 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e360827, org.springframework.security.web.context.SecurityContextPersistenceFilter@7abe296, org.springframework.security.web.header.HeaderWriterFilter@713d38c0, org.springframework.web.filter.CorsFilter@4cd2f07b, org.springframework.security.web.authentication.logout.LogoutFilter@6e977335, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@6153318e, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@7bded042, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@66de7343, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@345f06b5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b073143, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@560e3ea6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3968b537, org.springframework.security.web.session.SessionManagementFilter@55c66d90, org.springframework.security.web.access.ExceptionTranslationFilter@6c3b8793, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@49321074]
+2022-01-16 21:14:12,136 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2022-01-16 21:14:13,023 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Using default implementation for ThreadExecutor
+2022-01-16 21:14:13,059 INFO org.quartz.core.SchedulerSignalerImpl [restartedMain] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2022-01-16 21:14:13,060 INFO org.quartz.core.QuartzScheduler [restartedMain] Quartz Scheduler v.2.3.2 created.
+2022-01-16 21:14:13,064 INFO org.quartz.simpl.RAMJobStore [restartedMain] RAMJobStore initialized.
+2022-01-16 21:14:13,068 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2022-01-16 21:14:13,068 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2022-01-16 21:14:13,077 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler version: 2.3.2
+2022-01-16 21:14:13,078 INFO org.quartz.core.QuartzScheduler [restartedMain] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@66679fb
+2022-01-16 21:14:13,524 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["https-jsse-nio-8443"]
+2022-01-16 21:14:15,309 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8443 (https) with context path ''
+2022-01-16 21:14:15,732 INFO org.springframework.scheduling.quartz.SchedulerFactoryBean [restartedMain] Starting Quartz Scheduler now
+2022-01-16 21:14:15,732 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2022-01-16 21:14:15,757 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started EleicaoOnlineApplication in 32.298 seconds (JVM running for 35.656)
+2022-01-16 21:14:26,153 INFO org.apache.juli.logging.DirectJDKLog [https-jsse-nio-8443-exec-3] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-16 21:14:26,154 INFO org.springframework.web.servlet.FrameworkServlet [https-jsse-nio-8443-exec-3] Initializing Servlet 'dispatcherServlet'
+2022-01-16 21:14:26,159 INFO org.springframework.web.servlet.FrameworkServlet [https-jsse-nio-8443-exec-3] Completed initialization in 4 ms
+2022-01-16 21:14:31,343 WARN br.com.eleicaoonline.filter.JwtRequestFilter [https-jsse-nio-8443-exec-6] Requisição não possui string bearer
+2022-01-16 21:14:31,480 INFO br.com.eleicaoonline.service.AutenticacaoService [https-jsse-nio-8443-exec-6] Executando gerarToken
+2022-01-16 21:14:31,491 INFO br.com.eleicaoonline.service.AdministradorService [https-jsse-nio-8443-exec-6] Executando buscarAdministradorPeloEmail
+2022-01-16 21:14:31,777 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-6] Executando buscarMembroComissaoPeloEmail
+2022-01-16 21:14:31,816 INFO br.com.eleicaoonline.service.EleitorService [https-jsse-nio-8443-exec-6] Executando buscarEleitorPeloEmail
+2022-01-16 21:14:34,043 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-6] Executando listarEleicoes
+2022-01-16 21:14:37,307 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-5] Executando listarEleicoes por filtro
+2022-01-16 21:14:39,778 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-2] Executando buscarConfiguracaoEleicao
+2022-01-16 21:14:44,181 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-4] Executando configurarEleicao
+2022-01-16 21:14:44,183 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-4] Executando buscarEleicaoPeloId
+2022-01-16 21:14:44,435 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-3] Executando listarEleicoes por filtro
+2022-01-16 21:14:51,834 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-1] Executando buscarConfiguracaoEleicao
+2022-01-16 21:14:57,493 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-10] Executando configurarEleicao
+2022-01-16 21:14:57,494 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-10] Executando buscarEleicaoPeloId
+2022-01-16 21:14:57,600 INFO br.com.eleicaoonline.service.EleicaoService [https-jsse-nio-8443-exec-6] Executando listarEleicoes por filtro
+2022-01-16 21:15:00,060 INFO br.com.eleicaoonline.job.CalcularResultadoEleicaoJob [scheduling-1] Executando o job de calcular os resultados das eleições com falha
+2022-01-16 21:15:00,063 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-16 21:15:00,117 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de iniciar eleição
+2022-01-16 21:15:00,118 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando buscarPorSituacao
+2022-01-16 21:15:00,131 INFO br.com.eleicaoonline.service.EleicaoService [scheduling-1] Executando atualizarEleicaoSemValidacao
+2022-01-16 21:15:00,210 INFO br.com.eleicaoonline.job.IniciarFinalizarEleicaoJob [scheduling-1] Executando o job de finalizar eleições processadas
