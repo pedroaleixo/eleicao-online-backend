@@ -72,7 +72,6 @@ public class EleicaoController {
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "404", description = "Nenhum resultado encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO})
 	@PostMapping("/filtrar")
 	public Page<EleicaoDTO> listarEleicoesPorFiltro(@RequestBody FiltroEleicao filtro, Pageable pageable) {				
 		return mapper.toPage(service.listarEleicoes(filtro, pageable), EleicaoDTO.class);
@@ -85,7 +84,6 @@ public class EleicaoController {
 	        @ApiResponse(responseCode = "401", description = "Usuário não autorizado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "404", description = "Nenhum resultado encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO, Perfis.ELEITOR})
 	@GetMapping("/{idEleicao}/candidatos")
 	public List<CandidatoDTO> listarCandidatosEleicao(@PathVariable("idEleicao") Long idEleicao) {				
 		return mapper.toList(service.listarCandidatosEleicao(idEleicao), CandidatoDTO.class);
@@ -150,7 +148,6 @@ public class EleicaoController {
 	        @ApiResponse(responseCode = "404", description = "Eleição não encontrada", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
 	        @ApiResponse(responseCode = "409", description = "Erro de negócio", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),	        
 	        @ApiResponse(responseCode = "500", description = "Erro de sistema", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))) })
-	@Secured({Perfis.ADMINISTRADOR, Perfis.COMISSAO, Perfis.ELEITOR})
 	@GetMapping("/{id}")
 	public EleicaoDTO buscarEleicaoPeloId(@PathVariable("id") Long id) {				
 		return mapper.mapTo(service.buscarEleicaoPeloId(id), EleicaoDTO.class);
