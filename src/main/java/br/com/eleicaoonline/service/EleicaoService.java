@@ -22,6 +22,7 @@ import br.com.eleicaoonline.domain.Pessoa;
 import br.com.eleicaoonline.domain.enums.SituacaoEleicao;
 import br.com.eleicaoonline.repository.EleicaoRepository;
 import br.com.eleicaoonline.repository.PessoaRepository;
+import br.com.eleicaoonline.service.validation.DataInicioInvalidaValidation;
 import lombok.extern.java.Log;
 
 @Log
@@ -34,6 +35,9 @@ public class EleicaoService extends BaseService {
 
 	@Autowired
 	private PessoaRepository pessoaRepository;
+	
+	@Autowired
+	private DataInicioInvalidaValidation dataInicioInvalidaValidation;
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	public List<Eleicao> listarEleicoes() {
@@ -136,9 +140,21 @@ public class EleicaoService extends BaseService {
 		
 		validateEntity(eleicao);
 		
+		validateBusiness(eleicao, Arrays.asList(dataInicioInvalidaValidation));
+		
+		List<Candidato> candidatosBrancos = new ArrayList<>();
+		
 		if(eleicao.getCargos() != null) {
+			Pessoa branco = pessoaRepository.findById(1000001L).get();
 			for (Cargo cargo : eleicao.getCargos()) {
 				cargo.setEleicao(eleicao);
+				Candidato c = new Candidato();
+				c.setBranco(true);
+				c.setPessoa(branco);
+				c.setCargo(cargo);
+				c.setEleicao(eleicao);
+				c.setVotos(0L);			
+				candidatosBrancos.add(c);
 			}
 		}
 		
@@ -150,6 +166,10 @@ public class EleicaoService extends BaseService {
 				}
 			});
 		}
+		
+		
+		
+		eleicao.setCandidatos(candidatosBrancos);
 
 		return repository.save(eleicao);
 	}
@@ -159,7 +179,8 @@ public class EleicaoService extends BaseService {
 		
 		validateEntity(eleicao);
 
-		validateBusiness(eleicao, Arrays.asList(entidadeNaoExistenteValidation, eleicaoIniciadaFinalizadaValidation));
+		validateBusiness(eleicao, Arrays.asList(entidadeNaoExistenteValidation, 
+				eleicaoIniciadaFinalizadaValidation, dataInicioInvalidaValidation));
 
 		if(eleicao.getCargos() != null) {
 			for (Cargo cargo : eleicao.getCargos()) {

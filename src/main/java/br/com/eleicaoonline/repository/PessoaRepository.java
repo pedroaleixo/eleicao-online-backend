@@ -16,7 +16,8 @@ import br.com.eleicaoonline.domain.Pessoa;
 public interface PessoaRepository extends PagingAndSortingRepository<Pessoa, Long> {
 	
 	@Query("select p from Pessoa p "
-			+ "where (cast(:#{#filtro.nome} as text) is null or lower(p.nome) like lower(concat('%', cast(:#{#filtro.nome} as text),'%'))) "
+			+ "where p.id <> 1000001 "
+			+ "and (cast(:#{#filtro.nome} as text) is null or lower(p.nome) like lower(concat('%', cast(:#{#filtro.nome} as text),'%'))) "
 			+ "and (:#{#filtro.cpf} is null or p.cpf = :#{#filtro.cpf}) order by p.nome asc")
 	Page<Pessoa> filtrar(@Param("filtro") FiltroPessoa filtro, Pageable pageable);
 	

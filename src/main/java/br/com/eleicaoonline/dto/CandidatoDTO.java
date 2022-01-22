@@ -28,5 +28,8 @@ public class CandidatoDTO implements Serializable {
 	
 	@JsonProperty("cargo")
 	private CargoDTO cargo;
+	
+	@JsonProperty("branco")
+	private Boolean branco;
 
 }

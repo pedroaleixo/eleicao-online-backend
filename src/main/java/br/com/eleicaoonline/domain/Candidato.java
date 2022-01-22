@@ -45,4 +45,7 @@ public class Candidato{
   @ManyToOne
   @JoinColumn(name = "id_cargo")
   private Cargo cargo;
+  
+  @Column(name = "branco")
+  private Boolean branco;
 }

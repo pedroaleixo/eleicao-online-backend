@@ -46,6 +46,8 @@ public class CandidatoService extends BaseService {
 		if(candidato.getPessoa().getId() != null) {
 			candidato.setPessoa(pessoaRepository.save(candidato.getPessoa()));
 		}
+		
+		candidato.setBranco(false);
 
 		return repository.save(candidato);
 	}

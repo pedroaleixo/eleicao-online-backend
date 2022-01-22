@@ -40,9 +40,11 @@ public class CPFCadastradoValidation implements Validation<Object> {
 			if (obj instanceof Pessoa) {
 				cpfCadastrado = repository.findByCpf(((Pessoa) obj).getCpf()) != null;
 			} else if (obj instanceof Candidato) {
-				cpfCadastrado = candidatoRepository.findByPessoaCpf(((Candidato) obj).getPessoa().getCpf()) != null;
+				Candidato c = ((Candidato) obj);
+				cpfCadastrado = candidatoRepository.findByPessoaCpfAndEleicaoId(c.getPessoa().getCpf(), c.getEleicao().getId()) != null;
 			} else if (obj instanceof Eleitor) {
-				cpfCadastrado = eleitorRepository.findByPessoaCpf(((Eleitor) obj).getPessoa().getCpf()) != null;
+				Eleitor e = ((Eleitor) obj);
+				cpfCadastrado = eleitorRepository.findByPessoaCpfAndEleicaoId(e.getPessoa().getCpf(), e.getEleicao().getId()) != null;
 			}  else if (obj instanceof Administrador) {
 				cpfCadastrado = administradorRepository.findByPessoaCpf(((Administrador) obj).getPessoa().getCpf()) != null;
 			}

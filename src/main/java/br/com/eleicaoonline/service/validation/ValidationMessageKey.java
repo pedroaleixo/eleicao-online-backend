@@ -10,6 +10,8 @@ public class ValidationMessageKey {
 	public static final String ELEICAO_NAO_CADASTRADA = "eleicao.nao.cadastrada";
 	public static final String ELEICAO_NAO_INICIADA = "eleicao.nao.iniciada";
 	public static final String CPF_CADASTRADO = "cpf.cadastrado";
-	public static final String EMAIL_CADASTRADO = "email.cadastrado";
+	public static final String EMAIL_CADASTRADO = "email.cadastrado";	
+	public static final String DATA_INICIO_MAIOR_ATUAL = "eleicao.data.inicio.maior.atual";
+	public static final String DATA_INICIO_MAIOR_FIM = "eleicao.data.inicio.maior.fim";
 
 }

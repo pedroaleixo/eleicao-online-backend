@@ -15,6 +15,7 @@ public interface CandidatoRepository extends PagingAndSortingRepository<Candidat
 	
 	@Query("select c from Candidato c "
 			+ "where c.eleicao.id = :#{#filtro.idEleicao} "
+			+ "and c.branco = false "
 			+ "and (cast(:#{#filtro.nome} as text) is null or lower(c.pessoa.nome) like lower(concat('%', cast(:#{#filtro.nome} as text),'%'))) "
 			+ "and (:#{#filtro.cpf} is null or c.pessoa.cpf = :#{#filtro.cpf}) "
 			+ "and (:#{#filtro.idCargo} is null or c.cargo.id = :#{#filtro.idCargo}) order by c.pessoa.nome asc")
@@ -23,6 +24,6 @@ public interface CandidatoRepository extends PagingAndSortingRepository<Candidat
 	@Query("select count(*) > 0 from Candidato can where can.id = :idCandidato and can.eleicao.situacao <> 0")
 	Boolean candidatoAssociadoEleicaoNaoCadastrada(@Param("id") Long idCandidato);
 	
-	public Candidato findByPessoaCpf(Long cpf);
+	public Candidato findByPessoaCpfAndEleicaoId(Long cpf, Long eleicaoId);
 
 }
