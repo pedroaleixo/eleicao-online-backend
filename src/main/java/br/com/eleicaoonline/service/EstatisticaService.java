@@ -202,11 +202,13 @@ public class EstatisticaService extends BaseService {
 		}
 
 		for (Eleitor eleitor : optEleicao.get().getEleitores()) {
-			String key = DateUtil.getDateStringWithoutTime(eleitor.getDataHoraVotou());
-			if (!mapDias.containsKey(key)) {
-				mapDias.put(key, 0L);
+			if(eleitor.getDataHoraVotou() != null) {
+				String key = DateUtil.getDateStringWithoutTime(eleitor.getDataHoraVotou());
+				if (!mapDias.containsKey(key)) {
+					mapDias.put(key, 0L);
+				}
+				mapDias.put(key, mapDias.get(key) + 1);
 			}
-			mapDias.put(key, mapDias.get(key) + 1);
 		}
 		
 		mapDias.keySet().forEach(key -> {
