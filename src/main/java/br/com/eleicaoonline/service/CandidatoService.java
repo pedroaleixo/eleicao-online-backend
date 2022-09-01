@@ -28,7 +28,7 @@ public class CandidatoService extends BaseService {
 	@Autowired
 	private PessoaRepository pessoaRepository;
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)	
+	@Transactional(propagation = Propagation.SUPPORTS)	
 	public Page<Candidato> listarCandidatos(FiltroPessoa filtro, Pageable pageable) {
 		log.info("Executando listarCandidatos");
 
@@ -52,7 +52,7 @@ public class CandidatoService extends BaseService {
 		return repository.save(candidato);
 	}
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Candidato buscarCandidatoPeloId(Long id) {
 		log.info("Executando buscarCandidatoPeloId");
 
