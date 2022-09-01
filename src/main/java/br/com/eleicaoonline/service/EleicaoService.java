@@ -108,7 +108,7 @@ public class EleicaoService extends BaseService {
 		return null;
 	}
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public List<Cargo> listarCargosEleicao(Long idEleicao) {
 		log.info("Executando listarCargosEleicao");
 
