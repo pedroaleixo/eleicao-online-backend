@@ -28,7 +28,7 @@ public class AdministradorService extends BaseService {
 	private PessoaRepository pessoaRepository;	
 
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Page<Administrador> listarAdministradores(FiltroPessoa filtro, Pageable pageable) {		
 		log.info("Executando listarAdministradores");
 		
@@ -50,7 +50,7 @@ public class AdministradorService extends BaseService {
 		return repository.save(administrador);
 	}
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Administrador buscarAdministradorPeloId(Long id) {
 		log.info("Executando buscarAdministradorPeloId");
 		
@@ -61,7 +61,7 @@ public class AdministradorService extends BaseService {
 		return null;
 	}
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Administrador buscarAdministradorPeloEmail(String email) {		
 		log.info("Executando buscarAdministradorPeloEmail");
 		
