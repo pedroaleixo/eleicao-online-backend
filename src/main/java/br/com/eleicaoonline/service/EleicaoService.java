@@ -39,7 +39,7 @@ public class EleicaoService extends BaseService {
 	@Autowired
 	private DataInicioInvalidaValidation dataInicioInvalidaValidation;
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public List<Eleicao> listarEleicoes() {
 		log.info("Executando listarEleicoes");
 
@@ -48,7 +48,7 @@ public class EleicaoService extends BaseService {
 		return result;
 	}
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Page<Eleicao> listarEleicoes(FiltroEleicao filtro, Pageable pageable) {
 		log.info("Executando listarEleicoes por filtro");
 
@@ -56,7 +56,7 @@ public class EleicaoService extends BaseService {
 	}
 
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Eleicao buscarEleicaoPeloId(Long id) {
 		log.info("Executando buscarEleicaoPeloId");
 
@@ -67,14 +67,14 @@ public class EleicaoService extends BaseService {
 		return null;
 	}
 	
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public List<Eleicao> buscarPorSituacao(SituacaoEleicao situacao){
 		log.info("Executando buscarPorSituacao");
 		
 		return repository.findBySituacao(situacao);
 	}
 	
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Pessoa buscarMembroComissaoEleitoralPeloEmail(String email) {		
 		log.info("Executando buscarMembroComissaoPeloEmail");
 		Pessoa pessoa = null;
@@ -86,7 +86,7 @@ public class EleicaoService extends BaseService {
 		return pessoa;
 	}
 	
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public List<Candidato> listarCandidatosEleicao(Long idEleicao) {
 		log.info("Executando listarCandidatosEleicao");
 
@@ -97,7 +97,7 @@ public class EleicaoService extends BaseService {
 		return null;
 	}
 	
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public List<Eleitor> listarEleitoresEleicao(Long idEleicao) {
 		log.info("Executando listarEleitoresEleicao");
 
@@ -119,14 +119,14 @@ public class EleicaoService extends BaseService {
 		return null;
 	}
 	
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Page<Eleicao> listarEleicoesPorPessoaEleitor(Long idPessoa, Pageable pageable) {
 		log.info("Executando listarEleicoesPorPessoaEleitor");
 		
 		return repository.findByPessoaEleitor(idPessoa, pageable);
 	}
 	
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public List<Eleicao> listarEleicoesPorPessoaMembroComissao(Long idPessoa) {
 		log.info("Executando listarEleicoesPorPessoaMembroComissao");
 
