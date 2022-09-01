@@ -28,7 +28,7 @@ public class PessoaService extends BaseService {
 	@Autowired
 	private CPFCadastradoValidation cpfCadastradoValidation;
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)	
+	@Transactional(propagation = Propagation.SUPPORTS)	
 	public Page<Pessoa> listarPessoas(FiltroPessoa filtro, Pageable pageable) {
 		log.info("Executando listarPessoas");
 		
@@ -46,7 +46,7 @@ public class PessoaService extends BaseService {
 		return repository.save(pessoa);
 	}
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Pessoa buscarPessoaPeloId(Long id) {
 		log.info("Executando buscarPessoaPeloId");
 		
@@ -57,7 +57,7 @@ public class PessoaService extends BaseService {
 		return null;
 	}
 	
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Pessoa buscarPessoaPeloCpf(Long cpf) {
 		log.info("Executando buscarPessoaPeloCpf");			
 		
@@ -65,7 +65,7 @@ public class PessoaService extends BaseService {
 	}
 	
 	
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Pessoa buscarPessoaPeloEmail(String email) {
 		log.info("Executando buscarPessoaPeloEmail");			
 		
