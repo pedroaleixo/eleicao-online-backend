@@ -31,14 +31,14 @@ public class EleitorService extends BaseService {
 	@Autowired
 	private PessoaRepository pessoaRepository;
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Page<Eleitor> listarEleitores(FiltroPessoa filtro, Pageable pageable) {
 		log.info("Executando listarEleitores");
 
 		return repository.filtrar(filtro, pageable);
 	}
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Page<Eleitor> listarEleitoresVotantes(FiltroVotantes filtro, Pageable pageable) {
 		log.info("Executando listarEleitoresVotantes");
 
@@ -60,7 +60,7 @@ public class EleitorService extends BaseService {
 		return repository.save(eleitor);
 	}
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Eleitor buscarEleitorPeloId(Long id) {
 		log.info("Executando buscarEleitorPeloId");
 
@@ -71,14 +71,14 @@ public class EleitorService extends BaseService {
 		return null;
 	}
 	
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Eleitor buscarEleitorPeloIdPessoa(Long idPessoa, Long idEleicao) {
 		log.info("Executando buscarEleitorPeloIdPessoa");
 		
 		return repository.findEleitorByPessoaId(idPessoa, idEleicao);
 	}
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public List<Eleitor> buscarEleitorPeloEmail(String email) {
 		log.info("Executando buscarEleitorPeloEmail");
 
@@ -106,7 +106,7 @@ public class EleitorService extends BaseService {
 		repository.deleteById(id);
 	}
 
-	@Transactional(propagation = Propagation.NOT_SUPPORTED)
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public Page<Eleicao> listarEleicoesDisponiveis(Long id, Pageable pageable) {
 		log.info("Executando listarEleicoesDisponiveis");
 
