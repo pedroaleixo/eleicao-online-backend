@@ -30,7 +30,7 @@ import br.com.eleicaoonline.service.AdministradorService;
 public class AdministradorServiceTest {
 	
 	@InjectMocks
-	AdministradorService service;
+	private AdministradorService service;
 
 	@Mock
 	private AdministradorRepository repository;
