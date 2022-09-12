@@ -81,4 +81,14 @@ public class BaseService {
 		}
 	}
 
+	public Validator getValidator() {
+		return validator;
+	}
+
+	public void setValidator(Validator validator) {
+		this.validator = validator;
+	}
+	
+	
+
 }
